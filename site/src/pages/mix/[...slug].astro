@@ -1,0 +1,736 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getMixGradient, isAnalyzed as checkAnalyzed } from '../../utils/mix-gradient';
+
+export async function getStaticPaths() {
+  const mixes = await getCollection('mixes');
+  return mixes.map((mix) => ({
+    params: { slug: mix.id.replace(/\.md$/, '') },
+    props: { mix },
+  }));
+}
+
+const { mix } = Astro.props;
+const { Content } = await mix.render();
+const data = mix.data;
+const slug = mix.id.replace(/\.md$/, '');
+const siteUrl = 'https://mixes.lukeanderson.au';
+const mixUrl = `${siteUrl}/mix/${slug}`;
+const audioUrl = `${siteUrl}${data.audioFile}`;
+const genres = data.genres.slice(0, 3).map((g: { name: string }) => g.name).join(', ');
+const desc = `${data.title} — ${data.duration}, ${data.trackCount} tracks. ${genres}. Free streaming with AI-generated liner notes.`;
+const gradient = getMixGradient(data);
+const analyzed = checkAnalyzed(data);
+
+// Parse track listing from markdown for interactive tracklist
+const rawContent = mix.body || '';
+const trackRegex = /\|\s*(\d+)\s*\|\s*([\d:]+)\s*\|\s*([^|]+)\s*\|\s*([^|]+)\s*\|\s*([^|]*)\s*\|/g;
+const tracks: Array<{num: number, time: string, seconds: number, artist: string, title: string, genre: string}> = [];
+let trackMatch;
+while ((trackMatch = trackRegex.exec(rawContent)) !== null) {
+  const [, num, time, artist, title, genre] = trackMatch;
+  const parts = time.trim().split(':').map(Number);
+  const seconds = parts.length === 3 ? parts[0]*3600 + parts[1]*60 + parts[2] : parts[0]*60 + parts[1];
+  tracks.push({
+    num: Number(num),
+    time: time.trim(),
+    artist: artist.trim(),
+    title: title.trim(),
+    genre: genre.trim(),
+    seconds,
+  });
+}
+
+// Build tracks for player (artist — title format)
+const playerTracks = tracks.map(t => ({
+  time: t.time,
+  name: t.artist + ' \u2014 ' + t.title,
+  seconds: t.seconds,
+}));
+const tracksJson = JSON.stringify(playerTracks);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': ['MusicRecording', 'PodcastEpisode'],
+  name: data.title,
+  description: desc,
+  url: mixUrl,
+  duration: 'PT' + data.duration.replace(/\s/g, '').replace('h', 'H').replace('m', 'M').replace('s', 'S'),
+  genre: data.genres.map((g: { name: string }) => g.name),
+  byArtist: { '@type': 'Person', name: 'Luke Anderson' },
+  associatedMedia: {
+    '@type': 'MediaObject',
+    contentUrl: audioUrl,
+    encodingFormat: 'audio/mpeg',
+    contentSize: data.fileSizeMb + 'MB',
+  },
+  partOfSeries: {
+    '@type': 'PodcastSeries',
+    name: "Luke's Mixes",
+    url: siteUrl,
+  },
+  episodeNumber: data.mixNumber,
+};
+---
+
+<BaseLayout title={data.title} description={desc} ogType="music.song" ogAudio={audioUrl} jsonLd={jsonLd}>
+  <article class="mix-page">
+    <div class="mix-header">
+      <div class="mix-header-gradient" style={`background: ${gradient};`}></div>
+      <div class="mix-header-content">
+        <h1>{data.title}</h1>
+        <p class="mix-date">{data.date}</p>
+        <button
+          class="play-button"
+          data-audio-url={data.audioFile}
+          data-title={data.title}
+          data-gradient={gradient}
+          data-tracks={tracksJson}
+        >
+          &#9654; Play Mix
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="waveform"
+      data-peaks-url={data.peaksFile}
+      data-audio-url={data.audioFile}
+      data-mix-title={data.title}
+      data-mix-gradient={gradient}
+      data-tracks={tracksJson}
+    ></div>
+
+    <div class="mix-stats">
+      <div class="stat">
+        <span class="stat-value">{data.duration}</span>
+        <span class="stat-label">Duration</span>
+      </div>
+      {analyzed && (
+        <div class="stat">
+          <span class="stat-value">{data.bpm}</span>
+          <span class="stat-label">BPM</span>
+        </div>
+      )}
+      {analyzed && (
+        <div class="stat">
+          <span class="stat-value">{data.musicalKey}</span>
+          <span class="stat-label">Key</span>
+        </div>
+      )}
+      {analyzed && (
+        <div class="stat">
+          <span class="stat-value">{data.trackCount}</span>
+          <span class="stat-label">Tracks</span>
+        </div>
+      )}
+      <div class="stat">
+        <span class="stat-value">{data.fileSizeMb.toFixed(0)} MB</span>
+        <span class="stat-label">Size</span>
+      </div>
+    </div>
+
+    {analyzed && (
+      <div class="genre-tags">
+        {data.genres.map((g) => (
+          <span class="genre-tag">{g.name} <small>({g.percent}%)</small></span>
+        ))}
+      </div>
+    )}
+
+    {tracks.length > 0 ? (
+      <section class="tracklist-section">
+        <h2>Tracklist</h2>
+        <div class="tracklist" id="tracklist">
+          {tracks.map((t) => (
+            <button
+              class="track-row"
+              data-seconds={t.seconds}
+              aria-label={`Play from ${t.time} — ${t.artist}, ${t.title}`}
+            >
+              <span class="track-num">{t.num}</span>
+              <span class="track-time">{t.time}</span>
+              <div class="track-info">
+                <span class="track-artist">{t.artist}</span>
+                <span class="track-title">{t.title}</span>
+              </div>
+              <span class="track-genre">{t.genre || ''}</span>
+            </button>
+          ))}
+        </div>
+      </section>
+    ) : (
+      <div class="empty-tracklist">
+        <p>Full analysis coming soon — track identification in progress.</p>
+      </div>
+    )}
+
+    <div class="mix-content">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .mix-page {
+    max-width: 900px;
+  }
+
+  .mix-header {
+    position: relative;
+    margin: -2rem -2rem 2rem -2rem;
+    padding: 3rem 2rem 2rem;
+    overflow: hidden;
+  }
+
+  .mix-header-gradient {
+    position: absolute;
+    inset: 0;
+    opacity: 0.6;
+    mask-image: linear-gradient(to bottom, black 40%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent);
+  }
+
+  .mix-header-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .mix-header h1 {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.25rem;
+    color: var(--text);
+  }
+
+  .mix-date {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .play-button {
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .play-button:hover {
+    background: var(--accent-hover);
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+
+  .mix-stats {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 70px;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: var(--accent);
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.25rem;
+  }
+
+  .genre-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .genre-tag {
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    color: var(--accent);
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+
+  .genre-tag:hover {
+    background: rgba(249, 115, 22, 0.2);
+    box-shadow: 0 0 8px var(--accent-glow);
+  }
+
+  .genre-tag small {
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  #waveform {
+    margin: 1.5rem 0;
+    padding: 0.75rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    min-height: 96px;
+    transition: box-shadow 0.2s;
+  }
+
+  #waveform:hover {
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+
+  .tracklist-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .tracklist-section h2 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tracklist {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .track-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    background: var(--card-bg);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--text);
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    transition: all 0.15s;
+    width: 100%;
+    border-left: 3px solid transparent;
+  }
+
+  .track-row:hover {
+    background: var(--surface-hover);
+    border-left-color: var(--accent);
+  }
+
+  .track-row.active {
+    background: rgba(249, 115, 22, 0.08);
+    border-left-color: var(--accent);
+  }
+
+  .track-row.active .track-artist {
+    color: var(--accent);
+  }
+
+  .track-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    min-width: 24px;
+    text-align: right;
+    opacity: 0.5;
+  }
+
+  .track-time {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    min-width: 48px;
+  }
+
+  .track-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .track-artist {
+    font-weight: 600;
+    font-size: 0.83rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .track-title {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .track-genre {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    opacity: 0.5;
+    min-width: 60px;
+    text-align: right;
+  }
+
+  .empty-tracklist {
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-muted);
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+  }
+
+  .mix-content {
+    line-height: 1.7;
+  }
+
+  .mix-content :global(h2) {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    color: var(--accent-hover);
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mix-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 1rem 0;
+  }
+
+  .mix-content :global(th),
+  .mix-content :global(td) {
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mix-content :global(th) {
+    color: var(--text-muted);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .mix-content :global(tr:hover) {
+    background: var(--surface-hover);
+  }
+
+  .mix-content :global(td:first-child) {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .mix-content :global(ul) {
+    list-style: none;
+    padding: 0;
+  }
+
+  .mix-content :global(li) {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(68, 64, 60, 0.3);
+  }
+
+  .mix-content :global(li:last-child) {
+    border-bottom: none;
+  }
+
+  .mix-content :global(strong) {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .mix-content :global(em) {
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .mix-content :global(p) {
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 640px) {
+    .mix-header {
+      margin: -1rem -1rem 1.5rem -1rem;
+      padding: 2rem 1rem 1.5rem;
+    }
+
+    .mix-header h1 {
+      font-size: 1.6rem;
+    }
+
+    .mix-stats {
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .stat-value {
+      font-size: 1.2rem;
+    }
+
+    .track-genre {
+      display: none;
+    }
+
+    .track-row {
+      padding: 0.5rem 0.5rem;
+      gap: 0.5rem;
+    }
+
+    .mix-content :global(table) {
+      font-size: 0.75rem;
+    }
+
+    .mix-content :global(th),
+    .mix-content :global(td) {
+      padding: 0.4rem 0.5rem;
+    }
+
+    #waveform {
+      padding: 0.5rem;
+      min-height: 72px;
+    }
+  }
+</style>
+
+<script>
+  import WaveSurfer from 'wavesurfer.js';
+
+  let ws: WaveSurfer | null = null;
+  let syncHandler: (() => void) | null = null;
+
+  function initWaveform() {
+    const container = document.getElementById('waveform');
+    if (!container) return;
+
+    if (ws) {
+      ws.destroy();
+      ws = null;
+    }
+    if (syncHandler) {
+      const audio = document.getElementById('audio-element') as HTMLAudioElement;
+      if (audio) audio.removeEventListener('timeupdate', syncHandler);
+      syncHandler = null;
+    }
+
+    const peaksUrl = container.dataset.peaksUrl;
+    const audioUrl = container.dataset.audioUrl;
+    const mixTitle = container.dataset.mixTitle;
+    const mixGradient = container.dataset.mixGradient;
+    const tracksData = container.dataset.tracks;
+    const audio = document.getElementById('audio-element') as HTMLAudioElement;
+
+    if (!peaksUrl || !audio) return;
+
+    fetch(peaksUrl)
+      .then(r => r.json())
+      .then(peaksData => {
+        const raw: number[] = peaksData.data;
+        const peaks: number[] = [];
+        for (let i = 0; i < raw.length; i += 2) {
+          peaks.push(Math.max(Math.abs(raw[i]), Math.abs(raw[i + 1])) / 128);
+        }
+
+        const duration = peaksData.length * peaksData.samples_per_pixel / peaksData.sample_rate;
+
+        // Energy-mapped gradient for waveform color
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        let waveGradient: string | CanvasGradient = '#44403c';
+
+        if (ctx) {
+          canvas.width = container.clientWidth || 800;
+          canvas.height = 1;
+          const grad = ctx.createLinearGradient(0, 0, canvas.width, 0);
+          const steps = 30;
+          for (let i = 0; i <= steps; i++) {
+            const pos = i / steps;
+            const idx = Math.floor(pos * peaks.length);
+            const windowSize = Math.max(1, Math.floor(peaks.length / steps));
+            let sum = 0;
+            for (let j = Math.max(0, idx - windowSize); j < Math.min(peaks.length, idx + windowSize); j++) {
+              sum += peaks[j];
+            }
+            const energy = sum / (windowSize * 2);
+            const hue = 240 - (energy * 220);
+            const sat = 50 + (energy * 40);
+            const lit = 30 + (energy * 25);
+            grad.addColorStop(pos, `hsl(${hue} ${sat}% ${lit}%)`);
+          }
+          waveGradient = grad;
+        }
+
+        ws = WaveSurfer.create({
+          container: '#waveform',
+          peaks: [peaks],
+          duration: duration,
+          height: 80,
+          waveColor: waveGradient,
+          progressColor: '#f97316',
+          cursorColor: '#fbbf24',
+          cursorWidth: 2,
+          barWidth: 2,
+          barGap: 1,
+          barRadius: 2,
+          normalize: true,
+          interact: true,
+        });
+
+        let isSeeking = false;
+
+        syncHandler = () => {
+          if (isSeeking || !ws) return;
+          if (audio.src && audio.duration && audio.src.includes(audioUrl!)) {
+            ws.seekTo(audio.currentTime / audio.duration);
+          }
+        };
+        audio.addEventListener('timeupdate', syncHandler);
+
+        let parsedTracks: Array<{time: string, name: string, seconds: number}> = [];
+        if (tracksData) {
+          try { parsedTracks = JSON.parse(tracksData); } catch {}
+        }
+
+        ws.on('interaction', (time: number) => {
+          isSeeking = true;
+          if (!audio.src || !audio.src.includes(audioUrl!)) {
+            (window as any).loadMix(audioUrl, mixTitle, mixGradient, parsedTracks);
+            audio.addEventListener('loadedmetadata', () => {
+              audio.currentTime = time;
+              isSeeking = false;
+            }, { once: true });
+          } else {
+            audio.currentTime = time;
+            if (audio.paused) audio.play();
+            setTimeout(() => { isSeeking = false; }, 100);
+          }
+        });
+      })
+      .catch(err => console.warn('Failed to load peaks:', err));
+  }
+
+  function initTracklist() {
+    const tracklist = document.getElementById('tracklist');
+    const container = document.getElementById('waveform');
+    if (!tracklist || !container) return;
+
+    const audioUrl = container.dataset.audioUrl;
+    const mixTitle = container.dataset.mixTitle;
+    const mixGradient = container.dataset.mixGradient;
+    const tracksData = container.dataset.tracks;
+    let parsedTracks: Array<{time: string, name: string, seconds: number}> = [];
+    if (tracksData) {
+      try { parsedTracks = JSON.parse(tracksData); } catch {}
+    }
+
+    tracklist.addEventListener('click', (e) => {
+      const row = (e.target as Element).closest('.track-row') as HTMLElement;
+      if (!row) return;
+
+      const seconds = Number(row.dataset.seconds);
+      const audio = document.getElementById('audio-element') as HTMLAudioElement;
+      if (!audio) return;
+
+      if (!audio.src || !audio.src.includes(audioUrl!)) {
+        (window as any).loadMix(audioUrl, mixTitle, mixGradient, parsedTracks);
+        audio.addEventListener('loadedmetadata', () => {
+          audio.currentTime = seconds;
+        }, { once: true });
+      } else {
+        audio.currentTime = seconds;
+        if (audio.paused) audio.play();
+      }
+    });
+
+    const audio = document.getElementById('audio-element') as HTMLAudioElement;
+    if (audio && audioUrl) {
+      audio.addEventListener('timeupdate', () => {
+        if (!audio.src || !audio.src.includes(audioUrl)) return;
+
+        const rows = tracklist.querySelectorAll('.track-row');
+        let activeRow: Element | null = null;
+
+        rows.forEach(row => {
+          const seconds = Number((row as HTMLElement).dataset.seconds);
+          row.classList.remove('active');
+          if (seconds <= audio.currentTime) activeRow = row;
+        });
+
+        if (activeRow) {
+          (activeRow as Element).classList.add('active');
+        }
+      });
+    }
+  }
+
+  function initPlayButton() {
+    const btn = document.querySelector('.play-button') as HTMLButtonElement;
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      const audioUrl = btn.dataset.audioUrl;
+      const title = btn.dataset.title;
+      const gradient = btn.dataset.gradient;
+      let tracks: any[] = [];
+      try { tracks = JSON.parse(btn.dataset.tracks || '[]'); } catch {}
+      if (audioUrl && title) {
+        (window as any).loadMix(audioUrl, title, gradient, tracks);
+      }
+    });
+  }
+
+  initWaveform();
+  initTracklist();
+  initPlayButton();
+  document.addEventListener('astro:after-swap', () => {
+    initWaveform();
+    initTracklist();
+    initPlayButton();
+  });
+</script>

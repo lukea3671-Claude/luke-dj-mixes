@@ -1,0 +1,399 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getMixGradient, getMixGradientMini, isAnalyzed } from '../utils/mix-gradient';
+
+const mixes = await getCollection('mixes');
+const sorted = mixes.sort((a, b) => b.data.mixNumber - a.data.mixNumber);
+const featured = sorted.slice(0, 6);
+const archive = sorted.slice(6);
+
+// Group archive by year
+const byYear = new Map<string, typeof archive>();
+for (const mix of archive) {
+  const year = mix.data.date.split(' ').pop() || 'Unknown';
+  if (!byYear.has(year)) byYear.set(year, []);
+  byYear.get(year)!.push(mix);
+}
+const years = [...byYear.keys()].sort((a, b) => Number(b) - Number(a));
+---
+
+<BaseLayout title="Luke's Mixes — DJ Mix Archive">
+  <div class="hero">
+    <h1>Luke's Mixes</h1>
+    <p class="hero-sub">46 DJ mixes spanning 2018–2025. Free streaming, AI-generated liner notes.</p>
+  </div>
+
+  <section class="crate-section">
+    <h2 class="section-heading">The Crate</h2>
+    <div class="crate-scroll">
+      <div class="crate-grid">
+        {featured.map((mix) => {
+          const gradient = getMixGradient(mix.data);
+          const analyzed = isAnalyzed(mix.data);
+          return (
+            <a href={`/mix/${mix.id.replace(/\.md$/, '')}/`} class="crate-card">
+              <div class="crate-card-art" style={`background: ${gradient};`}>
+                <span class="crate-card-number">#{String(mix.data.mixNumber).padStart(2, '0')}</span>
+                {!analyzed && <span class="processing-badge">Processing</span>}
+                <button
+                  class="card-play-btn"
+                  aria-label={`Play ${mix.data.title}`}
+                  onclick={`event.preventDefault(); event.stopPropagation(); window.loadMix('${mix.data.audioFile}', '${mix.data.title}', '${gradient}')`}
+                >
+                  &#9654;
+                </button>
+              </div>
+              <div class="crate-card-body">
+                <h3>{mix.data.title}</h3>
+                <div class="crate-card-meta">
+                  <span>{mix.data.duration}</span>
+                  {analyzed && <span>{mix.data.bpm} BPM</span>}
+                </div>
+                {analyzed && (
+                  <div class="crate-card-genres">
+                    {mix.data.genres.slice(0, 2).map((g) => (
+                      <span class="genre-pill">{g.name}</span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="wall-section">
+    <h2 class="section-heading">The Wall</h2>
+    {years.map((year) => (
+      <div class="year-group">
+        <h3 class="year-header">{year}</h3>
+        <div class="wall-grid">
+          {byYear.get(year)!.map((mix) => {
+            const gradient = getMixGradientMini(mix.data);
+            const analyzed = isAnalyzed(mix.data);
+            return (
+              <a href={`/mix/${mix.id.replace(/\.md$/, '')}/`} class="wall-card">
+                <div class="wall-card-art" style={`background: ${gradient};`}>
+                  <span class="wall-card-number">#{String(mix.data.mixNumber).padStart(2, '0')}</span>
+                  {!analyzed && <span class="processing-badge small">...</span>}
+                </div>
+                <div class="wall-card-body">
+                  <h4>{mix.data.title}</h4>
+                  <span class="wall-card-meta">{mix.data.duration}{analyzed ? ` · ${mix.data.bpm} BPM` : ''}</span>
+                  {analyzed && mix.data.genres[0] && (
+                    <span class="genre-pill small">{mix.data.genres[0].name}</span>
+                  )}
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 4rem 0 2.5rem;
+  }
+
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: 3.2rem;
+    color: var(--accent);
+    letter-spacing: -0.04em;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(249, 115, 22, 0.12);
+  }
+
+  .hero-sub {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .section-heading {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* The Crate */
+  .crate-section {
+    margin-bottom: 3rem;
+  }
+
+  .crate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .crate-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+  }
+
+  .crate-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
+    color: var(--text);
+  }
+
+  .crate-card-art {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .crate-card-number {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.25);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+
+  .crate-card-art .processing-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+  }
+
+  .card-play-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.2s var(--ease-out);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+  }
+
+  .crate-card:hover .card-play-btn {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card-play-btn:hover {
+    background: var(--accent-hover);
+    box-shadow: 0 0 16px var(--accent-glow);
+  }
+
+  .crate-card-body {
+    padding: 1rem;
+  }
+
+  .crate-card-body h3 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .crate-card-meta {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-mono);
+  }
+
+  .crate-card-genres {
+    display: flex;
+    gap: 0.35rem;
+  }
+
+  /* The Wall */
+  .wall-section {
+    margin-bottom: 2rem;
+  }
+
+  .year-group {
+    margin-bottom: 2rem;
+  }
+
+  .year-header {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.75rem;
+    opacity: 0.6;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    padding: 0.5rem 0;
+    z-index: 10;
+  }
+
+  .wall-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .wall-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+  }
+
+  .wall-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    color: var(--text);
+  }
+
+  .wall-card-art {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .wall-card-number {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .wall-card-art .processing-badge {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+  }
+
+  .wall-card-body {
+    padding: 0.65rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .wall-card-body h4 {
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .wall-card-meta {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero-sub {
+      font-size: 0.92rem;
+      padding: 0 0.5rem;
+    }
+
+    .hero {
+      padding: 2.5rem 0 1.5rem;
+    }
+
+    /* Horizontal scroll for crate on mobile */
+    .crate-scroll {
+      margin: 0 -1rem;
+      padding: 0 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .crate-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .crate-grid {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .crate-card {
+      flex: 0 0 260px;
+      scroll-snap-align: start;
+    }
+
+    .card-play-btn {
+      opacity: 1;
+      transform: translateY(0);
+      width: 40px;
+      height: 40px;
+    }
+
+    .crate-card-genres {
+      display: none;
+    }
+
+    .wall-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+
+    .wall-card-body h4 {
+      font-size: 0.75rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .wall-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

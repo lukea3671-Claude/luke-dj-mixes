@@ -1,0 +1,818 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogType?: string;
+  ogAudio?: string;
+  jsonLd?: object;
+}
+
+const {
+  title,
+  description = "Luke's DJ mix archive — free streaming with AI-generated liner notes",
+  ogType = 'website',
+  ogAudio,
+  jsonLd,
+} = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au').href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" type="application/rss+xml" title="Luke's Mixes Podcast" href="/feed.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Luke's Mixes" />
+    {ogAudio && <meta property="og:audio" content={ogAudio} />}
+    {ogAudio && <meta property="og:audio:type" content="audio/mpeg" />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    <ViewTransitions />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/" class="site-title">Luke's Mixes</a>
+        <div class="nav-links">
+          <a href="/">Archive</a>
+          <a href="https://www.patreon.com/c/lukesmixes" target="_blank" rel="noopener">Support</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <div id="player-bar" transition:persist>
+      <div class="player-inner">
+        <div class="player-info">
+          <div class="player-gradient-thumb" id="player-thumb"></div>
+          <div class="player-text">
+            <span id="player-title">No mix loaded</span>
+            <span id="player-track" class="player-track-name"></span>
+          </div>
+        </div>
+        <div class="player-controls">
+          <button id="player-prev" aria-label="Seek back 30 seconds" disabled>&laquo;</button>
+          <button id="player-play" aria-label="Play" disabled>
+            <span class="play-icon">&#9654;</span>
+            <span class="pause-icon" style="display:none">&#10074;&#10074;</span>
+          </button>
+          <button id="player-next" aria-label="Seek forward 30 seconds" disabled>&raquo;</button>
+        </div>
+        <div class="player-time">
+          <span id="player-current">0:00</span>
+          <input type="range" id="player-seek" min="0" max="100" value="0" step="0.1" disabled aria-label="Seek position" />
+          <span id="player-duration">0:00</span>
+        </div>
+        <div class="player-extras">
+          <div class="volume-control">
+            <button id="player-mute" aria-label="Mute">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+            </button>
+            <input type="range" id="player-volume" min="0" max="100" value="100" aria-label="Volume" />
+          </div>
+          <button id="player-cast" aria-label="Cast to device" title="Cast to device" style="display:none">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M1 18v3h3c0-1.66-1.34-3-3-3zm0-4v2c2.76 0 5 2.24 5 5h2c0-3.87-3.13-7-7-7zm18-7H5v1.63c3.96 1.28 7.09 4.41 8.37 8.37H19V7zM1 10v2c4.97 0 9 4.03 9 9h2c0-6.08-4.93-11-11-11zm20-7H3c-1.1 0-2 .9-2 2v3h2V5h18v14h-7v2h7c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <audio id="audio-element" preload="none"></audio>
+    </div>
+
+    <div id="now-playing-announce" aria-live="polite" class="sr-only"></div>
+
+    <footer>
+      <p>Free streaming. No account needed. <a href="https://www.patreon.com/c/lukesmixes" target="_blank" rel="noopener">Support on Patreon</a></p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  @property --gradient-hue {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+  }
+
+  :root {
+    --bg: #1c1917;
+    --surface: #292524;
+    --surface-hover: #3d3530;
+    --text: #fafaf9;
+    --text-muted: #a8a29e;
+    --accent: #f97316;
+    --accent-hover: #fbbf24;
+    --accent-glow: rgba(249, 115, 22, 0.35);
+    --accent-red: #ef4444;
+    --player-bg: #110e0d;
+    --border: #44403c;
+    --card-bg: #292524;
+
+    --glass-bg: rgba(17, 14, 13, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.06);
+    --glass-blur: 16px;
+
+    --player-height: 72px;
+    --player-height-mobile: 60px;
+
+    --ease-out: cubic-bezier(0.2, 0, 0.2, 1);
+
+    --font-heading: 'Bitter', Georgia, serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    padding-bottom: calc(var(--player-height) + 8px);
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  a:hover {
+    color: var(--accent-hover);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+  }
+
+  .genre-pill {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 10px;
+    background: rgba(249, 115, 22, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+
+  .genre-pill:hover {
+    background: rgba(249, 115, 22, 0.2);
+    box-shadow: 0 0 6px var(--accent-glow);
+  }
+
+  .genre-pill.small {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.4rem;
+  }
+
+  .processing-badge {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    background: rgba(249, 115, 22, 0.08);
+    color: var(--text-muted);
+    border: 1px solid rgba(249, 115, 22, 0.15);
+    font-weight: 500;
+  }
+
+  .processing-badge.small {
+    font-size: 0.6rem;
+    padding: 0.1rem 0.35rem;
+  }
+
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    background: var(--player-bg);
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .site-title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    transition: text-shadow 0.2s;
+  }
+
+  .site-title:hover {
+    color: var(--accent-hover);
+    text-shadow: 0 0 12px var(--accent-glow);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--text);
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Player bar */
+  #player-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-top: 1px solid var(--glass-border);
+    padding: 0 1.5rem;
+    z-index: 100;
+    height: var(--player-height);
+    display: flex;
+    align-items: center;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  #player-bar.active {
+    border-top-color: rgba(249, 115, 22, 0.3);
+    box-shadow: 0 -2px 20px rgba(249, 115, 22, 0.08);
+  }
+
+  .player-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .player-info {
+    flex: 0 0 220px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    overflow: hidden;
+  }
+
+  .player-gradient-thumb {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    background: var(--surface);
+    flex-shrink: 0;
+    transition: background 0.3s;
+  }
+
+  .player-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 0.1rem;
+  }
+
+  #player-title {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    color: var(--text-muted);
+    transition: color 0.2s;
+  }
+
+  #player-title.active {
+    color: var(--text);
+  }
+
+  .player-track-name {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    opacity: 0.7;
+    min-height: 1em;
+  }
+
+  .player-controls {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .player-controls button {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+  }
+
+  .player-controls button:hover:not(:disabled) {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 8px var(--accent-glow);
+  }
+
+  .player-controls button:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+  }
+
+  #player-play {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+    color: var(--text);
+    border-color: var(--text-muted);
+  }
+
+  #player-play:hover:not(:disabled) {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+
+  .player-time {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+  }
+
+  #player-seek {
+    flex: 1;
+    accent-color: var(--accent);
+    height: 4px;
+    cursor: pointer;
+  }
+
+  .player-extras {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .volume-control {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .volume-control button {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    transition: color 0.15s;
+  }
+
+  .volume-control button:hover {
+    color: var(--accent);
+  }
+
+  #player-volume {
+    width: 80px;
+    accent-color: var(--accent);
+    height: 3px;
+    cursor: pointer;
+  }
+
+  #player-cast {
+    flex-shrink: 0;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+  }
+
+  #player-cast:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 8px var(--accent-glow);
+  }
+
+  #player-cast.connecting {
+    animation: cast-pulse 1.5s ease-in-out infinite;
+  }
+
+  #player-cast.connected {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(249, 115, 22, 0.1);
+  }
+
+  @keyframes cast-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  @media (max-width: 768px) {
+    main {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    main {
+      padding: 1rem;
+    }
+
+    header {
+      padding: 0.75rem 1rem;
+    }
+
+    #player-bar {
+      height: var(--player-height-mobile);
+      padding: 0 0.75rem;
+    }
+
+    body {
+      padding-bottom: calc(var(--player-height-mobile) + 8px);
+    }
+
+    .player-info {
+      flex: 0 0 auto;
+      max-width: 140px;
+    }
+
+    .player-gradient-thumb {
+      display: none;
+    }
+
+    .player-track-name {
+      display: none;
+    }
+
+    .player-inner {
+      gap: 0.5rem;
+    }
+
+    #player-play {
+      width: 38px;
+      height: 38px;
+    }
+
+    .player-controls button {
+      width: 30px;
+      height: 30px;
+    }
+
+    .volume-control {
+      display: none;
+    }
+
+    .player-time {
+      gap: 0.4rem;
+      font-size: 0.7rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+
+<script>
+  function initPlayer() {
+    const audio = document.getElementById('audio-element') as HTMLAudioElement;
+    const playBtn = document.getElementById('player-play') as HTMLButtonElement;
+    const prevBtn = document.getElementById('player-prev') as HTMLButtonElement;
+    const nextBtn = document.getElementById('player-next') as HTMLButtonElement;
+    const seekBar = document.getElementById('player-seek') as HTMLInputElement;
+    const titleEl = document.getElementById('player-title') as HTMLSpanElement;
+    const trackEl = document.getElementById('player-track') as HTMLSpanElement;
+    const currentEl = document.getElementById('player-current') as HTMLSpanElement;
+    const durationEl = document.getElementById('player-duration') as HTMLSpanElement;
+    const volumeSlider = document.getElementById('player-volume') as HTMLInputElement;
+    const muteBtn = document.getElementById('player-mute') as HTMLButtonElement;
+    const playIcon = playBtn?.querySelector('.play-icon') as HTMLElement;
+    const pauseIcon = playBtn?.querySelector('.pause-icon') as HTMLElement;
+    const announce = document.getElementById('now-playing-announce');
+
+    if (!audio || !playBtn) return;
+
+    function formatTime(s: number): string {
+      if (isNaN(s)) return '0:00';
+      const h = Math.floor(s / 3600);
+      const m = Math.floor((s % 3600) / 60);
+      const sec = Math.floor(s % 60);
+      if (h > 0) return `${h}:${m.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+      return `${m}:${sec.toString().padStart(2, '0')}`;
+    }
+
+    function showPlayState(playing: boolean) {
+      if (playIcon) playIcon.style.display = playing ? 'none' : '';
+      if (pauseIcon) pauseIcon.style.display = playing ? '' : 'none';
+      playBtn.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+    }
+
+    playBtn.addEventListener('click', () => {
+      audio.paused ? audio.play() : audio.pause();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      audio.currentTime = Math.max(0, audio.currentTime - 30);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      audio.currentTime = Math.min(audio.duration, audio.currentTime + 30);
+    });
+
+    audio.addEventListener('play', () => showPlayState(true));
+    audio.addEventListener('pause', () => showPlayState(false));
+
+    audio.addEventListener('timeupdate', () => {
+      currentEl.textContent = formatTime(audio.currentTime);
+      if (audio.duration) {
+        seekBar.value = String((audio.currentTime / audio.duration) * 100);
+      }
+
+      // Current track detection
+      const tracks: Array<{seconds: number, name: string}> = (window as any).__mixTracks || [];
+      if (trackEl && tracks.length > 0) {
+        let currentTrack = tracks[0];
+        for (const t of tracks) {
+          if (t.seconds <= audio.currentTime) currentTrack = t;
+          else break;
+        }
+        if (currentTrack && trackEl.textContent !== currentTrack.name) {
+          trackEl.textContent = currentTrack.name;
+        }
+      }
+    });
+
+    audio.addEventListener('loadedmetadata', () => {
+      durationEl.textContent = formatTime(audio.duration);
+      seekBar.disabled = false;
+    });
+
+    seekBar.addEventListener('input', () => {
+      if (audio.duration) {
+        audio.currentTime = (Number(seekBar.value) / 100) * audio.duration;
+      }
+    });
+
+    // Volume
+    if (volumeSlider) {
+      volumeSlider.addEventListener('input', () => {
+        audio.volume = Number(volumeSlider.value) / 100;
+      });
+      audio.addEventListener('volumechange', () => {
+        volumeSlider.value = String(Math.round(audio.volume * 100));
+      });
+    }
+
+    if (muteBtn) {
+      muteBtn.addEventListener('click', () => {
+        audio.muted = !audio.muted;
+        muteBtn.style.opacity = audio.muted ? '0.35' : '1';
+      });
+    }
+
+    // Media Session API
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.setActionHandler('play', () => audio.play());
+      navigator.mediaSession.setActionHandler('pause', () => audio.pause());
+      navigator.mediaSession.setActionHandler('seekbackward', () => {
+        audio.currentTime = Math.max(0, audio.currentTime - 30);
+      });
+      navigator.mediaSession.setActionHandler('seekforward', () => {
+        audio.currentTime = Math.min(audio.duration, audio.currentTime + 30);
+      });
+    }
+
+    // Remote Playback API
+    const castBtn = document.getElementById('player-cast') as HTMLButtonElement;
+    if (castBtn && 'remote' in audio) {
+      const remote = (audio as any).remote;
+
+      remote.watchAvailability((available: boolean) => {
+        castBtn.style.display = available ? 'flex' : 'none';
+      }).catch(() => {
+        castBtn.style.display = 'flex';
+      });
+
+      remote.addEventListener('connecting', () => {
+        castBtn.classList.add('connecting');
+        castBtn.classList.remove('connected');
+      });
+      remote.addEventListener('connect', () => {
+        castBtn.classList.remove('connecting');
+        castBtn.classList.add('connected');
+      });
+      remote.addEventListener('disconnect', () => {
+        castBtn.classList.remove('connecting', 'connected');
+      });
+
+      castBtn.addEventListener('click', async () => {
+        try {
+          await remote.prompt();
+        } catch (err: any) {
+          if (err.name !== 'NotAllowedError' && err.name !== 'AbortError') {
+            console.error('Remote playback error:', err);
+          }
+        }
+      });
+    }
+
+    // Global loadMix
+    (window as any).loadMix = function(url: string, title: string, gradient?: string, tracks?: Array<{time: string, name: string, seconds: number}>) {
+      audio.src = url;
+      audio.play();
+      titleEl.textContent = title;
+      titleEl.classList.add('active');
+      document.getElementById('player-bar')?.classList.add('active');
+      playBtn.disabled = false;
+      prevBtn.disabled = false;
+      nextBtn.disabled = false;
+
+      (window as any).__mixTracks = tracks || [];
+
+      const thumb = document.getElementById('player-thumb');
+      if (thumb && gradient) thumb.style.background = gradient;
+      if (trackEl) trackEl.textContent = '';
+      if (announce) announce.textContent = 'Now playing: ' + title;
+
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: title,
+          artist: 'Luke Anderson',
+          album: "Luke's Mixes",
+        });
+      }
+    };
+
+    // Keyboard shortcuts
+    function handleKeyboard(e: KeyboardEvent) {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      if (!audio.src) return;
+
+      switch (e.key) {
+        case ' ':
+          e.preventDefault();
+          audio.paused ? audio.play() : audio.pause();
+          break;
+        case 'ArrowLeft':
+          audio.currentTime = Math.max(0, audio.currentTime - 10);
+          break;
+        case 'ArrowRight':
+          audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 10);
+          break;
+        case 'ArrowUp':
+          e.preventDefault();
+          audio.volume = Math.min(1, audio.volume + 0.1);
+          break;
+        case 'ArrowDown':
+          e.preventDefault();
+          audio.volume = Math.max(0, audio.volume - 0.1);
+          break;
+        case 'm':
+        case 'M':
+          audio.muted = !audio.muted;
+          if (muteBtn) muteBtn.style.opacity = audio.muted ? '0.35' : '1';
+          break;
+      }
+    }
+    document.addEventListener('keydown', handleKeyboard);
+  }
+
+  initPlayer();
+  document.addEventListener('astro:after-swap', initPlayer);
+</script>
