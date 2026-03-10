@@ -1,11 +1,6 @@
 import { memo } from "react"
-import {
-  AnimatePresence,
-  motion,
-  Variants,
-  type DOMMotionComponents,
-  type MotionProps,
-} from "motion/react"
+import { AnimatePresence, motion } from "motion/react"
+import type { Variants, DOMMotionComponents, MotionProps } from "motion/react"
 
 import { cn } from "@/lib/utils"
 

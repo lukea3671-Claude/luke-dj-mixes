@@ -38,10 +38,15 @@ export default function HeroFeatured({
           borderSize={3}
           neonColors={{ firstColor: "#D4A574", secondColor: "#4A7B7C" }}
         >
-          {/* Background gradient */}
+          {/* Background image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: 'url(/images/hero-bg.png)' }}
+          />
+          {/* Gradient overlay for depth */}
           <div
             className="absolute inset-0"
-            style={{ background: gradient }}
+            style={{ background: gradient, opacity: 0.4 }}
           />
           {/* Film grain overlay */}
           <div

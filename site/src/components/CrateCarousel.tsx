@@ -161,9 +161,15 @@ export default function CrateCarousel({ mixes }: Props) {
                 className="relative w-[220px] h-[220px] rounded-lg overflow-hidden sm:w-[240px] sm:h-[240px] border border-border-warm"
                 gradientColor="rgba(212, 165, 116, 0.08)"
               >
+                {!mix.isAnalyzed && (
+                  <div
+                    className="absolute inset-0 bg-cover bg-center opacity-30"
+                    style={{ backgroundImage: 'url(/images/fallback-sleeve.png)' }}
+                  />
+                )}
                 <div
                   className="absolute inset-0"
-                  style={{ background: mix.gradient }}
+                  style={{ background: mix.gradient, opacity: mix.isAnalyzed ? 1 : 0.7 }}
                 />
                 {/* Mix number ghost text */}
                 <span

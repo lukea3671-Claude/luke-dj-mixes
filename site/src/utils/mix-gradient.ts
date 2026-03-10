@@ -30,6 +30,7 @@ interface MixData {
   musicalKey: string;
   genres: Array<{ name: string; count: number; percent: number }>;
   mixNumber: number;
+  trackCount: number;
 }
 
 function goldenHue(n: number): number {
