@@ -19,7 +19,9 @@ const siteUrl = 'https://mixes.lukeanderson.au';
 const mixUrl = `${siteUrl}/mix/${slug}`;
 const audioUrl = `${siteUrl}${data.audioFile}`;
 const genres = data.genres.slice(0, 3).map((g: { name: string }) => g.name).join(', ');
-const desc = `${data.title} — ${data.duration}, ${data.trackCount} tracks. ${genres}. Free streaming with AI-generated liner notes.`;
+const desc = data.bpm > 0
+  ? `${data.title} — ${data.duration}, ${data.trackCount} tracks. ${genres}. Free streaming with AI-generated liner notes.`
+  : `${data.title} — ${data.duration}. Free streaming.`;
 const gradient = getMixGradient(data);
 const analyzed = checkAnalyzed(data);
 
@@ -42,7 +44,6 @@ while ((trackMatch = trackRegex.exec(rawContent)) !== null) {
   });
 }
 
-// Build tracks for player (artist — title format)
 const playerTracks = tracks.map(t => ({
   time: t.time,
   name: t.artist + ' \u2014 ' + t.title,
@@ -76,9 +77,14 @@ const jsonLd = {
 
 <BaseLayout title={data.title} description={desc} ogType="music.song" ogAudio={audioUrl} jsonLd={jsonLd}>
   <article class="mix-page">
+    <!-- Cover Art Header -->
     <div class="mix-header">
-      <div class="mix-header-gradient" style={`background: ${gradient};`}></div>
+      <div class="mix-header-gradient" style={`background: ${gradient};`}>
+        <div class="mix-header-grain"></div>
+        <div class="mix-header-leak"></div>
+      </div>
       <div class="mix-header-content">
+        <a href="/" class="back-link">&larr; Back to crate</a>
         <h1>{data.title}</h1>
         <p class="mix-date">{data.date}</p>
         <button
@@ -88,11 +94,13 @@ const jsonLd = {
           data-gradient={gradient}
           data-tracks={tracksJson}
         >
-          &#9654; Play Mix
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Play Mix
         </button>
       </div>
     </div>
 
+    <!-- Waveform -->
     <div
       id="waveform"
       data-peaks-url={data.peaksFile}
@@ -102,6 +110,7 @@ const jsonLd = {
       data-tracks={tracksJson}
     ></div>
 
+    <!-- Stats -->
     <div class="mix-stats">
       <div class="stat">
         <span class="stat-value">{data.duration}</span>
@@ -131,15 +140,17 @@ const jsonLd = {
       </div>
     </div>
 
-    {analyzed && (
+    <!-- Genre Pills -->
+    {analyzed && data.genres.length > 0 && (
       <div class="genre-tags">
         {data.genres.map((g) => (
-          <span class="genre-tag">{g.name} <small>({g.percent}%)</small></span>
+          <span class="genre-pill">{g.name} <small>({g.percent}%)</small></span>
         ))}
       </div>
     )}
 
-    {tracks.length > 0 ? (
+    <!-- Tracklist -->
+    {tracks.length > 0 && (
       <section class="tracklist-section">
         <h2>Tracklist</h2>
         <div class="tracklist" id="tracklist">
@@ -160,12 +171,9 @@ const jsonLd = {
           ))}
         </div>
       </section>
-    ) : (
-      <div class="empty-tracklist">
-        <p>Full analysis coming soon — track identification in progress.</p>
-      </div>
     )}
 
+    <!-- Liner Notes -->
     <div class="mix-content">
       <Content />
     </div>
@@ -177,6 +185,7 @@ const jsonLd = {
     max-width: 900px;
   }
 
+  /* Cover Art Header */
   .mix-header {
     position: relative;
     margin: -2rem -2rem 2rem -2rem;
@@ -192,44 +201,77 @@ const jsonLd = {
     -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent);
   }
 
+  .mix-header-grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.08;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 256px;
+    pointer-events: none;
+  }
+
+  .mix-header-leak {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(212, 165, 116, 0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
   .mix-header-content {
     position: relative;
     z-index: 1;
   }
 
+  .back-link {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--muted-stone);
+    margin-bottom: 1.5rem;
+    transition: color 0.15s;
+  }
+
+  .back-link:hover {
+    color: var(--warm-cream);
+  }
+
   .mix-header h1 {
     font-family: var(--font-heading);
     font-size: 2.4rem;
+    font-weight: 600;
     letter-spacing: -0.03em;
     margin-bottom: 0.25rem;
-    color: var(--text);
+    color: var(--warm-cream);
   }
 
   .mix-date {
-    color: var(--text-muted);
+    color: var(--muted-stone);
     font-family: var(--font-mono);
     font-size: 0.85rem;
     margin-bottom: 1.25rem;
   }
 
   .play-button {
-    background: var(--accent);
-    color: var(--bg);
+    background: var(--amber);
+    color: var(--base);
     border: none;
     padding: 0.75rem 2rem;
     border-radius: 8px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-family: var(--font-heading);
     font-weight: 700;
     cursor: pointer;
     transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .play-button:hover {
-    background: var(--accent-hover);
-    box-shadow: 0 0 20px var(--accent-glow);
+    background: var(--warm-cream);
+    box-shadow: 0 0 20px var(--amber-glow);
   }
 
+  /* Stats */
   .mix-stats {
     display: flex;
     gap: 2rem;
@@ -252,17 +294,18 @@ const jsonLd = {
     font-size: 1.5rem;
     font-weight: 700;
     font-family: var(--font-mono);
-    color: var(--accent);
+    color: var(--amber);
   }
 
   .stat-label {
     font-size: 0.7rem;
-    color: var(--text-muted);
+    color: var(--muted-stone);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-top: 0.25rem;
   }
 
+  /* Genre tags */
   .genre-tags {
     display: flex;
     flex-wrap: wrap;
@@ -270,27 +313,7 @@ const jsonLd = {
     margin-bottom: 2rem;
   }
 
-  .genre-tag {
-    background: rgba(249, 115, 22, 0.1);
-    border: 1px solid rgba(249, 115, 22, 0.2);
-    color: var(--accent);
-    padding: 0.35rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    transition: all 0.15s;
-  }
-
-  .genre-tag:hover {
-    background: rgba(249, 115, 22, 0.2);
-    box-shadow: 0 0 8px var(--accent-glow);
-  }
-
-  .genre-tag small {
-    color: var(--text-muted);
-    font-weight: 400;
-  }
-
+  /* Waveform */
   #waveform {
     margin: 1.5rem 0;
     padding: 0.75rem;
@@ -303,9 +326,10 @@ const jsonLd = {
   }
 
   #waveform:hover {
-    box-shadow: 0 0 12px var(--accent-glow);
+    box-shadow: 0 0 12px var(--amber-glow);
   }
 
+  /* Tracklist */
   .tracklist-section {
     margin-bottom: 2.5rem;
   }
@@ -313,7 +337,7 @@ const jsonLd = {
   .tracklist-section h2 {
     font-family: var(--font-heading);
     font-size: 1.1rem;
-    color: var(--text-muted);
+    color: var(--muted-stone);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-bottom: 0.75rem;
@@ -332,11 +356,11 @@ const jsonLd = {
     align-items: center;
     gap: 0.75rem;
     padding: 0.6rem 0.75rem;
-    background: var(--card-bg);
+    background: var(--surface);
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    color: var(--text);
+    color: var(--warm-cream);
     text-align: left;
     font-family: var(--font-body);
     font-size: 0.85rem;
@@ -347,22 +371,22 @@ const jsonLd = {
 
   .track-row:hover {
     background: var(--surface-hover);
-    border-left-color: var(--accent);
+    border-left-color: var(--amber);
   }
 
   .track-row.active {
-    background: rgba(249, 115, 22, 0.08);
-    border-left-color: var(--accent);
+    background: rgba(212, 165, 116, 0.08);
+    border-left-color: var(--amber);
   }
 
   .track-row.active .track-artist {
-    color: var(--accent);
+    color: var(--amber);
   }
 
   .track-num {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--text-muted);
+    color: var(--muted-stone);
     min-width: 24px;
     text-align: right;
     opacity: 0.5;
@@ -371,7 +395,7 @@ const jsonLd = {
   .track-time {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--text-muted);
+    color: var(--muted-stone);
     min-width: 48px;
   }
 
@@ -393,7 +417,7 @@ const jsonLd = {
 
   .track-title {
     font-size: 0.78rem;
-    color: var(--text-muted);
+    color: var(--muted-stone);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -401,22 +425,13 @@ const jsonLd = {
 
   .track-genre {
     font-size: 0.7rem;
-    color: var(--text-muted);
+    color: var(--muted-stone);
     opacity: 0.5;
     min-width: 60px;
     text-align: right;
   }
 
-  .empty-tracklist {
-    padding: 2rem;
-    text-align: center;
-    color: var(--text-muted);
-    border: 1px dashed var(--border);
-    border-radius: 12px;
-    margin-bottom: 2rem;
-    font-size: 0.9rem;
-  }
-
+  /* Liner notes / markdown content */
   .mix-content {
     line-height: 1.7;
   }
@@ -427,7 +442,7 @@ const jsonLd = {
     margin-top: 2.5rem;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
-    color: var(--accent-hover);
+    color: var(--amber);
     padding-bottom: 0.4rem;
     border-bottom: 1px solid var(--border);
   }
@@ -447,7 +462,7 @@ const jsonLd = {
   }
 
   .mix-content :global(th) {
-    color: var(--text-muted);
+    color: var(--muted-stone);
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 0.7rem;
@@ -462,7 +477,7 @@ const jsonLd = {
   .mix-content :global(td:first-child) {
     font-family: var(--font-mono);
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--muted-stone);
     white-space: nowrap;
   }
 
@@ -473,7 +488,7 @@ const jsonLd = {
 
   .mix-content :global(li) {
     padding: 0.3rem 0;
-    border-bottom: 1px solid rgba(68, 64, 60, 0.3);
+    border-bottom: 1px solid rgba(42, 36, 32, 0.5);
   }
 
   .mix-content :global(li:last-child) {
@@ -481,20 +496,21 @@ const jsonLd = {
   }
 
   .mix-content :global(strong) {
-    color: var(--text);
+    color: var(--warm-cream);
     font-weight: 600;
   }
 
   .mix-content :global(em) {
-    color: var(--text-muted);
+    color: var(--muted-stone);
     font-style: italic;
   }
 
   .mix-content :global(p) {
     margin-bottom: 1rem;
-    color: var(--text-muted);
+    color: var(--muted-stone);
   }
 
+  /* Responsive */
   @media (max-width: 640px) {
     .mix-header {
       margin: -1rem -1rem 1.5rem -1rem;
@@ -579,41 +595,14 @@ const jsonLd = {
 
         const duration = peaksData.length * peaksData.samples_per_pixel / peaksData.sample_rate;
 
-        // Energy-mapped gradient for waveform color
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        let waveGradient: string | CanvasGradient = '#44403c';
-
-        if (ctx) {
-          canvas.width = container.clientWidth || 800;
-          canvas.height = 1;
-          const grad = ctx.createLinearGradient(0, 0, canvas.width, 0);
-          const steps = 30;
-          for (let i = 0; i <= steps; i++) {
-            const pos = i / steps;
-            const idx = Math.floor(pos * peaks.length);
-            const windowSize = Math.max(1, Math.floor(peaks.length / steps));
-            let sum = 0;
-            for (let j = Math.max(0, idx - windowSize); j < Math.min(peaks.length, idx + windowSize); j++) {
-              sum += peaks[j];
-            }
-            const energy = sum / (windowSize * 2);
-            const hue = 240 - (energy * 220);
-            const sat = 50 + (energy * 40);
-            const lit = 30 + (energy * 25);
-            grad.addColorStop(pos, `hsl(${hue} ${sat}% ${lit}%)`);
-          }
-          waveGradient = grad;
-        }
-
         ws = WaveSurfer.create({
           container: '#waveform',
           peaks: [peaks],
           duration: duration,
           height: 80,
-          waveColor: waveGradient,
-          progressColor: '#f97316',
-          cursorColor: '#fbbf24',
+          waveColor: '#2A2420',
+          progressColor: '#D4A574',
+          cursorColor: '#F5E6C8',
           cursorWidth: 2,
           barWidth: 2,
           barGap: 1,

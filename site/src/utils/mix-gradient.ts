@@ -1,5 +1,6 @@
-// Deterministic gradient from mix data
-// BPM → hue base, musicalKey → angle, primaryGenre → saturation/lightness
+// Deterministic gradient from mix data — The Crate warm palette
+// Analyzed: BPM → hue (warm-shifted), musicalKey → angle, genre → palette
+// Unanalyzed: golden angle distribution with amber/sepia warmth
 
 const KEY_ANGLES: Record<string, number> = {
   'C': 0, 'C#': 30, 'Db': 30, 'D': 60, 'D#': 90, 'Eb': 90,
@@ -9,20 +10,20 @@ const KEY_ANGLES: Record<string, number> = {
 };
 
 const GENRE_PALETTES: Record<string, { sat: number; lit: number }> = {
-  'Dance': { sat: 80, lit: 55 },
-  'Electronic': { sat: 70, lit: 45 },
-  'House': { sat: 75, lit: 50 },
-  'Techno': { sat: 60, lit: 40 },
-  'Trance': { sat: 85, lit: 50 },
-  'Pop': { sat: 90, lit: 60 },
-  'Hip-Hop/Rap': { sat: 65, lit: 45 },
-  'R&B/Soul': { sat: 75, lit: 50 },
-  'Alternative': { sat: 55, lit: 50 },
-  'Electronica': { sat: 65, lit: 48 },
-  'Soundtrack': { sat: 40, lit: 40 },
+  'Dance': { sat: 55, lit: 35 },
+  'Electronic': { sat: 50, lit: 30 },
+  'House': { sat: 55, lit: 32 },
+  'Techno': { sat: 45, lit: 28 },
+  'Trance': { sat: 60, lit: 35 },
+  'Pop': { sat: 60, lit: 38 },
+  'Hip-Hop/Rap': { sat: 45, lit: 30 },
+  'R&B/Soul': { sat: 50, lit: 32 },
+  'Alternative': { sat: 40, lit: 30 },
+  'Electronica': { sat: 48, lit: 30 },
+  'Soundtrack': { sat: 30, lit: 28 },
 };
 
-const DEFAULT_PALETTE = { sat: 60, lit: 50 };
+const DEFAULT_PALETTE = { sat: 45, lit: 32 };
 
 interface MixData {
   bpm: number;
@@ -31,36 +32,62 @@ interface MixData {
   mixNumber: number;
 }
 
+function goldenHue(n: number): number {
+  return (n * 137.508) % 360;
+}
+
+// Shift hue toward warm range (amber/sepia: ~20-50)
+function warmShift(hue: number): number {
+  const warmTarget = 30;
+  return (hue * 0.6 + warmTarget * 0.4) % 360;
+}
+
 export function getMixGradient(data: MixData): string {
   if (data.bpm <= 0) {
-    const hue = (data.mixNumber * 37) % 360;
-    return `linear-gradient(135deg, hsl(${hue} 15% 18%), hsl(${hue} 10% 12%))`;
+    const hue = goldenHue(data.mixNumber);
+    const warmHue = warmShift(hue);
+    const hue2 = (warmHue + 25) % 360;
+    const angle = (data.mixNumber * 47) % 360;
+    const sat = 30 + (data.mixNumber % 4) * 5;
+    const lit = 18 + (data.mixNumber % 3) * 4;
+    return `linear-gradient(${angle}deg, hsl(${warmHue} ${sat}% ${lit}%), hsl(${hue2} ${Math.max(sat - 8, 20)}% ${Math.max(lit - 5, 12)}%))`;
   }
 
-  const hue = ((data.bpm - 100) * 6) % 360;
-  const hue2 = (hue + 40) % 360;
+  const rawHue = (((data.bpm - 100) * 6) % 360 + 360) % 360;
+  const hue = warmShift(rawHue);
+  const hue2 = (hue + 35) % 360;
   const keyBase = data.musicalKey.replace(/\s*(major|minor|m)$/i, '').trim();
   const angle = KEY_ANGLES[keyBase] ?? 135;
   const primaryGenre = data.genres[0]?.name ?? 'Mixed';
   const palette = GENRE_PALETTES[primaryGenre] ?? DEFAULT_PALETTE;
 
-  return `linear-gradient(${angle}deg, hsl(${hue} ${palette.sat}% ${palette.lit}%), hsl(${hue2} ${palette.sat - 15}% ${palette.lit - 10}%))`;
+  return `linear-gradient(${angle}deg, hsl(${hue} ${palette.sat}% ${palette.lit}%), hsl(${hue2} ${palette.sat - 12}% ${palette.lit - 8}%))`;
 }
 
 export function getMixGradientMini(data: MixData): string {
   if (data.bpm <= 0) {
-    const hue = (data.mixNumber * 37) % 360;
-    return `linear-gradient(135deg, hsl(${hue} 12% 14%), hsl(${hue} 8% 10%))`;
+    const hue = goldenHue(data.mixNumber);
+    const warmHue = warmShift(hue);
+    const hue2 = (warmHue + 20) % 360;
+    const angle = (data.mixNumber * 47) % 360;
+    const sat = 25 + (data.mixNumber % 4) * 4;
+    const lit = 15 + (data.mixNumber % 3) * 3;
+    return `linear-gradient(${angle}deg, hsl(${warmHue} ${sat}% ${lit}%), hsl(${hue2} ${Math.max(sat - 8, 18)}% ${Math.max(lit - 4, 10)}%))`;
   }
 
-  const hue = ((data.bpm - 100) * 6) % 360;
-  const hue2 = (hue + 40) % 360;
+  const rawHue = (((data.bpm - 100) * 6) % 360 + 360) % 360;
+  const hue = warmShift(rawHue);
+  const hue2 = (hue + 35) % 360;
   const keyBase = data.musicalKey.replace(/\s*(major|minor|m)$/i, '').trim();
   const angle = KEY_ANGLES[keyBase] ?? 135;
   const primaryGenre = data.genres[0]?.name ?? 'Mixed';
   const palette = GENRE_PALETTES[primaryGenre] ?? DEFAULT_PALETTE;
 
-  return `linear-gradient(${angle}deg, hsl(${hue} ${palette.sat - 10}% ${palette.lit - 15}%), hsl(${hue2} ${palette.sat - 25}% ${palette.lit - 25}%))`;
+  return `linear-gradient(${angle}deg, hsl(${hue} ${palette.sat - 10}% ${palette.lit - 12}%), hsl(${hue2} ${palette.sat - 22}% ${palette.lit - 18}%))`;
+}
+
+export function getMixGlowColor(data: MixData): string {
+  return `rgba(212, 165, 116, 0.35)`;
 }
 
 export function isAnalyzed(data: MixData): boolean {
