@@ -10,11 +10,17 @@
   },
   "dependencies": {
     "@astrojs/react": "^5.0.0",
+    "@radix-ui/react-tabs": "^1.1.13",
+    "@tabler/icons-react": "^3.40.0",
     "@tailwindcss/vite": "^4.2.1",
     "astro": "^5.17.1",
+    "clsx": "^2.1.1",
     "framer-motion": "^12.35.2",
+    "motion": "^12.35.2",
+    "radix-ui": "^1.4.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.1",
     "wavesurfer.js": "^7.12.1"
   },
