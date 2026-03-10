@@ -1,0 +1,45 @@
+---
+// Warm film grain overlay — fixed full-viewport SVG noise
+// Renders at 3-4% opacity with warm sepia tint
+// Respects prefers-reduced-motion
+---
+
+<div class="film-grain" aria-hidden="true">
+  <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+    <filter id="grain-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch" />
+      <feColorMatrix type="saturate" values="0" />
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="1.1" intercept="0.05" />
+        <feFuncG type="linear" slope="0.95" intercept="0.03" />
+        <feFuncB type="linear" slope="0.8" intercept="0" />
+      </feComponentTransfer>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#grain-filter)" />
+  </svg>
+</div>
+
+<style>
+  .film-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.035;
+    overflow: hidden;
+  }
+
+  .film-grain svg {
+    width: 512px;
+    height: 512px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .film-grain {
+      display: none;
+    }
+  }
+</style>

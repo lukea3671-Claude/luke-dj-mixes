@@ -1,5 +1,7 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
+import '../styles/global.css';
+import FilmGrain from '../components/FilmGrain.astro';
 
 interface Props {
   title: string;
@@ -31,7 +33,7 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     <link rel="alternate" type="application/rss+xml" title="Luke's Mixes Podcast" href="/feed.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={ogType} />
@@ -46,6 +48,7 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     <ViewTransitions />
   </head>
   <body>
+    <FilmGrain />
     <header>
       <nav>
         <a href="/" class="site-title">Luke's Mixes</a>
@@ -108,151 +111,11 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
 </html>
 
 <style is:global>
-  @property --gradient-hue {
-    syntax: '<number>';
-    inherits: false;
-    initial-value: 0;
-  }
-
-  :root {
-    --bg: #1c1917;
-    --surface: #292524;
-    --surface-hover: #3d3530;
-    --text: #fafaf9;
-    --text-muted: #a8a29e;
-    --accent: #f97316;
-    --accent-hover: #fbbf24;
-    --accent-glow: rgba(249, 115, 22, 0.35);
-    --accent-red: #ef4444;
-    --player-bg: #110e0d;
-    --border: #44403c;
-    --card-bg: #292524;
-
-    --glass-bg: rgba(17, 14, 13, 0.85);
-    --glass-border: rgba(255, 255, 255, 0.06);
-    --glass-blur: 16px;
-
-    --player-height: 72px;
-    --player-height-mobile: 60px;
-
-    --ease-out: cubic-bezier(0.2, 0, 0.2, 1);
-
-    --font-heading: 'Bitter', Georgia, serif;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  html {
-    font-family: var(--font-body);
-    background: var(--bg);
-    color: var(--text);
-    scroll-behavior: smooth;
-  }
-
-  body {
-    min-height: 100vh;
-    padding-bottom: calc(var(--player-height) + 8px);
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.04;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 256px 256px;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-
-  a {
-    color: var(--accent);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-
-  a:hover {
-    color: var(--accent-hover);
-  }
-
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  :focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-
-  button:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
-  }
-
-  .genre-pill {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.55rem;
-    border-radius: 10px;
-    background: rgba(249, 115, 22, 0.1);
-    color: var(--accent);
-    border: 1px solid rgba(249, 115, 22, 0.2);
-    font-weight: 500;
-    transition: all 0.15s;
-  }
-
-  .genre-pill:hover {
-    background: rgba(249, 115, 22, 0.2);
-    box-shadow: 0 0 6px var(--accent-glow);
-  }
-
-  .genre-pill.small {
-    font-size: 0.65rem;
-    padding: 0.15rem 0.4rem;
-  }
-
-  .processing-badge {
-    font-size: 0.65rem;
-    padding: 0.15rem 0.5rem;
-    border-radius: 10px;
-    background: rgba(249, 115, 22, 0.08);
-    color: var(--text-muted);
-    border: 1px solid rgba(249, 115, 22, 0.15);
-    font-weight: 500;
-  }
-
-  .processing-badge.small {
-    font-size: 0.6rem;
-    padding: 0.1rem 0.35rem;
-  }
-
+  /* Header & Nav */
   header {
     border-bottom: 1px solid var(--border);
     padding: 1rem 2rem;
-    background: var(--player-bg);
+    background: var(--surface);
   }
 
   nav {
@@ -265,16 +128,16 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
 
   .site-title {
     font-family: var(--font-heading);
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--amber);
     letter-spacing: -0.02em;
     transition: text-shadow 0.2s;
   }
 
   .site-title:hover {
-    color: var(--accent-hover);
-    text-shadow: 0 0 12px var(--accent-glow);
+    color: var(--warm-cream);
+    text-shadow: 0 0 12px var(--amber-glow);
   }
 
   .nav-links {
@@ -283,7 +146,7 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
   }
 
   .nav-links a {
-    color: var(--text-muted);
+    color: var(--muted-stone);
     font-size: 0.9rem;
     font-weight: 500;
     position: relative;
@@ -296,12 +159,12 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent);
+    background: var(--amber);
     transition: width 0.2s;
   }
 
   .nav-links a:hover {
-    color: var(--text);
+    color: var(--warm-cream);
   }
 
   .nav-links a:hover::after {
@@ -317,7 +180,7 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
   footer {
     text-align: center;
     padding: 2rem;
-    color: var(--text-muted);
+    color: var(--muted-stone);
     font-size: 0.85rem;
     border-top: 1px solid var(--border);
   }
@@ -341,8 +204,8 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
   }
 
   #player-bar.active {
-    border-top-color: rgba(249, 115, 22, 0.3);
-    box-shadow: 0 -2px 20px rgba(249, 115, 22, 0.08);
+    border-top-color: rgba(212, 165, 116, 0.3);
+    box-shadow: 0 -2px 20px rgba(212, 165, 116, 0.08);
   }
 
   .player-inner {
@@ -386,17 +249,17 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     overflow: hidden;
     text-overflow: ellipsis;
     display: block;
-    color: var(--text-muted);
+    color: var(--muted-stone);
     transition: color 0.2s;
   }
 
   #player-title.active {
-    color: var(--text);
+    color: var(--warm-cream);
   }
 
   .player-track-name {
     font-size: 0.72rem;
-    color: var(--text-muted);
+    color: var(--muted-stone);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -415,7 +278,7 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
   .player-controls button {
     background: none;
     border: 1px solid var(--border);
-    color: var(--text-muted);
+    color: var(--muted-stone);
     width: 34px;
     height: 34px;
     border-radius: 50%;
@@ -428,9 +291,9 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
   }
 
   .player-controls button:hover:not(:disabled) {
-    border-color: var(--accent);
-    color: var(--accent);
-    box-shadow: 0 0 8px var(--accent-glow);
+    border-color: var(--amber);
+    color: var(--amber);
+    box-shadow: 0 0 8px var(--amber-glow);
   }
 
   .player-controls button:disabled {
@@ -442,14 +305,14 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     width: 42px;
     height: 42px;
     font-size: 1rem;
-    color: var(--text);
-    border-color: var(--text-muted);
+    color: var(--warm-cream);
+    border-color: var(--muted-stone);
   }
 
   #player-play:hover:not(:disabled) {
-    border-color: var(--accent);
-    color: var(--accent);
-    box-shadow: 0 0 12px var(--accent-glow);
+    border-color: var(--amber);
+    color: var(--amber);
+    box-shadow: 0 0 12px var(--amber-glow);
   }
 
   .player-time {
@@ -459,12 +322,12 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     gap: 0.75rem;
     font-size: 0.78rem;
     font-family: var(--font-mono);
-    color: var(--text-muted);
+    color: var(--muted-stone);
   }
 
   #player-seek {
     flex: 1;
-    accent-color: var(--accent);
+    accent-color: var(--amber);
     height: 4px;
     cursor: pointer;
   }
@@ -485,7 +348,7 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
   .volume-control button {
     background: none;
     border: none;
-    color: var(--text-muted);
+    color: var(--muted-stone);
     cursor: pointer;
     padding: 4px;
     display: flex;
@@ -494,12 +357,12 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
   }
 
   .volume-control button:hover {
-    color: var(--accent);
+    color: var(--amber);
   }
 
   #player-volume {
     width: 80px;
-    accent-color: var(--accent);
+    accent-color: var(--amber);
     height: 3px;
     cursor: pointer;
   }
@@ -508,7 +371,7 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     flex-shrink: 0;
     background: none;
     border: 1px solid var(--border);
-    color: var(--text-muted);
+    color: var(--muted-stone);
     width: 34px;
     height: 34px;
     border-radius: 50%;
@@ -520,9 +383,9 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
   }
 
   #player-cast:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    box-shadow: 0 0 8px var(--accent-glow);
+    border-color: var(--amber);
+    color: var(--amber);
+    box-shadow: 0 0 8px var(--amber-glow);
   }
 
   #player-cast.connecting {
@@ -530,9 +393,9 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
   }
 
   #player-cast.connected {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: rgba(249, 115, 22, 0.1);
+    border-color: var(--amber);
+    color: var(--amber);
+    background: rgba(212, 165, 116, 0.1);
   }
 
   @keyframes cast-pulse {
@@ -598,13 +461,6 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     .player-time {
       gap: 0.4rem;
       font-size: 0.7rem;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0.01ms !important;
-      transition-duration: 0.01ms !important;
     }
   }
 </style>
