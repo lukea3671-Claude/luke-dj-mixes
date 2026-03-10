@@ -1,14 +1,18 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getMixGradient, getMixGradientMini, getMixGlowColor, isAnalyzed } from '../utils/mix-gradient';
+import { getMixGradient, getMixGradientMini, isAnalyzed } from '../utils/mix-gradient';
 import CrateCarousel from '../components/CrateCarousel.tsx';
+import HeroFeatured from '../components/HeroFeatured.tsx';
+import GenreMarquee from '../components/GenreMarquee.tsx';
+import StatsBar from '../components/StatsBar.tsx';
+import ArchiveFocusCards from '../components/ArchiveFocusCards.tsx';
 
 const mixes = await getCollection('mixes');
 const sorted = mixes.sort((a, b) => b.data.mixNumber - a.data.mixNumber);
 const latest = sorted[0];
 
-// All mixes for crate carousel (skip latest since it's the hero)
+// Crate carousel (skip latest since it's the hero)
 const crateMixes = sorted.slice(1).map((mix) => ({
   slug: mix.id.replace(/\.md$/, ''),
   title: mix.data.title,
@@ -20,15 +24,35 @@ const crateMixes = sorted.slice(1).map((mix) => ({
   bpm: mix.data.bpm,
 }));
 
-// Group all mixes (except latest) by year for archive
-const archiveMixes = sorted.slice(1);
-const byYear = new Map<string, typeof archiveMixes>();
-for (const mix of archiveMixes) {
-  const year = mix.data.date.split(' ').pop() || 'Unknown';
-  if (!byYear.has(year)) byYear.set(year, []);
-  byYear.get(year)!.push(mix);
-}
-const years = [...byYear.keys()].sort((a, b) => Number(b) - Number(a));
+// Genre marquee data
+const allGenres = [...new Set(
+  mixes.flatMap(m => m.data.genres.filter(g => g.name !== 'Mixed').map(g => g.name))
+)];
+
+// Stats data
+const totalMixes = mixes.length;
+const totalTracks = mixes.reduce((sum, m) => sum + m.data.trackCount, 0);
+const totalMinutes = mixes.reduce((sum, m) => {
+  const match = m.data.duration.match(/(\d+)h\s*(\d+)m/);
+  return sum + (match ? Number(match[1]) * 60 + Number(match[2]) : 0);
+}, 0);
+const totalHours = Math.round(totalMinutes / 60);
+const yearsActive = new Date().getFullYear() - 2018;
+
+// Archive data
+const archiveData = sorted.slice(1).map((mix) => ({
+  slug: mix.id.replace(/\.md$/, ''),
+  title: mix.data.title,
+  mixNumber: mix.data.mixNumber,
+  gradient: getMixGradientMini(mix.data),
+  duration: mix.data.duration,
+  bpm: mix.data.bpm,
+  isAnalyzed: isAnalyzed(mix.data),
+  genre: mix.data.genres[0]?.name || '',
+  year: mix.data.date.split(' ').pop() || 'Unknown',
+}));
+
+const archiveYears = [...new Set(archiveData.map(m => m.year))].sort((a, b) => Number(b) - Number(a));
 
 const latestGradient = getMixGradient(latest.data);
 const latestAnalyzed = isAnalyzed(latest.data);
@@ -36,401 +60,30 @@ const latestAnalyzed = isAnalyzed(latest.data);
 
 <BaseLayout title="Luke's Mixes — DJ Mix Archive">
 
-  <!-- Hero: Featured Sleeve -->
-  <section class="hero-sleeve">
-    <a href={`/mix/${latest.id.replace(/\.md$/, '')}/`} class="hero-link">
-      <div class="hero-gradient" style={`background: ${latestGradient};`}>
-        <div class="hero-grain"></div>
-        <div class="hero-light-leak"></div>
-        <div class="hero-overlay"></div>
-        <span class="hero-number">#{String(latest.data.mixNumber).padStart(2, '0')}</span>
-        <div class="hero-inner">
-          <div class="hero-content">
-            <span class="hero-label">Latest Mix</span>
-            <h1 class="hero-title">{latest.data.title}</h1>
-            <div class="hero-meta">
-              <span>{latest.data.duration}</span>
-              <span class="meta-dot"></span>
-              <span>{latest.data.date}</span>
-              {latestAnalyzed && (
-                <>
-                  <span class="meta-dot"></span>
-                  <span>{latest.data.bpm} BPM</span>
-                </>
-              )}
-            </div>
-          </div>
-          <button
-            class="hero-play"
-            aria-label={`Play ${latest.data.title}`}
-            onclick={`event.preventDefault(); event.stopPropagation(); window.loadMix('${latest.data.audioFile}', '${latest.data.title}', '${latestGradient}')`}
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </button>
-        </div>
-      </div>
-    </a>
-  </section>
+  <!-- Hero: NeonGradientCard + TextAnimate + BorderBeam -->
+  <HeroFeatured
+    client:load
+    title={latest.data.title}
+    mixNumber={latest.data.mixNumber}
+    date={latest.data.date}
+    duration={latest.data.duration}
+    bpm={latest.data.bpm}
+    isAnalyzed={latestAnalyzed}
+    gradient={latestGradient}
+    audioFile={latest.data.audioFile}
+    slug={latest.id.replace(/\.md$/, '')}
+  />
 
-  <!-- The Crate: Horizontal Scroll Carousel -->
+  <!-- The Crate: Horizontal Scroll Carousel with MagicCard -->
   <CrateCarousel client:visible mixes={crateMixes} />
 
-  <!-- Archive: Dense Editorial List -->
-  <section class="archive" id="archive">
-    <h2 class="archive-heading">Archive</h2>
-    {years.map((year) => (
-      <div class="year-group">
-        <h3 class="year-label">{year}</h3>
-        <div class="archive-grid">
-          {byYear.get(year)!.map((mix) => {
-            const gradient = getMixGradientMini(mix.data);
-            const analyzed = isAnalyzed(mix.data);
-            return (
-              <a href={`/mix/${mix.id.replace(/\.md$/, '')}/`} class="archive-row">
-                <div class="archive-swatch" style={`background: ${gradient};`}></div>
-                <span class="archive-num">#{String(mix.data.mixNumber).padStart(2, '0')}</span>
-                <span class="archive-title">{mix.data.title}</span>
-                <span class="archive-meta">{mix.data.duration}</span>
-                {analyzed && <span class="archive-meta">{mix.data.bpm} BPM</span>}
-                {analyzed && mix.data.genres[0] && (
-                  <span class="archive-genre">{mix.data.genres[0].name}</span>
-                )}
-              </a>
-            );
-          })}
-        </div>
-      </div>
-    ))}
-  </section>
+  <!-- Genre Marquee Strip -->
+  <GenreMarquee client:visible genres={allGenres} />
+
+  <!-- Stats Bar with NumberTicker -->
+  <StatsBar client:visible totalMixes={totalMixes} totalTracks={totalTracks} totalHours={totalHours} yearsActive={yearsActive} />
+
+  <!-- Archive with Focus Card blur effect -->
+  <ArchiveFocusCards client:visible mixes={archiveData} years={archiveYears} />
 
 </BaseLayout>
-
-<style>
-  /* ============================================
-     HERO — Featured Sleeve
-     ============================================ */
-  .hero-sleeve {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    margin-top: -2rem;
-  }
-
-  .hero-link {
-    display: block;
-    text-decoration: none;
-    color: var(--warm-cream);
-  }
-
-  .hero-link:hover {
-    color: var(--warm-cream);
-  }
-
-  .hero-link:hover .hero-gradient {
-    filter: brightness(1.05);
-  }
-
-  .hero-gradient {
-    position: relative;
-    min-height: 60vh;
-    max-height: 600px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    overflow: hidden;
-    transition: filter 0.3s;
-  }
-
-  .hero-grain {
-    position: absolute;
-    inset: 0;
-    opacity: 0.06;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-size: 256px;
-    pointer-events: none;
-  }
-
-  .hero-light-leak {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 70% 30%, rgba(212, 165, 116, 0.08) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(to top, var(--base) 0%, rgba(10, 10, 10, 0.7) 40%, transparent 100%),
-      linear-gradient(to right, rgba(10, 10, 10, 0.3) 0%, transparent 50%);
-  }
-
-  .hero-inner {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 1200px;
-    padding: 3rem 2rem;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
-
-  .hero-content {
-    max-width: 700px;
-  }
-
-  .hero-label {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--amber);
-    margin-bottom: 1rem;
-    opacity: 0.8;
-  }
-
-  .hero-number {
-    position: absolute;
-    right: max(2rem, calc(50% - 560px));
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: var(--font-heading);
-    font-size: 16rem;
-    font-weight: 700;
-    line-height: 1;
-    color: rgba(255, 255, 255, 0.03);
-    user-select: none;
-    letter-spacing: -0.06em;
-    z-index: 1;
-  }
-
-  .hero-title {
-    font-family: var(--font-heading);
-    font-size: 2.4rem;
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    margin-bottom: 0.75rem;
-    color: var(--warm-cream);
-  }
-
-  .hero-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--muted-stone);
-  }
-
-  .meta-dot {
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: var(--muted-stone);
-    opacity: 0.5;
-  }
-
-  .hero-play {
-    flex-shrink: 0;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    border: 2px solid rgba(212, 165, 116, 0.3);
-    background: rgba(212, 165, 116, 0.9);
-    color: var(--base);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s var(--ease-out);
-    box-shadow:
-      0 4px 24px rgba(0, 0, 0, 0.4),
-      0 0 60px rgba(212, 165, 116, 0.15);
-  }
-
-  .hero-link:hover .hero-play {
-    transform: scale(1.08);
-    background: var(--amber);
-    border-color: rgba(212, 165, 116, 0.5);
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.5),
-      0 0 80px rgba(212, 165, 116, 0.3);
-  }
-
-  .hero-play svg {
-    margin-left: 3px;
-  }
-
-  /* ============================================
-     ARCHIVE — Dense, editorial, scannable
-     ============================================ */
-  .archive {
-    margin-bottom: 2rem;
-    margin-top: 1rem;
-  }
-
-  .archive-heading {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--muted-stone);
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 1.5rem;
-  }
-
-  .year-group {
-    margin-bottom: 2rem;
-  }
-
-  .year-label {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--muted-stone);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    opacity: 0.5;
-    margin-bottom: 0.5rem;
-    position: sticky;
-    top: 0;
-    background: var(--base);
-    padding: 0.4rem 0;
-    z-index: 10;
-  }
-
-  .archive-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    background: var(--border);
-    border-radius: 6px;
-    overflow: hidden;
-  }
-
-  .archive-row {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.6rem 0.85rem;
-    background: var(--surface);
-    text-decoration: none;
-    color: var(--warm-cream);
-    transition: background 0.15s, padding-left 0.15s;
-    border-left: 2px solid transparent;
-  }
-
-  .archive-row:hover {
-    background: var(--surface-hover);
-    color: var(--warm-cream);
-    border-left-color: var(--amber);
-    padding-left: 1rem;
-  }
-
-  .archive-swatch {
-    width: 32px;
-    height: 32px;
-    border-radius: 4px;
-    flex-shrink: 0;
-  }
-
-  .archive-num {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--muted-stone);
-    width: 2.5rem;
-    flex-shrink: 0;
-  }
-
-  .archive-title {
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    font-weight: 600;
-    flex: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    min-width: 0;
-  }
-
-  .archive-meta {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--muted-stone);
-    flex-shrink: 0;
-  }
-
-  .archive-genre {
-    font-size: 0.65rem;
-    padding: 0.15rem 0.45rem;
-    border-radius: 8px;
-    background: rgba(74, 123, 124, 0.12);
-    color: var(--teal);
-    border: 1px solid rgba(74, 123, 124, 0.25);
-    flex-shrink: 0;
-    display: none;
-  }
-
-  @media (min-width: 768px) {
-    .archive-genre {
-      display: inline-block;
-    }
-  }
-
-  /* ============================================
-     RESPONSIVE
-     ============================================ */
-  @media (max-width: 640px) {
-    .hero-sleeve {
-      margin-top: -1rem;
-    }
-
-    .hero-gradient {
-      min-height: 350px;
-    }
-
-    .hero-inner {
-      padding: 2rem 1.25rem;
-    }
-
-    .hero-title {
-      font-size: 1.6rem;
-    }
-
-    .hero-number {
-      font-size: 8rem;
-      right: 1rem;
-    }
-
-    .hero-play {
-      width: 52px;
-      height: 52px;
-    }
-
-    .hero-play svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .archive-swatch {
-      width: 24px;
-      height: 24px;
-    }
-
-    .archive-row {
-      padding: 0.5rem 0.65rem;
-      gap: 0.5rem;
-    }
-
-    .archive-num {
-      display: none;
-    }
-
-    .archive-meta:last-of-type {
-      display: none;
-    }
-  }
-</style>

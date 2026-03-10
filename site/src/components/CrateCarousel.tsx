@@ -1,5 +1,6 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { MagicCard } from '@/components/ui/magic-card';
 
 interface MixItem {
   slug: string;
@@ -147,45 +148,48 @@ export default function CrateCarousel({ mixes }: Props) {
             onClick={(e) => isDragging && e.preventDefault()}
             whileHover="hover"
           >
-            {/* Square sleeve */}
+            {/* Square sleeve with MagicCard spotlight */}
             <motion.div
-              className="relative w-[220px] h-[220px] rounded-lg overflow-hidden sm:w-[240px] sm:h-[240px]"
-              style={{
-                background: mix.gradient,
-                border: '1px solid var(--border)',
-              }}
               variants={{
                 hover: {
                   y: -6,
-                  boxShadow: '0 12px 32px rgba(212, 165, 116, 0.12)',
                   transition: { duration: 0.25, ease: [0.2, 0, 0.2, 1] },
                 },
               }}
             >
-              {/* Mix number ghost text */}
-              <span
-                className="absolute inset-0 flex items-center justify-center text-[5rem] font-heading font-bold select-none pointer-events-none"
-                style={{ color: 'rgba(255, 255, 255, 0.06)' }}
+              <MagicCard
+                className="relative w-[220px] h-[220px] rounded-lg overflow-hidden sm:w-[240px] sm:h-[240px] border border-border-warm"
+                gradientColor="rgba(212, 165, 116, 0.08)"
               >
-                #{String(mix.mixNumber).padStart(2, '0')}
-              </span>
+                <div
+                  className="absolute inset-0"
+                  style={{ background: mix.gradient }}
+                />
+                {/* Mix number ghost text */}
+                <span
+                  className="absolute inset-0 flex items-center justify-center text-[5rem] font-heading font-bold select-none pointer-events-none"
+                  style={{ color: 'rgba(255, 255, 255, 0.06)' }}
+                >
+                  #{String(mix.mixNumber).padStart(2, '0')}
+                </span>
 
-              {/* Play button on hover */}
-              <button
-                className="absolute bottom-3 right-3 w-10 h-10 rounded-full flex items-center justify-center opacity-0 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0"
-                style={{
-                  background: 'rgba(10, 10, 10, 0.7)',
-                  backdropFilter: 'blur(4px)',
-                  color: 'var(--warm-cream)',
-                  border: 'none',
-                }}
-                onClick={(e) => handlePlay(e, mix)}
-                aria-label={`Play ${mix.title}`}
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </button>
+                {/* Play button on hover */}
+                <button
+                  className="absolute bottom-3 right-3 w-10 h-10 rounded-full flex items-center justify-center opacity-0 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 z-10"
+                  style={{
+                    background: 'rgba(10, 10, 10, 0.7)',
+                    backdropFilter: 'blur(4px)',
+                    color: 'var(--warm-cream)',
+                    border: 'none',
+                  }}
+                  onClick={(e) => handlePlay(e, mix)}
+                  aria-label={`Play ${mix.title}`}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </button>
+              </MagicCard>
             </motion.div>
 
             {/* Title + metadata below card */}

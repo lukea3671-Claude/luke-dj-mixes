@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CollectionGrid from '../components/CollectionGrid.tsx';
+import { getMixGradient, isAnalyzed } from '../utils/mix-gradient';
+
+const mixes = await getCollection('mixes');
+const sorted = mixes.sort((a, b) => b.data.mixNumber - a.data.mixNumber);
+
+const mixData = sorted.map((mix) => ({
+  slug: mix.id.replace(/\.md$/, ''),
+  title: mix.data.title,
+  mixNumber: mix.data.mixNumber,
+  gradient: getMixGradient(mix.data),
+  duration: mix.data.duration,
+  bpm: mix.data.bpm,
+  isAnalyzed: isAnalyzed(mix.data),
+  genres: mix.data.genres.filter(g => g.name !== 'Mixed').map(g => g.name),
+  date: mix.data.date,
+}));
+
+const allGenres = [...new Set(
+  mixes.flatMap(m => m.data.genres.filter(g => g.name !== 'Mixed').map(g => g.name))
+)].sort();
+---
+
+<BaseLayout title="Collection — Luke's Mixes">
+  <div class="max-w-[1200px] mx-auto">
+    <h1 class="font-heading text-3xl font-bold text-warm-cream mb-2">Collection</h1>
+    <p class="text-muted-stone text-sm mb-8">All {sorted.length} mixes, filterable by genre.</p>
+    <CollectionGrid client:load mixes={mixData} allGenres={allGenres} />
+  </div>
+</BaseLayout>
