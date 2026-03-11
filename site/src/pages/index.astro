@@ -7,6 +7,7 @@ import HeroFeatured from '../components/HeroFeatured.tsx';
 import GenreMarquee from '../components/GenreMarquee.tsx';
 import StatsBar from '../components/StatsBar.tsx';
 import ArchiveFocusCards from '../components/ArchiveFocusCards.tsx';
+import FeaturedSleeve from '../components/FeaturedSleeve.tsx';
 
 const mixes = await getCollection('mixes');
 const sorted = mixes.sort((a, b) => b.data.mixNumber - a.data.mixNumber);
@@ -86,7 +87,20 @@ const latestAnalyzed = isAnalyzed(latest.data);
   <!-- Stats Bar with NumberTicker -->
   <StatsBar client:visible totalMixes={totalMixes} totalTracks={totalTracks} totalHours={totalHours} yearsActive={yearsActive} />
 
-  <!-- Archive with Focus Card blur effect -->
-  <ArchiveFocusCards client:visible mixes={archiveData} years={archiveYears} />
+  <!-- Featured sleeve + Archive in two-column grid -->
+  <div class="lg:grid lg:grid-cols-[280px_1fr] lg:gap-8 lg:items-start">
+    <FeaturedSleeve
+      client:visible
+      title={latest.data.title}
+      mixNumber={latest.data.mixNumber}
+      gradient={latestGradient}
+      duration={latest.data.duration}
+      bpm={latest.data.bpm}
+      isAnalyzed={latestAnalyzed}
+      slug={latest.id.replace(/\.md$/, '')}
+      audioFile={latest.data.audioFile}
+    />
+    <ArchiveFocusCards client:visible mixes={archiveData} years={archiveYears} />
+  </div>
 
 </BaseLayout>

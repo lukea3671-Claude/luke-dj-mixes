@@ -41,6 +41,7 @@ interface ParticlesProps extends ComponentPropsWithoutRef<"div"> {
   size?: number
   refresh?: boolean
   color?: string
+  colors?: string[]
   vx?: number
   vy?: number
 }
@@ -73,6 +74,7 @@ type Circle = {
   dx: number
   dy: number
   magnetism: number
+  rgb: number[]
 }
 
 export const Particles: React.FC<ParticlesProps> = ({
@@ -83,6 +85,7 @@ export const Particles: React.FC<ParticlesProps> = ({
   size = 0.4,
   refresh = false,
   color = "#ffffff",
+  colors,
   vx = 0,
   vy = 0,
   ...props
@@ -177,6 +180,12 @@ export const Particles: React.FC<ParticlesProps> = ({
     }
   }
 
+  const rgbsRef = useRef<number[][]>([])
+  if (rgbsRef.current.length === 0 && colors) {
+    rgbsRef.current = colors.map(hexToRgb)
+  }
+  const fallbackRgb = hexToRgb(color)
+
   const circleParams = (): Circle => {
     const x = Math.floor(Math.random() * canvasSize.current.w)
     const y = Math.floor(Math.random() * canvasSize.current.h)
@@ -184,10 +193,13 @@ export const Particles: React.FC<ParticlesProps> = ({
     const translateY = 0
     const pSize = Math.floor(Math.random() * 2) + size
     const alpha = 0
-    const targetAlpha = parseFloat((Math.random() * 0.6 + 0.1).toFixed(1))
+    const targetAlpha = Math.random() * 0.7 + 0.05
     const dx = (Math.random() - 0.5) * 0.1
     const dy = (Math.random() - 0.5) * 0.1
     const magnetism = 0.1 + Math.random() * 4
+    const particleRgb = rgbsRef.current.length > 0
+      ? rgbsRef.current[Math.floor(Math.random() * rgbsRef.current.length)]
+      : fallbackRgb
     return {
       x,
       y,
@@ -199,18 +211,17 @@ export const Particles: React.FC<ParticlesProps> = ({
       dx,
       dy,
       magnetism,
+      rgb: particleRgb,
     }
   }
 
-  const rgb = hexToRgb(color)
-
   const drawCircle = (circle: Circle, update = false) => {
     if (context.current) {
-      const { x, y, translateX, translateY, size, alpha } = circle
+      const { x, y, translateX, translateY, size, alpha, rgb: circleRgb } = circle
       context.current.translate(translateX, translateY)
       context.current.beginPath()
       context.current.arc(x, y, size, 0, 2 * Math.PI)
-      context.current.fillStyle = `rgba(${rgb.join(", ")}, ${alpha})`
+      context.current.fillStyle = `rgba(${circleRgb.join(", ")}, ${alpha})`
       context.current.fill()
       context.current.setTransform(dpr, 0, 0, dpr, 0, 0)
 
