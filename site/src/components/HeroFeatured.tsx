@@ -1,6 +1,6 @@
 import { NeonGradientCard } from "@/components/ui/neon-gradient-card";
 import { TextAnimate } from "@/components/ui/text-animate";
-import { BorderBeam } from "@/components/ui/border-beam";
+
 
 interface Props {
   title: string;
@@ -94,27 +94,20 @@ export default function HeroFeatured({
                 )}
               </div>
             </div>
-            {/* Play button with BorderBeam */}
-            <div className="relative flex-shrink-0">
-              <button
-                className="w-16 h-16 rounded-full border-2 border-amber/30 bg-amber/90 text-base flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-[1.08] hover:bg-amber hover:border-amber/50 max-sm:w-[52px] max-sm:h-[52px]"
-                style={{
-                  color: '#0A0A0A',
-                  boxShadow: '0 4px 24px rgba(0,0,0,0.4), 0 0 60px rgba(212,165,116,0.15)',
-                }}
-                aria-label={`Play ${title}`}
-                onClick={handlePlay}
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="ml-[3px] max-sm:w-5 max-sm:h-5">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </button>
-              <BorderBeam
-                duration={8}
-                size={60}
-                className="from-transparent via-amber to-transparent rounded-full"
-              />
-            </div>
+            {/* Play button */}
+            <button
+              className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-amber/30 bg-amber/90 text-base flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-[1.08] hover:bg-amber hover:border-amber/50 max-sm:w-[52px] max-sm:h-[52px]"
+              style={{
+                color: '#0A0A0A',
+                boxShadow: '0 4px 24px rgba(0,0,0,0.4), 0 0 60px rgba(212,165,116,0.15)',
+              }}
+              aria-label={`Play ${title}`}
+              onClick={handlePlay}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="ml-[3px] max-sm:w-5 max-sm:h-5">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
           </div>
         </NeonGradientCard>
       </a>
