@@ -36,7 +36,7 @@ export default function HeroFeatured({
           className="rounded-none border-0 min-h-[60vh] max-h-[600px]"
           borderRadius={0}
           borderSize={3}
-          neonColors={{ firstColor: "#D4A574", secondColor: "#4A7B7C" }}
+          neonColors={{ firstColor: "#D4A574", secondColor: "#8B6914" }}
         >
           {/* Background image */}
           <div

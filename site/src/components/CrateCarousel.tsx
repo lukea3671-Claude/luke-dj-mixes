@@ -181,12 +181,12 @@ export default function CrateCarousel({ mixes }: Props) {
 
                 {/* Play button on hover */}
                 <button
-                  className="absolute bottom-3 right-3 w-10 h-10 rounded-full flex items-center justify-center opacity-0 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 z-10"
+                  className="absolute bottom-3 right-3 w-10 h-10 rounded-full flex items-center justify-center opacity-0 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 z-10 hover:scale-110"
                   style={{
-                    background: 'rgba(10, 10, 10, 0.7)',
-                    backdropFilter: 'blur(4px)',
-                    color: 'var(--warm-cream)',
+                    background: 'var(--amber)',
+                    color: '#0A0A0A',
                     border: 'none',
+                    boxShadow: '0 0 16px rgba(212, 165, 116, 0.5), 0 0 40px rgba(212, 165, 116, 0.2)',
                   }}
                   onClick={(e) => handlePlay(e, mix)}
                   aria-label={`Play ${mix.title}`}

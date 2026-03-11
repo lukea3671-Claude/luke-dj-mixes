@@ -38,19 +38,20 @@ function goldenHue(n: number): number {
 }
 
 // Shift hue toward warm range (amber/sepia: ~20-50)
+// 0.75/0.25 blend keeps more variation while staying warm
 function warmShift(hue: number): number {
-  const warmTarget = 30;
-  return (hue * 0.6 + warmTarget * 0.4) % 360;
+  const warmTarget = 35;
+  return (hue * 0.75 + warmTarget * 0.25) % 360;
 }
 
 export function getMixGradient(data: MixData): string {
   if (data.bpm <= 0) {
     const hue = goldenHue(data.mixNumber);
     const warmHue = warmShift(hue);
-    const hue2 = (warmHue + 25) % 360;
+    const hue2 = (warmHue + 40) % 360;
     const angle = (data.mixNumber * 47) % 360;
-    const sat = 30 + (data.mixNumber % 4) * 5;
-    const lit = 18 + (data.mixNumber % 3) * 4;
+    const sat = 32 + (data.mixNumber % 5) * 6;
+    const lit = 18 + (data.mixNumber % 5) * 4;
     return `linear-gradient(${angle}deg, hsl(${warmHue} ${sat}% ${lit}%), hsl(${hue2} ${Math.max(sat - 8, 20)}% ${Math.max(lit - 5, 12)}%))`;
   }
 

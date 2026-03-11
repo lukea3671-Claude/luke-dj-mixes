@@ -13,44 +13,46 @@ interface Props {
 export default function MixStats({ duration, bpm, musicalKey, trackCount, fileSizeMb, isAnalyzed }: Props) {
   return (
     <MagicCard
-      className="flex flex-wrap gap-8 p-6 rounded-xl border border-border-warm my-8 max-sm:gap-4 max-sm:p-4"
+      className="rounded-xl border border-border-warm my-8"
       gradientColor="rgba(212, 165, 116, 0.05)"
     >
-      <div className="flex flex-col items-center min-w-[70px]">
-        <span className="text-2xl font-bold font-mono text-amber max-sm:text-xl">
-          {duration}
-        </span>
-        <span className="text-[0.7rem] text-muted-stone uppercase tracking-[0.08em] mt-1">Duration</span>
-      </div>
-      {isAnalyzed && (
+      <div className="flex flex-wrap justify-around gap-8 p-6 max-sm:gap-4 max-sm:p-4">
         <div className="flex flex-col items-center min-w-[70px]">
           <span className="text-2xl font-bold font-mono text-amber max-sm:text-xl">
-            <NumberTicker value={bpm} />
+            {duration}
           </span>
-          <span className="text-[0.7rem] text-muted-stone uppercase tracking-[0.08em] mt-1">BPM</span>
+          <span className="text-[0.7rem] text-muted-stone uppercase tracking-[0.08em] mt-1">Duration</span>
         </div>
-      )}
-      {isAnalyzed && (
+        {isAnalyzed && (
+          <div className="flex flex-col items-center min-w-[70px]">
+            <span className="text-2xl font-bold font-mono text-amber max-sm:text-xl">
+              <NumberTicker value={bpm} />
+            </span>
+            <span className="text-[0.7rem] text-muted-stone uppercase tracking-[0.08em] mt-1">BPM</span>
+          </div>
+        )}
+        {isAnalyzed && (
+          <div className="flex flex-col items-center min-w-[70px]">
+            <span className="text-2xl font-bold font-mono text-amber max-sm:text-xl">
+              {musicalKey}
+            </span>
+            <span className="text-[0.7rem] text-muted-stone uppercase tracking-[0.08em] mt-1">Key</span>
+          </div>
+        )}
+        {isAnalyzed && (
+          <div className="flex flex-col items-center min-w-[70px]">
+            <span className="text-2xl font-bold font-mono text-amber max-sm:text-xl">
+              <NumberTicker value={trackCount} />
+            </span>
+            <span className="text-[0.7rem] text-muted-stone uppercase tracking-[0.08em] mt-1">Tracks</span>
+          </div>
+        )}
         <div className="flex flex-col items-center min-w-[70px]">
           <span className="text-2xl font-bold font-mono text-amber max-sm:text-xl">
-            {musicalKey}
+            <NumberTicker value={Math.round(fileSizeMb)} /> MB
           </span>
-          <span className="text-[0.7rem] text-muted-stone uppercase tracking-[0.08em] mt-1">Key</span>
+          <span className="text-[0.7rem] text-muted-stone uppercase tracking-[0.08em] mt-1">Size</span>
         </div>
-      )}
-      {isAnalyzed && (
-        <div className="flex flex-col items-center min-w-[70px]">
-          <span className="text-2xl font-bold font-mono text-amber max-sm:text-xl">
-            <NumberTicker value={trackCount} />
-          </span>
-          <span className="text-[0.7rem] text-muted-stone uppercase tracking-[0.08em] mt-1">Tracks</span>
-        </div>
-      )}
-      <div className="flex flex-col items-center min-w-[70px]">
-        <span className="text-2xl font-bold font-mono text-amber max-sm:text-xl">
-          <NumberTicker value={Math.round(fileSizeMb)} /> MB
-        </span>
-        <span className="text-[0.7rem] text-muted-stone uppercase tracking-[0.08em] mt-1">Size</span>
       </div>
     </MagicCard>
   );

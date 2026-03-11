@@ -158,7 +158,7 @@ const jsonLd = {
                 <span class="track-artist">{t.artist}</span>
                 <span class="track-title">{t.title}</span>
               </div>
-              <span class="track-genre">{t.genre || ''}</span>
+              <span class="track-genre">{t.genre && t.genre !== '—' && t.genre !== '-' ? t.genre : ''}</span>
             </button>
           ))}
         </div>
