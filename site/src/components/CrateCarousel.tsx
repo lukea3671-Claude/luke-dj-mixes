@@ -150,6 +150,7 @@ export default function CrateCarousel({ mixes }: Props) {
           >
             {/* Square sleeve with MagicCard spotlight */}
             <motion.div
+              className="relative"
               variants={{
                 hover: {
                   y: -6,
@@ -179,24 +180,24 @@ export default function CrateCarousel({ mixes }: Props) {
                   #{String(mix.mixNumber).padStart(2, '0')}
                 </span>
 
-                {/* Play button on hover */}
-                <button
-                  className="absolute bottom-3 right-3 w-10 h-10 rounded-full flex items-center justify-center opacity-0 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 z-10 hover:scale-110"
-                  style={{
-                    background: 'var(--amber)',
-                    color: '#0A0A0A',
-                    border: 'none',
-                    boxShadow: '0 0 16px rgba(212, 165, 116, 0.5), 0 0 40px rgba(212, 165, 116, 0.2)',
-                  }}
-                  onClick={(e) => handlePlay(e, mix)}
-                  aria-label={`Play ${mix.title}`}
-                  tabIndex={0}
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </button>
               </MagicCard>
+              {/* Play button on hover — outside MagicCard to avoid its border glow */}
+              <button
+                className="absolute bottom-3 right-3 w-10 h-10 rounded-full flex items-center justify-center opacity-0 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 z-20 hover:scale-110"
+                style={{
+                  background: 'var(--amber)',
+                  color: '#0A0A0A',
+                  border: 'none',
+                  boxShadow: '0 0 16px rgba(212, 165, 116, 0.5), 0 0 40px rgba(212, 165, 116, 0.2)',
+                }}
+                onClick={(e) => handlePlay(e, mix)}
+                aria-label={`Play ${mix.title}`}
+                tabIndex={0}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </button>
             </motion.div>
 
             {/* Title + metadata below card */}
