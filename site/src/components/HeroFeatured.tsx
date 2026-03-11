@@ -111,12 +111,12 @@ export default function HeroFeatured({
               </button>
               {/* Circular beam — conic gradient that rotates around the button */}
               <div
-                className="absolute inset-[-4px] rounded-full pointer-events-none max-sm:inset-[-3px]"
+                className="absolute inset-[-6px] rounded-full pointer-events-none max-sm:inset-[-5px]"
                 style={{
                   animation: 'spin-beam 8s linear infinite',
                   background: 'conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(212, 165, 116, 0.7) 78%, rgba(212, 165, 116, 0.9) 82%, rgba(212, 165, 116, 0.7) 86%, transparent 100%)',
-                  mask: 'radial-gradient(circle at center, transparent calc(50% - 3px), black calc(50% - 1.5px), black calc(50% - 0.5px), transparent 50%)',
-                  WebkitMask: 'radial-gradient(circle at center, transparent calc(50% - 3px), black calc(50% - 1.5px), black calc(50% - 0.5px), transparent 50%)',
+                  mask: 'radial-gradient(circle at center, transparent calc(50% - 2.5px), black calc(50% - 1px), black 50%, transparent calc(50% + 1px))',
+                  WebkitMask: 'radial-gradient(circle at center, transparent calc(50% - 2.5px), black calc(50% - 1px), black 50%, transparent calc(50% + 1px))',
                 }}
               />
             </div>
