@@ -53,13 +53,13 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     <FilmGrain />
     <AmbientParticles client:idle />
     <TopScrollProgress client:idle />
-    <header>
-      <nav>
-        <a href="/" class="site-title">Luke's Mixes</a>
-        <div class="nav-links">
-          <a href="/collection">Collection</a>
-          <a href="/#archive">Archive</a>
-          <a href="/about">About</a>
+    <header class="border-b border-[--border] py-4 px-8 bg-[--surface] max-sm:px-4 max-sm:py-3">
+      <nav class="flex justify-between items-center max-w-[1200px] mx-auto">
+        <a href="/" class="font-heading text-2xl font-bold text-[--amber] tracking-[-0.02em] transition-[text-shadow,color] duration-200 hover:text-[--warm-cream] hover:[text-shadow:0_0_12px_var(--amber-glow)]">Luke's Mixes</a>
+        <div class="flex gap-6 max-sm:gap-4">
+          <a href="/collection" class="nav-link">Collection</a>
+          <a href="/#archive" class="nav-link">Archive</a>
+          <a href="/about" class="nav-link">About</a>
         </div>
       </nav>
     </header>
@@ -109,55 +109,22 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
 
     <div id="now-playing-announce" aria-live="polite" class="sr-only"></div>
 
-    <footer>
-      <p>Free streaming. No account needed. <a href="https://www.patreon.com/c/lukesmixes" target="_blank" rel="noopener">Support on Patreon</a></p>
+    <footer class="text-center py-8 px-4 text-[--muted-stone] text-[0.85rem] border-t border-[--border]">
+      <p>Free streaming. No account needed. <a href="https://www.patreon.com/c/lukesmixes" target="_blank" rel="noopener" class="text-[--amber] hover:text-[--warm-cream] transition-colors">Support on Patreon</a></p>
     </footer>
   </body>
 </html>
 
 <style is:global>
-  /* Header & Nav */
-  header {
-    border-bottom: 1px solid var(--border);
-    padding: 1rem 2rem;
-    background: var(--surface);
-  }
-
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .site-title {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--amber);
-    letter-spacing: -0.02em;
-    transition: text-shadow 0.2s;
-  }
-
-  .site-title:hover {
-    color: var(--warm-cream);
-    text-shadow: 0 0 12px var(--amber-glow);
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 1.5rem;
-  }
-
-  .nav-links a {
+  /* Nav link underline effect */
+  .nav-link {
     color: var(--muted-stone);
     font-size: 0.9rem;
     font-weight: 500;
     position: relative;
   }
 
-  .nav-links a::after {
+  .nav-link::after {
     content: '';
     position: absolute;
     bottom: -4px;
@@ -168,11 +135,11 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     transition: width 0.2s;
   }
 
-  .nav-links a:hover {
+  .nav-link:hover {
     color: var(--warm-cream);
   }
 
-  .nav-links a:hover::after {
+  .nav-link:hover::after {
     width: 100%;
   }
 
@@ -180,14 +147,6 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
-  }
-
-  footer {
-    text-align: center;
-    padding: 2rem;
-    color: var(--muted-stone);
-    font-size: 0.85rem;
-    border-top: 1px solid var(--border);
   }
 
   /* Player bar */
@@ -417,10 +376,6 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
   @media (max-width: 640px) {
     main {
       padding: 1rem;
-    }
-
-    header {
-      padding: 0.75rem 1rem;
     }
 
     #player-bar {

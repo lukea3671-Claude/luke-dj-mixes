@@ -84,7 +84,7 @@ export default function CrateCarousel({ mixes }: Props) {
   };
 
   return (
-    <section className="relative py-6">
+    <section className="relative py-6" role="region" aria-label="Mix collection carousel">
       <h2
         className="font-mono text-xs uppercase tracking-[0.15em] mb-4"
         style={{ color: 'var(--muted-stone)' }}
@@ -190,6 +190,7 @@ export default function CrateCarousel({ mixes }: Props) {
                   }}
                   onClick={(e) => handlePlay(e, mix)}
                   aria-label={`Play ${mix.title}`}
+                  tabIndex={0}
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M8 5v14l11-7z" />
