@@ -94,20 +94,32 @@ export default function HeroFeatured({
                 )}
               </div>
             </div>
-            {/* Play button */}
-            <button
-              className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-amber/30 bg-amber/90 text-base flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-[1.08] hover:bg-amber hover:border-amber/50 max-sm:w-[52px] max-sm:h-[52px]"
-              style={{
-                color: '#0A0A0A',
-                boxShadow: '0 4px 24px rgba(0,0,0,0.4), 0 0 60px rgba(212,165,116,0.15)',
-              }}
-              aria-label={`Play ${title}`}
-              onClick={handlePlay}
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="ml-[3px] max-sm:w-5 max-sm:h-5">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
+            {/* Play button with circular orbiting beam */}
+            <div className="relative flex-shrink-0">
+              <button
+                className="relative z-10 w-16 h-16 rounded-full border-2 border-amber/30 bg-amber/90 text-base flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-[1.08] hover:bg-amber hover:border-amber/50 max-sm:w-[52px] max-sm:h-[52px]"
+                style={{
+                  color: '#0A0A0A',
+                  boxShadow: '0 4px 24px rgba(0,0,0,0.4), 0 0 60px rgba(212,165,116,0.15)',
+                }}
+                aria-label={`Play ${title}`}
+                onClick={handlePlay}
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="ml-[3px] max-sm:w-5 max-sm:h-5">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </button>
+              {/* Circular beam — conic gradient that rotates around the button */}
+              <div
+                className="absolute inset-[-4px] rounded-full pointer-events-none max-sm:inset-[-3px]"
+                style={{
+                  animation: 'spin-beam 8s linear infinite',
+                  background: 'conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(212, 165, 116, 0.7) 78%, rgba(212, 165, 116, 0.9) 82%, rgba(212, 165, 116, 0.7) 86%, transparent 100%)',
+                  mask: 'radial-gradient(circle at center, transparent calc(50% - 3px), black calc(50% - 1.5px), black calc(50% - 0.5px), transparent 50%)',
+                  WebkitMask: 'radial-gradient(circle at center, transparent calc(50% - 3px), black calc(50% - 1.5px), black calc(50% - 0.5px), transparent 50%)',
+                }}
+              />
+            </div>
           </div>
         </NeonGradientCard>
       </a>

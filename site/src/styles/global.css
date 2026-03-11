@@ -150,6 +150,14 @@ button:focus-visible {
 }
 
 /* ============================================
+   Circular Beam Animation (Hero play button)
+   ============================================ */
+@keyframes spin-beam {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================
    Reduced Motion
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
