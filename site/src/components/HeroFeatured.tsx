@@ -109,14 +109,14 @@ export default function HeroFeatured({
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </button>
-              {/* Circular beam — conic gradient that rotates around the button */}
+              {/* Circular beam — orbits OUTSIDE the button */}
               <div
-                className="absolute inset-[-6px] rounded-full pointer-events-none max-sm:inset-[-5px]"
+                className="absolute inset-[-14px] z-20 rounded-full pointer-events-none max-sm:inset-[-11px]"
                 style={{
                   animation: 'spin-beam 8s linear infinite',
                   background: 'conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(212, 165, 116, 0.7) 78%, rgba(212, 165, 116, 0.9) 82%, rgba(212, 165, 116, 0.7) 86%, transparent 100%)',
-                  mask: 'radial-gradient(circle at center, transparent calc(50% - 2.5px), black calc(50% - 1px), black 50%, transparent calc(50% + 1px))',
-                  WebkitMask: 'radial-gradient(circle at center, transparent calc(50% - 2.5px), black calc(50% - 1px), black 50%, transparent calc(50% + 1px))',
+                  mask: 'radial-gradient(circle closest-side at center, transparent 78%, black 82%, black 88%, transparent 92%)',
+                  WebkitMask: 'radial-gradient(circle closest-side at center, transparent 78%, black 82%, black 88%, transparent 92%)',
                 }}
               />
             </div>
