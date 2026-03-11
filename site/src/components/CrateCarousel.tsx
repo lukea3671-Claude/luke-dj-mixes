@@ -163,18 +163,18 @@ export default function CrateCarousel({ mixes }: Props) {
               >
                 {!mix.isAnalyzed && (
                   <div
-                    className="absolute inset-0 bg-cover bg-center opacity-30"
+                    className="absolute inset-0 bg-cover bg-center opacity-60"
                     style={{ backgroundImage: 'url(/images/fallback-sleeve.png)' }}
                   />
                 )}
                 <div
                   className="absolute inset-0"
-                  style={{ background: mix.gradient, opacity: mix.isAnalyzed ? 1 : 0.7 }}
+                  style={{ background: mix.gradient, opacity: mix.isAnalyzed ? 1 : 0.85 }}
                 />
                 {/* Mix number ghost text */}
                 <span
                   className="absolute inset-0 flex items-center justify-center text-[5rem] font-heading font-bold select-none pointer-events-none"
-                  style={{ color: 'rgba(255, 255, 255, 0.06)' }}
+                  style={{ color: 'rgba(255, 255, 255, 0.12)' }}
                 >
                   #{String(mix.mixNumber).padStart(2, '0')}
                 </span>

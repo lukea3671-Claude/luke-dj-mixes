@@ -33,8 +33,11 @@ const allGenres = [...new Set(
 const totalMixes = mixes.length;
 const totalTracks = mixes.reduce((sum, m) => sum + m.data.trackCount, 0);
 const totalMinutes = mixes.reduce((sum, m) => {
-  const match = m.data.duration.match(/(\d+)h\s*(\d+)m/);
-  return sum + (match ? Number(match[1]) * 60 + Number(match[2]) : 0);
+  const hm = m.data.duration.match(/(\d+)h\s*(\d+)m/);
+  if (hm) return sum + Number(hm[1]) * 60 + Number(hm[2]);
+  const mOnly = m.data.duration.match(/(\d+)m/);
+  if (mOnly) return sum + Number(mOnly[1]);
+  return sum;
 }, 0);
 const totalHours = Math.round(totalMinutes / 60);
 const yearsActive = new Date().getFullYear() - 2018;

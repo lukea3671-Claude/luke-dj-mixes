@@ -26,7 +26,7 @@ export function NumberTicker({
     damping: 60,
     stiffness: 100,
   })
-  const isInView = useInView(ref, { once: true, margin: "0px" })
+  const isInView = useInView(ref, { once: true, margin: "-50px" })
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout> | null = null
@@ -61,7 +61,7 @@ export function NumberTicker({
     <span
       ref={ref}
       className={cn(
-        "inline-block tracking-wider text-black tabular-nums dark:text-white",
+        "inline-block tracking-wider tabular-nums",
         className
       )}
       {...props}

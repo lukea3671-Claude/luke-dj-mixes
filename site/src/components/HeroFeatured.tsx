@@ -30,7 +30,7 @@ export default function HeroFeatured({
   };
 
   return (
-    <section className="w-[100vw] relative left-1/2 -ml-[50vw] -mt-8">
+    <section className="w-screen -mt-8" style={{ marginLeft: 'calc(50% - 50vw)' }}>
       <a href={`/mix/${slug}/`} className="block no-underline">
         <NeonGradientCard
           className="rounded-none border-0 min-h-[60vh] max-h-[600px]"
@@ -65,11 +65,11 @@ export default function HeroFeatured({
             background: 'linear-gradient(to top, #0A0A0A 0%, rgba(10, 10, 10, 0.7) 40%, transparent 100%), linear-gradient(to right, rgba(10, 10, 10, 0.3) 0%, transparent 50%)',
           }} />
           {/* Ghost mix number */}
-          <span className="absolute right-8 top-1/2 -translate-y-1/2 font-heading text-[16rem] font-bold text-white/[0.03] select-none pointer-events-none leading-none tracking-[-0.06em] z-[1] max-sm:text-[8rem] max-sm:right-4">
+          <span className="absolute right-8 top-1/2 -translate-y-1/2 font-heading text-[16rem] font-bold text-white/[0.08] select-none pointer-events-none leading-none tracking-[-0.06em] z-[1] max-sm:text-[8rem] max-sm:right-4">
             #{String(mixNumber).padStart(2, '0')}
           </span>
           {/* Content */}
-          <div className="relative z-[2] w-full max-w-[1200px] mx-auto px-8 pb-12 pt-32 flex items-end justify-between min-h-[60vh] max-h-[600px] max-sm:px-5 max-sm:pb-8 max-sm:pt-20 max-sm:min-h-[350px]">
+          <div className="relative z-[2] w-full max-w-[1200px] mx-auto px-12 pb-12 pt-32 flex items-end justify-between min-h-[60vh] max-h-[600px] max-sm:px-5 max-sm:pb-8 max-sm:pt-20 max-sm:min-h-[350px]">
             <div className="max-w-[700px]">
               <span className="inline-block font-mono text-[0.65rem] uppercase tracking-[0.2em] text-amber mb-4 opacity-80">
                 Latest Mix
