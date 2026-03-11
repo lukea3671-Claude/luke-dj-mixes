@@ -160,19 +160,25 @@ button:focus-visible {
 /* ============================================
    Shooting Star Animation
    ============================================ */
-@keyframes shoot {
+@property --shoot-dist {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 500px;
+}
+
+@keyframes shoot-x {
   0% {
-    transform: translateX(-80px);
+    transform: translateX(0);
     opacity: 0;
   }
-  8% {
+  6% {
     opacity: 1;
   }
-  60% {
-    opacity: 0.8;
+  65% {
+    opacity: 0.7;
   }
   100% {
-    transform: translateX(500px);
+    transform: translateX(var(--shoot-dist, 500px));
     opacity: 0;
   }
 }
