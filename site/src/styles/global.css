@@ -158,6 +158,26 @@ button:focus-visible {
 }
 
 /* ============================================
+   Shooting Star Animation
+   ============================================ */
+@keyframes shoot {
+  0% {
+    transform: translateX(-80px);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(500px);
+    opacity: 0;
+  }
+}
+
+/* ============================================
    Reduced Motion
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
