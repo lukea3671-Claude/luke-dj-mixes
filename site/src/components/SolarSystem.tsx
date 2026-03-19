@@ -105,8 +105,8 @@ const PLANETS: PlanetDef[] = [
     startAngle: 5.2,
     tilt: 0.04,
     features: 'rings',
-    ringInner: 1.4,
-    ringOuter: 2.3,
+    ringInner: 1.35,
+    ringOuter: 2.6,
     moons: [
       { radius: 3, orbitRadius: 60, period: 15.95, color: [200, 190, 170] },
     ],
@@ -134,6 +134,29 @@ const PLANETS: PlanetDef[] = [
     tilt: 0.01,
   },
 ];
+
+// ── Asteroid Belt ──
+// ~200 rocks between Mars (720px) and Jupiter (1050px)
+const ASTEROID_COUNT = 200;
+const ASTEROID_BELT_INNER = 760;
+const ASTEROID_BELT_OUTER = 1000;
+const ASTEROID_BELT_PERIOD = 1680; // ~4.6 years in days (average for main belt)
+
+interface Asteroid {
+  orbitRadius: number;
+  startAngle: number;
+  size: number;       // 0.5 - 2px
+  brightness: number; // 0.3 - 0.8
+  speedVar: number;   // slight speed variation (0.85 - 1.15)
+}
+
+const ASTEROIDS: Asteroid[] = Array.from({ length: ASTEROID_COUNT }, () => ({
+  orbitRadius: ASTEROID_BELT_INNER + Math.random() * (ASTEROID_BELT_OUTER - ASTEROID_BELT_INNER),
+  startAngle: Math.random() * TWO_PI,
+  size: 0.5 + Math.random() * 1.5,
+  brightness: 0.3 + Math.random() * 0.5,
+  speedVar: 0.85 + Math.random() * 0.3,
+}));
 
 // Kepler's equation solver — mean anomaly to true anomaly
 function solveKepler(M: number, e: number): number {
@@ -170,34 +193,40 @@ function getPlanetPosition(
   return { x, y };
 }
 
-function drawSun(ctx: CanvasRenderingContext2D, sunX: number, sunY: number) {
+function drawSun(ctx: CanvasRenderingContext2D, sunX: number, sunY: number, time: number) {
   // The Sun gives all human beings life. Make it unmistakable.
 
+  // Breathing — slow, subtle brightness oscillation. The sun is alive.
+  const breathCycle = Math.sin(time * 0.4) * 0.5 + 0.5; // 0-1, ~15s cycle
+  const breathAmount = 0.92 + breathCycle * 0.08; // 0.92 - 1.0 multiplier
+
   // Far corona — warm light that reaches deep into space
+  const coronaAlpha = 0.07 * breathAmount;
   const corona = ctx.createRadialGradient(sunX, sunY, 120, sunX, sunY, 800);
-  corona.addColorStop(0, 'rgba(255, 200, 100, 0.07)');
-  corona.addColorStop(0.25, 'rgba(255, 180, 80, 0.035)');
-  corona.addColorStop(0.5, 'rgba(212, 165, 116, 0.015)');
+  corona.addColorStop(0, `rgba(255, 200, 100, ${coronaAlpha})`);
+  corona.addColorStop(0.25, `rgba(255, 180, 80, ${coronaAlpha * 0.5})`);
+  corona.addColorStop(0.5, `rgba(212, 165, 116, ${coronaAlpha * 0.2})`);
   corona.addColorStop(1, 'transparent');
   ctx.fillStyle = corona;
   ctx.fillRect(sunX - 800, sunY - 800, 1600, 1600);
 
   // Mid corona — visible warm halo
-  const mid = ctx.createRadialGradient(sunX, sunY, 100, sunX, sunY, 350);
-  mid.addColorStop(0, 'rgba(255, 230, 160, 0.25)');
-  mid.addColorStop(0.3, 'rgba(255, 210, 130, 0.12)');
-  mid.addColorStop(0.6, 'rgba(255, 190, 100, 0.05)');
+  const midAlpha = 0.25 * breathAmount;
+  const mid = ctx.createRadialGradient(sunX, sunY, 100, sunX, sunY, 350 + breathCycle * 15);
+  mid.addColorStop(0, `rgba(255, 230, 160, ${midAlpha})`);
+  mid.addColorStop(0.3, `rgba(255, 210, 130, ${midAlpha * 0.48})`);
+  mid.addColorStop(0.6, `rgba(255, 190, 100, ${midAlpha * 0.2})`);
   mid.addColorStop(1, 'transparent');
   ctx.fillStyle = mid;
   ctx.beginPath();
-  ctx.arc(sunX, sunY, 350, 0, TWO_PI);
+  ctx.arc(sunX, sunY, 350 + breathCycle * 15, 0, TWO_PI);
   ctx.fill();
 
   // Outer limb — the orange edge of the sun's disc
   const limb = ctx.createRadialGradient(sunX, sunY, 100, sunX, sunY, 180);
-  limb.addColorStop(0, 'rgba(255, 200, 100, 0.5)');
-  limb.addColorStop(0.6, 'rgba(255, 170, 60, 0.35)');
-  limb.addColorStop(0.85, 'rgba(255, 140, 40, 0.15)');
+  limb.addColorStop(0, `rgba(255, 200, 100, ${0.5 * breathAmount})`);
+  limb.addColorStop(0.6, `rgba(255, 170, 60, ${0.35 * breathAmount})`);
+  limb.addColorStop(0.85, `rgba(255, 140, 40, ${0.15 * breathAmount})`);
   limb.addColorStop(1, 'transparent');
   ctx.fillStyle = limb;
   ctx.beginPath();
@@ -205,13 +234,14 @@ function drawSun(ctx: CanvasRenderingContext2D, sunX: number, sunY: number) {
   ctx.fill();
 
   // Sun body — hot, bright, solid disc
+  const coreAlpha = 0.9 + breathCycle * 0.1; // 0.9 - 1.0
   const body = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, 130);
-  body.addColorStop(0, 'rgba(255, 255, 248, 1)');
-  body.addColorStop(0.2, 'rgba(255, 252, 235, 0.95)');
-  body.addColorStop(0.5, 'rgba(255, 240, 200, 0.85)');
-  body.addColorStop(0.75, 'rgba(255, 215, 150, 0.7)');
-  body.addColorStop(0.9, 'rgba(255, 190, 110, 0.45)');
-  body.addColorStop(1, 'rgba(255, 170, 80, 0.15)');
+  body.addColorStop(0, `rgba(255, 255, 248, ${coreAlpha})`);
+  body.addColorStop(0.2, `rgba(255, 252, 235, ${coreAlpha * 0.97})`);
+  body.addColorStop(0.5, `rgba(255, 240, 200, ${coreAlpha * 0.88})`);
+  body.addColorStop(0.75, `rgba(255, 215, 150, ${coreAlpha * 0.72})`);
+  body.addColorStop(0.9, `rgba(255, 190, 110, ${coreAlpha * 0.46})`);
+  body.addColorStop(1, `rgba(255, 170, 80, ${coreAlpha * 0.15})`);
   ctx.fillStyle = body;
   ctx.beginPath();
   ctx.arc(sunX, sunY, 130, 0, TWO_PI);
@@ -409,12 +439,14 @@ function drawSaturnRings(
     ctx.clip();
   }
 
-  // Draw multiple ring bands
+  // Draw multiple ring bands — bold enough to stop someone scrolling
   const ringBands = [
-    { inner: innerR, outer: innerR + (outerR - innerR) * 0.35, alpha: 0.35 },
-    { inner: innerR + (outerR - innerR) * 0.4, outer: innerR + (outerR - innerR) * 0.45, alpha: 0.08 }, // Cassini division
-    { inner: innerR + (outerR - innerR) * 0.48, outer: outerR * 0.9, alpha: 0.25 },
-    { inner: outerR * 0.92, outer: outerR, alpha: 0.12 },
+    { inner: innerR, outer: innerR + (outerR - innerR) * 0.18, alpha: 0.45 },       // B ring (brightest)
+    { inner: innerR + (outerR - innerR) * 0.20, outer: innerR + (outerR - innerR) * 0.34, alpha: 0.5 }, // A ring
+    { inner: innerR + (outerR - innerR) * 0.35, outer: innerR + (outerR - innerR) * 0.39, alpha: 0.06 }, // Cassini division
+    { inner: innerR + (outerR - innerR) * 0.40, outer: innerR + (outerR - innerR) * 0.58, alpha: 0.4 },  // A ring outer
+    { inner: innerR + (outerR - innerR) * 0.60, outer: innerR + (outerR - innerR) * 0.75, alpha: 0.2 },  // F ring
+    { inner: innerR + (outerR - innerR) * 0.80, outer: outerR, alpha: 0.08 },         // G ring (faint outer)
   ];
 
   ringBands.forEach(band => {
@@ -505,13 +537,31 @@ export default function SolarSystem() {
       const elapsed = (performance.now() - startTime) / 1000; // seconds
       const simDays = elapsed * DAYS_PER_SECOND;
 
-      // Draw sun glow
-      drawSun(ctx!, sunX, sunY);
+      // Draw sun glow (with breathing)
+      drawSun(ctx!, sunX, sunY, elapsed);
 
       // Draw orbital paths
       PLANETS.forEach(planet => {
         drawOrbitPath(ctx!, planet, sunX, sunY);
       });
+
+      // Draw asteroid belt
+      ctx!.save();
+      ASTEROIDS.forEach(asteroid => {
+        const period = ASTEROID_BELT_PERIOD * asteroid.speedVar;
+        const angle = (TWO_PI * simDays / period) + asteroid.startAngle;
+        const ax = sunX + asteroid.orbitRadius * Math.cos(angle);
+        const ay = sunY + asteroid.orbitRadius * Math.sin(angle) * 0.998; // nearly circular view
+
+        // Skip if off screen
+        if (ax < -5 || ax > w + 5 || ay < -5 || ay > h + 5) return;
+
+        ctx!.beginPath();
+        ctx!.arc(ax, ay, asteroid.size, 0, TWO_PI);
+        ctx!.fillStyle = `rgba(160, 148, 135, ${asteroid.brightness})`;
+        ctx!.fill();
+      });
+      ctx!.restore();
 
       // Draw planets (outer to inner so inner planets render on top)
       for (let i = PLANETS.length - 1; i >= 0; i--) {
