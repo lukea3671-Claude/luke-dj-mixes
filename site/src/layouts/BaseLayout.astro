@@ -4,6 +4,7 @@ import '../styles/global.css';
 import FilmGrain from '../components/FilmGrain.astro';
 import AmbientParticles from '../components/AmbientParticles.tsx';
 import ShootingStars from '../components/ShootingStars.tsx';
+import SolarSystem from '../components/SolarSystem.tsx';
 import TopScrollProgress from '../components/TopScrollProgress.tsx';
 
 interface Props {
@@ -51,8 +52,7 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     <ViewTransitions />
   </head>
   <body>
-    <!-- FilmGrain removed — SVG viewBox="0 0 256 256" with default preserveAspectRatio
-         created a centered square panel visible against the dark background -->
+    <SolarSystem client:idle />
     <AmbientParticles client:idle />
     <ShootingStars client:idle />
     <TopScrollProgress client:idle />
