@@ -163,7 +163,7 @@ button:focus-visible {
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
+    animation-play-state: paused !important;
     transition-duration: 0.01ms !important;
   }
 }

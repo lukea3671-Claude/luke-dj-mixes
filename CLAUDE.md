@@ -112,6 +112,17 @@ Analysis Reports (JSON)  →  Content Scripts (Python)  →  Astro Content Colle
 - After completing work, consider running `/post-build-review` to capture learnings.
 - Luke's mixes tell stories — liner notes should analyze the emotional journey, not just list tracks.
 
+## Self-Verification Rule (NON-NEGOTIABLE)
+
+**Every change MUST be self-verified before presenting to Luke.**
+
+1. After any visual/UI change: build, deploy, and check it yourself using browser tools (screenshot, zoom, inspect).
+2. NEVER say "refresh and check" or "take a look" unless YOU have already verified the result looks correct.
+3. If browser tools are unavailable: explicitly tell Luke "I can't verify this visually right now" — do NOT ask him to check on your behalf.
+4. If verification reveals an issue: fix it before presenting. Luke should see finished work, not half-fixes.
+
+This applies to every change, every deploy, every session. No exceptions.
+
 ---
 
 *Last updated: 2026-02-15*

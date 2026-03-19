@@ -7,7 +7,7 @@ interface Props {
 export default function GenreMarquee({ genres }: Props) {
   return (
     <div className="relative py-4 overflow-hidden">
-      <Marquee pauseOnHover className="[--duration:30s] [--gap:0.75rem]">
+      <Marquee pauseOnHover className="[--duration:60s] [--gap:0.75rem]">
         {genres.map((genre, i) => (
           <span
             key={`${genre}-${i}`}

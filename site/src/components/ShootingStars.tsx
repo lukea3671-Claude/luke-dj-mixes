@@ -127,9 +127,9 @@ export default function ShootingStars() {
     resize();
     window.addEventListener('resize', resize);
 
-    // Spawn timer: one meteor every ~15 minutes (900s), with some variance (12-18 min)
+    // Spawn timer: one meteor every ~2 minutes, with variance (90-150s)
     function scheduleSpawn() {
-      const delay = (720 + Math.random() * 360) * 1000; // 12-18 minutes
+      const delay = (90 + Math.random() * 60) * 1000; // 90-150 seconds
       return setTimeout(() => {
         if (w > 0 && h > 0) {
           meteors.push(spawnMeteor(w, h));
@@ -138,13 +138,13 @@ export default function ShootingStars() {
       }, delay);
     }
 
-    // First meteor after 20-90 seconds (so you see one relatively soon on page load)
+    // First meteor after 5-20 seconds
     let spawnTimer = setTimeout(() => {
       if (w > 0 && h > 0) {
         meteors.push(spawnMeteor(w, h));
       }
       spawnTimer = scheduleSpawn();
-    }, (20 + Math.random() * 70) * 1000);
+    }, (5 + Math.random() * 15) * 1000);
 
     function render() {
       const now = performance.now() / 1000;

@@ -51,11 +51,12 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     <ViewTransitions />
   </head>
   <body>
-    <FilmGrain />
+    <!-- FilmGrain removed — SVG viewBox="0 0 256 256" with default preserveAspectRatio
+         created a centered square panel visible against the dark background -->
     <AmbientParticles client:idle />
     <ShootingStars client:idle />
     <TopScrollProgress client:idle />
-    <header class="border-b border-[--border] py-4 px-8 bg-[--surface] max-sm:px-4 max-sm:py-3">
+    <header class="border-b border-[--border] py-4 px-8 bg-[var(--surface)] max-sm:px-4 max-sm:py-3">
       <nav class="flex justify-between items-center max-w-[1200px] mx-auto">
         <a href="/" class="font-heading text-2xl font-bold text-[--amber] tracking-[-0.02em] transition-[text-shadow,color] duration-200 hover:text-[--warm-cream] hover:[text-shadow:0_0_12px_var(--amber-glow)]">Luke's Mixes</a>
         <div class="flex gap-6 max-sm:gap-4">
@@ -66,14 +67,43 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
       </nav>
     </header>
 
+    <slot name="hero" />
     <main>
       <slot />
     </main>
 
     <div id="player-bar" transition:persist>
+      <!-- Expanded vinyl panel -->
+      <div class="player-expanded" id="player-expanded">
+        <div class="expanded-inner">
+          <div class="expanded-vinyl-area">
+            <div class="vinyl-disc large" id="vinyl-large">
+              <div class="vinyl-grooves"></div>
+              <div class="vinyl-label" id="vinyl-label-large"></div>
+              <div class="vinyl-reflection"></div>
+            </div>
+            <div class="tonearm" id="tonearm" style="--progress: 0"></div>
+          </div>
+          <div class="expanded-info">
+            <div class="expanded-meta">
+              <span class="expanded-now-playing">Now Playing</span>
+              <span class="expanded-title" id="expanded-title"></span>
+              <span class="expanded-track" id="expanded-track"></span>
+            </div>
+            <button class="expand-toggle" id="player-collapse" aria-label="Collapse player">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Compact bar -->
       <div class="player-inner">
         <div class="player-info">
-          <div class="player-gradient-thumb" id="player-thumb"></div>
+          <div class="vinyl-disc mini" id="vinyl-mini" role="button" tabindex="0" aria-label="Expand player">
+            <div class="vinyl-grooves"></div>
+            <div class="vinyl-label" id="vinyl-label-mini"></div>
+            <div class="vinyl-reflection"></div>
+          </div>
           <div class="player-text">
             <span id="player-title">No mix loaded</span>
             <span id="player-track" class="player-track-name"></span>
@@ -161,11 +191,9 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
     border-top: 1px solid var(--glass-border);
-    padding: 0 1.5rem;
     z-index: 100;
-    height: var(--player-height);
     display: flex;
-    align-items: center;
+    flex-direction: column;
     transition: border-color 0.3s, box-shadow 0.3s;
   }
 
@@ -181,6 +209,8 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+    height: var(--player-height);
+    padding: 0 1.5rem;
   }
 
   .player-info {
@@ -191,13 +221,264 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     overflow: hidden;
   }
 
-  .player-gradient-thumb {
-    width: 40px;
-    height: 40px;
-    border-radius: 6px;
-    background: var(--surface);
+  /* ── Vinyl Disc ── */
+  .vinyl-disc {
+    border-radius: 50%;
+    position: relative;
+    background: #111;
     flex-shrink: 0;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.06),
+      0 2px 12px rgba(0,0,0,0.5);
+  }
+
+  .vinyl-disc.mini {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+  }
+
+  .vinyl-disc.mini:hover {
+    box-shadow:
+      0 0 0 1px rgba(212,165,116,0.3),
+      0 0 16px rgba(212,165,116,0.15);
+  }
+
+  .vinyl-disc.large {
+    width: 160px;
+    height: 160px;
+  }
+
+  .vinyl-disc.spinning {
+    animation: vinyl-spin 1.8s linear infinite;
+  }
+
+  .vinyl-disc:not(.spinning) {
+    animation: vinyl-spin 1.8s linear infinite paused;
+  }
+
+  .vinyl-grooves {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background:
+      repeating-radial-gradient(
+        circle at center,
+        transparent 0px,
+        transparent 2px,
+        rgba(255,255,255,0.035) 2.5px,
+        transparent 3px
+      );
+  }
+
+  .vinyl-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: var(--surface);
     transition: background 0.3s;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.08),
+      inset 0 1px 2px rgba(0,0,0,0.3);
+  }
+
+  .vinyl-disc.mini .vinyl-label {
+    width: 20px;
+    height: 20px;
+  }
+
+  .vinyl-disc.large .vinyl-label {
+    width: 56px;
+    height: 56px;
+  }
+
+  /* Center spindle hole */
+  .vinyl-label::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: #0A0A0A;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
+  }
+
+  .vinyl-disc.mini .vinyl-label::after {
+    width: 5px;
+    height: 5px;
+  }
+
+  .vinyl-disc.large .vinyl-label::after {
+    width: 10px;
+    height: 10px;
+  }
+
+  /* Light reflection sweep */
+  .vinyl-reflection {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(
+      135deg,
+      rgba(255,255,255,0.1) 0%,
+      transparent 35%,
+      transparent 65%,
+      rgba(255,255,255,0.04) 100%
+    );
+    pointer-events: none;
+  }
+
+  @keyframes vinyl-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* ── Expanded Panel ── */
+  .player-expanded {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.2, 0, 0.2, 1),
+                padding 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+    padding: 0 1.5rem;
+  }
+
+  .player-expanded.open {
+    max-height: 260px;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .expanded-inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .expanded-vinyl-area {
+    position: relative;
+    width: 200px;
+    height: 170px;
+    flex-shrink: 0;
+  }
+
+  .expanded-vinyl-area .vinyl-disc.large {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  /* ── Tonearm ── */
+  .tonearm {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    width: 3px;
+    height: 100px;
+    background: linear-gradient(to bottom, #9a8e82 0%, #7a6e62 60%, #6a5e52 100%);
+    border-radius: 1.5px;
+    transform-origin: center 6px;
+    transform: rotate(calc(16deg + var(--progress, 0) * 22deg));
+    transition: transform 1s ease-out;
+  }
+
+  /* Pivot base */
+  .tonearm::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #5a5048, #3a3430);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* Cartridge/head */
+  .tonearm::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 7px;
+    height: 10px;
+    background: linear-gradient(to bottom, #D4A574, #b8926a);
+    border-radius: 1px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.6), 0 0 4px rgba(212,165,116,0.3);
+  }
+
+  .expanded-info {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    min-width: 0;
+  }
+
+  .expanded-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 0;
+  }
+
+  .expanded-now-playing {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--amber);
+    opacity: 0.8;
+  }
+
+  .expanded-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--warm-cream);
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .expanded-track {
+    font-size: 0.85rem;
+    color: var(--muted-stone);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .expand-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted-stone);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+  }
+
+  .expand-toggle:hover {
+    border-color: var(--amber);
+    color: var(--amber);
   }
 
   .player-text {
@@ -394,7 +675,17 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
       max-width: 140px;
     }
 
-    .player-gradient-thumb {
+    .vinyl-disc.mini {
+      width: 38px;
+      height: 38px;
+    }
+
+    .vinyl-disc.mini .vinyl-label {
+      width: 16px;
+      height: 16px;
+    }
+
+    .player-expanded {
       display: none;
     }
 
@@ -444,6 +735,17 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     const pauseIcon = playBtn?.querySelector('.pause-icon') as HTMLElement;
     const announce = document.getElementById('now-playing-announce');
 
+    // Vinyl elements
+    const vinylMini = document.getElementById('vinyl-mini');
+    const vinylLarge = document.getElementById('vinyl-large');
+    const vinylLabelMini = document.getElementById('vinyl-label-mini');
+    const vinylLabelLarge = document.getElementById('vinyl-label-large');
+    const tonearm = document.getElementById('tonearm');
+    const expandedPanel = document.getElementById('player-expanded');
+    const collapseBtn = document.getElementById('player-collapse');
+    const expandedTitle = document.getElementById('expanded-title');
+    const expandedTrack = document.getElementById('expanded-track');
+
     if (!audio || !playBtn) return;
 
     function formatTime(s: number): string {
@@ -455,10 +757,50 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
       return `${m}:${sec.toString().padStart(2, '0')}`;
     }
 
+    // Vinyl spin control
+    function setVinylSpin(spinning: boolean) {
+      [vinylMini, vinylLarge].forEach(v => {
+        if (!v) return;
+        if (spinning) {
+          v.classList.add('spinning');
+        } else {
+          v.classList.remove('spinning');
+        }
+      });
+    }
+
+    // Expand/collapse
+    function toggleExpanded(open?: boolean) {
+      if (!expandedPanel) return;
+      const isOpen = open !== undefined ? open : !expandedPanel.classList.contains('open');
+      expandedPanel.classList.toggle('open', isOpen);
+      try { sessionStorage.setItem('player-expanded', String(isOpen)); } catch {}
+    }
+
+    // Restore expanded state
+    try {
+      if (sessionStorage.getItem('player-expanded') === 'true' && audio.src) {
+        expandedPanel?.classList.add('open');
+      }
+    } catch {}
+
+    // Click mini vinyl to expand
+    vinylMini?.addEventListener('click', () => {
+      if (!audio.src) return;
+      toggleExpanded();
+    });
+    vinylMini?.addEventListener('keydown', (e) => {
+      if ((e as KeyboardEvent).key === 'Enter' && audio.src) toggleExpanded();
+    });
+
+    // Collapse button
+    collapseBtn?.addEventListener('click', () => toggleExpanded(false));
+
     function showPlayState(playing: boolean) {
       if (playIcon) playIcon.style.display = playing ? 'none' : '';
       if (pauseIcon) pauseIcon.style.display = playing ? '' : 'none';
       playBtn.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+      setVinylSpin(playing);
     }
 
     playBtn.addEventListener('click', () => {
@@ -479,19 +821,30 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     audio.addEventListener('timeupdate', () => {
       currentEl.textContent = formatTime(audio.currentTime);
       if (audio.duration) {
-        seekBar.value = String((audio.currentTime / audio.duration) * 100);
+        const progress = audio.currentTime / audio.duration;
+        seekBar.value = String(progress * 100);
+
+        // Tonearm follows playback progress
+        if (tonearm) {
+          tonearm.style.setProperty('--progress', String(progress));
+        }
       }
 
       // Current track detection
       const tracks: Array<{seconds: number, name: string}> = (window as any).__mixTracks || [];
-      if (trackEl && tracks.length > 0) {
+      if (tracks.length > 0) {
         let currentTrack = tracks[0];
         for (const t of tracks) {
           if (t.seconds <= audio.currentTime) currentTrack = t;
           else break;
         }
-        if (currentTrack && trackEl.textContent !== currentTrack.name) {
-          trackEl.textContent = currentTrack.name;
+        if (currentTrack) {
+          if (trackEl && trackEl.textContent !== currentTrack.name) {
+            trackEl.textContent = currentTrack.name;
+          }
+          if (expandedTrack && expandedTrack.textContent !== currentTrack.name) {
+            expandedTrack.textContent = currentTrack.name;
+          }
         }
       }
     });
@@ -583,10 +936,20 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
 
       (window as any).__mixTracks = tracks || [];
 
-      const thumb = document.getElementById('player-thumb');
-      if (thumb && gradient) thumb.style.background = gradient;
+      // Update vinyl labels with mix gradient
+      [vinylLabelMini, vinylLabelLarge].forEach(label => {
+        if (label && gradient) label.style.background = gradient;
+      });
+
+      // Update expanded panel info
+      if (expandedTitle) expandedTitle.textContent = title;
+      if (expandedTrack) expandedTrack.textContent = '';
+
       if (trackEl) trackEl.textContent = '';
       if (announce) announce.textContent = 'Now playing: ' + title;
+
+      // Reset tonearm
+      if (tonearm) tonearm.style.setProperty('--progress', '0');
 
       if ('mediaSession' in navigator) {
         navigator.mediaSession.metadata = new MediaMetadata({

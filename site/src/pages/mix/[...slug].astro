@@ -85,15 +85,11 @@ const jsonLd = {
 
 <BaseLayout title={data.title} description={desc} ogType="music.song" ogAudio={audioUrl} jsonLd={jsonLd}>
   <article class="mix-page">
-    <!-- Cover Art Header -->
+    <!-- Mix Header — sits on the universe (stars/particles visible behind) -->
     <div class="mix-header">
-      <div class="mix-header-gradient" style={`background: ${gradient};`}>
-        <div class="mix-header-grain"></div>
-        <div class="mix-header-leak"></div>
-      </div>
       <div class="mix-header-content">
         <a href="/" class="back-link">&larr; Back to crate</a>
-        <h1>{data.title}</h1>
+        <h1 style={`view-transition-name: mix-title-${slug};`}>{data.title}</h1>
         <p class="mix-date">{data.date}</p>
         <button
           class="play-button"
@@ -180,43 +176,16 @@ const jsonLd = {
 <style>
   .mix-page {
     max-width: 900px;
+    margin: 0 auto;
   }
 
-  /* Cover Art Header */
+  /* Mix Header */
   .mix-header {
-    position: relative;
-    margin: -2rem -2rem 2rem -2rem;
-    padding: 3rem 2rem 2rem;
-    overflow: hidden;
-  }
-
-  .mix-header-gradient {
-    position: absolute;
-    inset: 0;
-    opacity: 0.6;
-    mask-image: linear-gradient(to bottom, black 40%, transparent);
-    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent);
-  }
-
-  .mix-header-grain {
-    position: absolute;
-    inset: 0;
-    opacity: 0.08;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-size: 256px;
-    pointer-events: none;
-  }
-
-  .mix-header-leak {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 80% 20%, rgba(212, 165, 116, 0.06) 0%, transparent 50%);
-    pointer-events: none;
+    padding: 1rem 0 2rem;
   }
 
   .mix-header-content {
     position: relative;
-    z-index: 1;
   }
 
   .back-link {
@@ -476,8 +445,7 @@ const jsonLd = {
   /* Responsive */
   @media (max-width: 640px) {
     .mix-header {
-      margin: -1rem -1rem 1.5rem -1rem;
-      padding: 2rem 1rem 1.5rem;
+      padding: 0.5rem 0 1.5rem;
     }
 
     .mix-header h1 {

@@ -1,5 +1,4 @@
 import { NumberTicker } from "@/components/ui/number-ticker";
-import { MagicCard } from "@/components/ui/magic-card";
 
 interface Props {
   duration: string;
@@ -12,9 +11,12 @@ interface Props {
 
 export default function MixStats({ duration, bpm, musicalKey, trackCount, fileSizeMb, isAnalyzed }: Props) {
   return (
-    <MagicCard
-      className="rounded-xl border border-border-warm my-8"
-      gradientColor="rgba(212, 165, 116, 0.05)"
+    <div
+      className="rounded-xl my-8"
+      style={{
+        background: 'var(--surface)',
+        border: '1px solid var(--border)',
+      }}
     >
       <div className="flex flex-wrap justify-around gap-8 p-6 max-sm:gap-4 max-sm:p-4">
         <div className="flex flex-col items-center min-w-[70px]">
@@ -54,6 +56,6 @@ export default function MixStats({ duration, bpm, musicalKey, trackCount, fileSi
           <span className="text-[0.7rem] text-muted-stone uppercase tracking-[0.08em] mt-1">Size</span>
         </div>
       </div>
-    </MagicCard>
+    </div>
   );
 }

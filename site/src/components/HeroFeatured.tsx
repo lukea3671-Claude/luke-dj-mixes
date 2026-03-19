@@ -30,12 +30,12 @@ export default function HeroFeatured({
   };
 
   return (
-    <section className="w-screen -mt-8" style={{ marginLeft: 'calc(50% - 50vw)' }}>
+    <section className="w-full">
       <a href={`/mix/${slug}/`} className="block no-underline">
         <NeonGradientCard
           className="rounded-none border-0 min-h-[60vh] max-h-[600px]"
           borderRadius={0}
-          borderSize={3}
+          borderSize={0}
           neonColors={{ firstColor: "#D4A574", secondColor: "#8B6914" }}
         >
           {/* Background image */}
@@ -46,7 +46,7 @@ export default function HeroFeatured({
           {/* Gradient overlay for depth */}
           <div
             className="absolute inset-0"
-            style={{ background: gradient, opacity: 0.4 }}
+            style={{ background: gradient, opacity: 0.4, viewTransitionName: `mix-gradient-${slug}` }}
           />
           {/* Film grain overlay */}
           <div
@@ -113,7 +113,7 @@ export default function HeroFeatured({
               <div
                 className="absolute inset-[-14px] z-20 rounded-full pointer-events-none max-sm:inset-[-11px]"
                 style={{
-                  animation: 'spin-beam 8s linear infinite',
+                  animation: 'spin-beam 20s linear infinite',
                   background: 'conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(212, 165, 116, 0.7) 78%, rgba(212, 165, 116, 0.9) 82%, rgba(212, 165, 116, 0.7) 86%, transparent 100%)',
                   mask: 'radial-gradient(circle closest-side at center, transparent 78%, black 82%, black 88%, transparent 92%)',
                   WebkitMask: 'radial-gradient(circle closest-side at center, transparent 78%, black 82%, black 88%, transparent 92%)',
