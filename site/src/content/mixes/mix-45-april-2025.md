@@ -92,7 +92,7 @@ energyMax: 0.53
 
 ## Liner Notes
 
-Something changes in Mix 45. The energy rises to 0.19 — the highest since Mix 30, a full fourteen mixes ago. The max energy peaks at 0.53, matching the levels of much earlier, louder eras. Trance appears as a genre for the first time in this final stretch, claiming six of forty-six tracks — fifteen percent of the session. After a year of quiet, the archive begins to remember what it sounds like at volume.
+Something changes. The energy rises — the highest since Mix 30, fourteen chapters ago. The peaks match levels from much earlier, louder eras. Trance appears as a genre for the first time in this final stretch, claiming six of forty-six tracks — fifteen percent of the session. After a year of quiet, the archive begins to remember what it sounds like at volume.
 
 Vintage Culture and Roddy Lima's "Analog Ascent" opens the mix with a title that doubles as a manifesto. Analog. Ascent. The climb begins from the first beat. Frank Ocean's "Lost" follows at three minutes — first in a Gabss and Vintage Culture remix, then the original, then another remixed version. It's the triple-version technique the DJ has refined across the last several mixes, but applied to Frank Ocean it produces something unexpected: a pop-R&B vocal deconstructed and rebuilt by house producers, then heard in its original form as if for the first time.
 

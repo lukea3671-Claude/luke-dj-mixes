@@ -84,7 +84,7 @@ energyMax: 0.46
 
 ## Liner Notes
 
-Mix 44 is the most globally minded session in the archive. Afro-beat appears twice. Latino appears twice. A singer-songwriter closes the session. The genre count is nine across thirty-five tracks — a diversity that would have been unimaginable in the early eras, when Dance and Pop dominated and everything else was incidental. The world the DJ listens to has expanded visibly.
+The most globally minded session in the archive. Afro-beat appears twice. Latino appears twice. A singer-songwriter closes the session. The genre count is nine across thirty-five tracks — a diversity that would have been unimaginable in the early eras, when Dance and Pop dominated and everything else was incidental. The world the DJ listens to has expanded visibly.
 
 Elderbrook and Shimza's "Places" opens the mix — an Afro-house edit that sets the geographical scope immediately. By three minutes, DJ L3XIS has deepened the African influence with "Holy Ghost (Afro House)." Notre Dame's "Emowe" follows at five. The first ten minutes alone touch three continents' worth of dance music production, and none of it feels forced or tokenistic. These are simply the records that spoke to the DJ in March 2025. The palette is wide because the listening is wide.
 
