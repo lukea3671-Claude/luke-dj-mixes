@@ -96,7 +96,7 @@ energyMax: 0.53
 
 ## Liner Notes
 
-Fifty tracks in seventy-three minutes. Mix 40 is the most densely packed session since the consolidation era — a track every eighty-seven seconds on average. The genre breakdown tells the story: sixty-seven percent Dance, the highest concentration in the final era. After Mix 39's hip-hop detour, the DJ has returned to the dance floor with renewed purpose.
+Fifty tracks in seventy-three minutes — the most densely packed session since the consolidation era, a track every eighty-seven seconds on average. Dance music at sixty-seven percent, the highest concentration in the final era. After Mix 39's hip-hop detour, the DJ has returned to the dance floor with renewed purpose.
 
 The Blessed Madonna and Kylie Minogue open the proceedings at four minutes with "Edge of Saturday Night" — two legends of their respective worlds meeting in a track that sounds exactly like its title feels. Sabrina Carpenter's "Espresso" arrives at ten minutes in a James Hype remix, followed immediately by Shouse's "Love Tonight" and Tina Arena's "Chains." Australian voices keep threading through the mix — a quiet national identity that the archive has always carried but rarely announced. RUFUS DU SOL's "Lately" in an Adam Ten and Mita Gami remix at twenty-one minutes deepens the thread. The archive's most persistent artist, here in a remix that strips their anthemic tendencies to something more intimate, more nocturnal.
 

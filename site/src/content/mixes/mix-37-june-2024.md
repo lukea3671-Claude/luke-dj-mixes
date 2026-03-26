@@ -95,7 +95,7 @@ energyMax: 0.48
 
 ## Liner Notes
 
-Forty-six tracks in sixty-three minutes. Mix 37 is the first chapter of a new era, though you wouldn't know it by feeling alone. The energy sits at 0.15 — identical to the mixes on either side of it — but the character has shifted. Where Mix 36 was ascetic, pared to nineteen tracks across fifty-one minutes, Mix 37 packs more than twice the selections into a similar runtime. The restraint is still there, but the approach has changed. This is someone who has learned economy and is now applying it at speed.
+Forty-six tracks in sixty-three minutes. Mix 37 is the first chapter of a new era, though you wouldn't know it by feeling alone. The energy sits low — identical to the mixes on either side of it — but the character has shifted. Where Mix 36 was ascetic, pared to nineteen tracks across fifty-one minutes, Mix 37 packs more than twice the selections into a similar runtime. The restraint is still there, but the approach has changed. This is someone who has learned economy and is now applying it at speed.
 
 The opening minute announces the shift. The Outfield's "Your Love" — a 1986 rock staple — arrives via a Diplo remix, and before the memory of it fades, Sharam's "PATT (Party All the Time)" crashes in through a triple-threat remix from Adam Beyer, Layton Giordani, and Green Velvet. Then Eddie Murphy's original "Party All the Time" flashes across the deck for fifteen seconds. It's a joke, a wink, a palate cleanser — the kind of playful juxtaposition that the early marathon mixes attempted through sheer volume but that now lands with surgical timing.
 
@@ -109,4 +109,6 @@ Jennifer Lopez's "Waiting for Tonight" at forty-seven minutes connects the mix t
 
 Gigi D'Agostino's "Bla Bla Bla" at fifty minutes, Bob Sinclar's "World Hold On" at sixty — the late stretch reads like a roll call of festival-closing anthems, the songs that make a crowd of strangers feel like a temporary family. The energy is still low on the meter, but the selections carry their own momentum. These are records with decades of dance-floor memory baked into their grooves.
 
-And then, at the very end, the last track listed: Andy Compton, "That Acid Track." The archive's most-played record, sixteen mixes deep by now, still closing out sessions the way it has since Mix 02. It sits at 63:15 like a signature at the bottom of a letter. Some things don't need to change. Some things are the point.
+Robin S.'s "Show Me Love" at 1:03:00 threads the archive's diva house lineage from Mix 04 through Mix 06 to here. And Robin S. and Jennifer Lopez and Gigi D'Agostino and Bob Sinclar — these are artists whose records carry decades of dancefloor memory in their grooves. Even in the quiet era, they generate their own warmth.
+
+The mix's final entry: Andy Compton's "That Acid Track" at 1:03:15, like a signature at the bottom of a letter. The archive's most-played record, still doing its work. Some things don't need to change. Some things are the point.

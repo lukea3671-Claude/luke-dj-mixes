@@ -77,7 +77,7 @@ energyMax: 0.44
 
 ## Liner Notes
 
-Mix 42 opens with Charlie Jeer's "Her Eyes" — a piece of ambient electronic that sets the temperature before a single beat has dropped. The energy ticks up to 0.16, barely perceptible as a change, but the tracklist carries a weight and atmosphere that distinguishes it from the mixes on either side. Thirty-one tracks in sixty-three minutes. The key of F. A mix that sounds like late November feels.
+Charlie Jeer's "Her Eyes" opens with ambient electronic that sets the temperature before a single beat has dropped. The energy barely ticks above its neighbours, but the tracklist carries a weight and atmosphere that distinguishes this session from everything on either side. Thirty-one tracks in sixty-three minutes. The key of F. A mix that sounds like late November feels.
 
 Andy Compton's "That Acid Track" appears at six minutes, and this is the last time it will be heard in the archive. Sixteen mixes since Mix 02 — the most-played track in the entire collection, a deep house constant that has outlasted eras, survived the quiet turn, persisted through every shift in taste and tempo. Its final appearance comes early, almost casually, sandwiched between Carlita's "Forever Baby" and Duke Dumont's "All My Life." There's no ceremony. The DJ doesn't mark endings; they simply move on to the next record.
 

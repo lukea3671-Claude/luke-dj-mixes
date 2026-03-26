@@ -96,7 +96,7 @@ energyMax: 0.5
 
 ## Liner Notes
 
-Mix 39 is the archive's hip-hop record. For the first time in forty-six mixes, Hip-Hop/Rap is the leading genre — ten of forty-one tracks, a quarter of the entire session. The BPM drops to 123. The key shifts to A. The energy holds at 0.15 but the character is fundamentally different from anything that has come before. This is the DJ stepping outside the house they've built and discovering there was always a neighbourhood.
+The archive's hip-hop record. For the first time in forty-six mixes, Hip-Hop/Rap leads the genre breakdown — ten of forty-one tracks, a quarter of the entire session. The BPM drops to 123, the key shifts to A, and the character is fundamentally different from anything that has come before. This is the DJ stepping outside the house they've built and discovering there was always a neighbourhood.
 
 The opening is delicate. Kina's "Get You The Moon" — indie pop, feather-light, almost fragile — sets a tone the mix will immediately complicate. By six minutes, Hackler and Kuch's "Special K" is hammering techno into the speakers, and by eight minutes Aaron May is rapping "I'm Good Luv, Enjoy" over a completely different tempo and texture. The mix isn't blending these worlds so much as placing them in the same room and letting them negotiate their own coexistence.
 

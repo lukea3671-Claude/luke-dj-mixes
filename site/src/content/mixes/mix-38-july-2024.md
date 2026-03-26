@@ -85,7 +85,7 @@ energyMax: 0.48
 
 ## Liner Notes
 
-Mix 38 is the shortest mix in this final era at fifty-one minutes, and it carries the kind of quiet confidence that only comes from knowing exactly when to stop. Thirty-nine tracks, a key of G, the same 129.2 BPM that has anchored the archive's dance-floor centre for years. The numbers describe efficiency. The listening experience describes something closer to intimacy.
+The shortest mix of the final era. Fifty-one minutes, and it carries the kind of quiet confidence that only comes from knowing exactly when to stop. Thirty-nine tracks, a key of G, the same 129.2 BPM that has anchored the archive's dance-floor centre for years. The numbers describe efficiency. The listening experience describes something closer to intimacy.
 
 The opening three tracks establish a pattern the mix will follow throughout: Quarterhead and SESA's "You Will See" gives way to ROBN's remix of "Little Things," which dissolves into Jorja Smith singing the same song mashed against Crystal Waters' "Gypsy Woman." The DJ is layering recognitions, placing familiar voices inside unfamiliar arrangements, trusting that the listener's memory will do half the work. This is a technique that would have been impossible in Mix 01, when everything was new and the instinct was to let each track announce itself. By Mix 38, the archive has enough history that a reference can land sideways.
 
