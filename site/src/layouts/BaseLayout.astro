@@ -954,8 +954,11 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
       if ('mediaSession' in navigator) {
         navigator.mediaSession.metadata = new MediaMetadata({
           title: title,
-          artist: 'Luke Anderson',
+          artist: 'Luke Allan',
           album: "Luke's Mixes",
+          artwork: [
+            { src: '/images/hero-bg.png', sizes: '512x512', type: 'image/png' },
+          ],
         });
       }
     };

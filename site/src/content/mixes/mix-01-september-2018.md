@@ -41,32 +41,9 @@ audioFile: https://pub-62caaf6ac9934395aecdbd0b909cfe24.r2.dev/audio/01.%20Mix_S
 peaksFile: /audio/mix-01-september-2018-peaks.json
 fileSizeMb: 206.6
 energyMean: 0.22
+coverImage: /covers/mix-01-cover.png
 energyMax: 0.7
 ---
-
-## Energy Flow
-
-This mix maintains a remarkably consistent energy throughout — a marathon groove that never lets up.
-
-### Key Moments
-
-- **2:12:00** — Peak energy (0.37): Anne-Marie — 2002 (KREAM Remix)
-- **1:27:30** — Energy surge (0.36): Martin Garrix — Ocean (feat. Khalid) [Don Diablo Remix]
-- **2:30** — Breather (0.06): Pyramid — Cole’s Memories
-- **3:10** — Biggest shift ↑: Pyramid — Cole’s Memories
-
-### Arc
-
-| Segment | Time | Energy | Level |
-|---------|------|--------|-------|
-| 1 | 0:00–28:12 | ███░░░░░░░ | moderate |
-| 2 | 28:12–56:25 | ██░░░░░░░░ | moderate |
-| 3 | 56:25–1:24:37 | ███░░░░░░░ | moderate |
-| 4 | 1:24:37–1:52:50 | ███░░░░░░░ | energetic |
-| 5 | 1:52:50–2:21:02 | ███░░░░░░░ | moderate |
-| 6 | 2:21:02–2:49:15 | ███░░░░░░░ | moderate |
-| 7 | 2:49:15–3:17:27 | ███░░░░░░░ | energetic |
-| 8 | 3:17:27–3:45:40 | ███░░░░░░░ | energetic |
 
 ## Track Listing
 
@@ -167,32 +144,20 @@ This mix maintains a remarkably consistent energy throughout — a marathon groo
 
 ## Liner Notes
 
-This is where it all started — 90 tracks across nearly four hours, and from the very first seconds, you can hear this isn't just a playlist on shuffle.
+This is where it begins. Three hours and forty-five minutes of someone who has just discovered that mixing records is something they need to do, and who isn't yet ready to stop doing it. Mix 01 is not a set — it's a declaration. Ninety tracks, no intermission, no obvious plan. Just a person alone with their decks and a compulsion to keep going.
 
-### The Opening Statement
+The opening is telling. Pyramid's "Cole's Memories" is a soundtrack piece — cinematic, almost orchestral. It's the overture to something larger than a DJ mix. Within seven minutes, Kölsch's "Grey" slides in, and then Bicep's "Glue" arrives at track three. That placement matters. "Glue" will echo through thirteen more mixes over the next five years. It isn't just a track in this mix — it's the foundation stone. The moment the needle finds the groove that everything else will orbit around.
 
-The mix begins with Pyramid's "Cole's Memories" — a soundtrack piece, not a dance track. It's a deliberate choice: before any beat drops, you're being told that this is a story, not just a set. Kölsch's "Grey" follows — one of the most emotionally textured electronic tracks of its era — before Bicep's "Glue" locks in the first real groove. Three tracks in and the thesis is already clear: feeling first, dancefloor second.
+What strikes you about the first hour is how fearlessly it crosses boundaries. Drake's "God's Plan" sits comfortably between Kölsch's melodic techno and Selena Gomez's pop. Calvin Harris and Sam Smith's "Promises" shares space with Phil K's deep electronica. This isn't genre confusion — it's the absence of genre anxiety. The DJ hasn't yet learned to separate their personal music taste from their mixing identity, and the result is more honest for it. You hear everything this person listens to when nobody's watching.
 
-### The Cultural Timestamp
+RÜFÜS DU SOL appear four times in the first half alone — "Desert Night," its Jesse Rose remix, "Innerbloom," and "Underwater." This is already an obsession. They're not scattered randomly; they cluster around the one-hour mark, forming a warm, yearning corridor through the middle of the mix. Fourteen mixes and seven years later, RÜFÜS DU SOL will still be here. They never leave. In a catalogue full of artists who come and go, they are the one constant.
 
-Drake appears four times across the mix — "God's Plan," "Nonstop," "Nice For What," and "In My Feelings" — all from 2018's *Scorpion* era. These aren't random hip-hop drops. They're time markers. When you hear these tracks together years later, you're instantly transported to that specific summer. The mix uses them deliberately, scattering Drake like mile markers along the highway.
+The deep house thread surfaces around the fifty-minute mark with Mood II Swing's "Closer" — a Deepshakerz rework of a genuine classic. This track will return in six more mixes, always appearing when the mood needs anchoring. It's followed by David Guetta, which might seem like a jarring shift, but that's the point: Mix 01 doesn't yet know what it wants to be, and that uncertainty is its charm.
 
-### The RÜFÜS DU SOL Arc
+At two hours in, something shifts. Lane 8's "Loving You" appears in its original form and then immediately in Solee's remix. It's a small moment, but it sets up one of the archive's longest threads — Solee's "Shanti" debuts just five tracks later, and both Lane 8 and Solee will remain fixtures for years. The remix is the bridge: Lane 8's melodic warmth filtered through Solee's deeper sensibility. Two artists, two aesthetics, connected by a single song. That connection will quietly define much of what follows.
 
-From the one-hour mark, three RÜFÜS DU SOL tracks arrive in sequence: "Desert Night" into the Jesse Rose remix, then "Innerbloom" — a track that, on its own, is a 10-minute journey into pure emotional depth. This isn't a transition; it's an invitation to slow down. The dancefloor opens up and for fifteen minutes, the mix breathes.
+The final ninety minutes are where the marathon nature becomes most apparent. Whitney Houston, Sugababes, Michael Jackson, MGMT's "Kids" (Soulwax Remix), Red Hot Chili Peppers — the mix becomes a jukebox of personal favourites. Drake returns with "In My Feelings" and "Nonstop." Tyga's "Taste" makes an appearance. These aren't DJ choices in the curated sense; they're the choices of someone who loves music broadly and hasn't yet decided that a mix needs to commit to a lane.
 
-### The Emotional Centre
+The energy throughout is remarkably flat — not in a lifeless way, but in the way that a long road trip maintains a steady hum. There are no dramatic peaks, no calculated builds to a climax. The mix breathes at roughly the same intensity from the first quarter through the last. It's the energy signature of someone mixing for themselves, sustaining a personal mood rather than engineering a crowd's experience.
 
-The heart of this mix lives between 1:48 and 2:03. Jamiroquai's "You Give Me Something" into George Michael's "Fastlove" into a Bee Gees remix into Stardust's "Music Sounds Better with You" into Everything But the Girl's "Missing." These are songs that span three decades. Songs people's parents fell in love to. Placing them here — deep in the middle of a nearly four-hour electronic mix — is therapy disguised as a DJ set. The listener doesn't know they needed this detour until they're already in it.
-
-### The Lane 8 Thread
-
-Lane 8 appears five times across the mix, more than any other artist. "Fingerprint," "Loving You" and its Solee Remix, and the iconic deadmau5 "Strobe" remix. Lane 8's signature sound — introspective, melancholic, built for headphones as much as dancefloors — functions as the mix's emotional compass. Every time the energy threatens to become pure party, Lane 8 pulls it back toward something more personal.
-
-### The Nostalgia Block
-
-Around the three-hour mark, Justice's "D.A.N.C.E." (MSTRKRFT Remix) into MGMT's "Electric Feel" (Justice Remix) into "Kids" (Soulwax Remix). These tracks defined 2007-2008 — a full decade before this mix was recorded. This isn't accidental. It's weaponised nostalgia, timed perfectly when the listener is deep enough into the mix to be emotionally open.
-
-### The Sunset Closing
-
-The final 25 minutes ease off beautifully. Duke Dumont's "Ocean Drive" (Hayden James Remix), Coldplay's "A Sky Full of Stars," and finally Robin Schulz's "Sun Goes Down." The mix doesn't end with a bang — it ends with golden hour. The same way it opened with memories, it closes with warmth. First mix, and the signature is already locked in.
+It closes with Robin Schulz's "Sun Goes Down" in two versions — the radio mix fading into ManiezzL's remix. The sun literally goes down on three hours and forty-five minutes of music. It's a fitting end for what amounts to an entire evening compressed into a single recording. Everything that will matter in the next forty-five mixes is already here, buried in the sprawl: the deep house anchors, the melodic electronic core, the willingness to reach for pop when the moment feels right, and above all, the instinct that a mix should feel like a journey, not a performance. The editing, the economy, the restraint — those will come. But the heart of it is all here, in this overstuffed, generous, slightly naive first chapter.

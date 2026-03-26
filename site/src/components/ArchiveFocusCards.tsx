@@ -5,6 +5,7 @@ interface MixItem {
   title: string;
   mixNumber: number;
   gradient: string;
+  coverImage?: string;
   duration: string;
   bpm: number;
   isAnalyzed: boolean;
@@ -47,7 +48,11 @@ export default function ArchiveFocusCards({ mixes, years }: Props) {
                   onMouseEnter={() => setHovered(mix.slug)}
                   onMouseLeave={() => setHovered(null)}
                 >
-                  <div className="w-8 h-8 rounded flex-shrink-0 sm:w-8 sm:h-8 max-sm:w-6 max-sm:h-6" style={{ background: mix.gradient }} />
+                  {mix.coverImage ? (
+                    <img src={mix.coverImage} alt="" className="w-8 h-8 rounded flex-shrink-0 sm:w-8 sm:h-8 max-sm:w-6 max-sm:h-6 object-cover" />
+                  ) : (
+                    <div className="w-8 h-8 rounded flex-shrink-0 sm:w-8 sm:h-8 max-sm:w-6 max-sm:h-6" style={{ background: mix.gradient }} />
+                  )}
                   <span className="font-mono text-[0.75rem] text-muted-stone w-10 flex-shrink-0 max-sm:hidden">
                     #{String(mix.mixNumber).padStart(2, '0')}
                   </span>

@@ -81,9 +81,9 @@ export const GET: APIRoute = async () => {
     <description>DJ mixes spanning 2018-2025. Dance, house, electronic, and everything in between. Free streaming with AI-generated liner notes.</description>
     <language>en-au</language>
     <atom:link href="${SITE_URL}/feed.xml" rel="self" type="application/rss+xml" />
-    <itunes:author>Luke Anderson</itunes:author>
+    <itunes:author>Luke Allan</itunes:author>
     <itunes:owner>
-      <itunes:name>Luke Anderson</itunes:name>
+      <itunes:name>Luke Allan</itunes:name>
     </itunes:owner>
     <itunes:type>episodic</itunes:type>
     <itunes:explicit>false</itunes:explicit>

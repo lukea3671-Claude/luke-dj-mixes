@@ -47,10 +47,12 @@ while ((trackMatch = trackRegex.exec(rawContent)) !== null) {
   });
 }
 
-// Extract first paragraph from liner notes for text-generate effect
-const bodyText = mix.body || '';
-const linerNotesMatch = bodyText.match(/## (?:Luke's Notes|Liner Notes)\s*\n\n(.+?)(?:\n\n|\n##|$)/s);
-const firstParagraph = linerNotesMatch?.[1]?.replace(/\*[^*]+\*/g, '')?.trim() || '';
+// Extract liner notes content (handle both \n and \r\n line endings)
+const bodyText = (mix.body || '').replace(/\r\n/g, '\n');
+const linerNotesFullMatch = bodyText.match(/## (?:Luke's Notes|Liner Notes)\s*\n\n([\s\S]+?)(?:\n## |\n---\s*$|$)/);
+const linerNotesText = linerNotesFullMatch?.[1]?.trim() || '';
+const linerNotesParagraphs = linerNotesText ? linerNotesText.split(/\n\n/).filter(p => p.trim()) : [];
+const firstParagraph = linerNotesParagraphs[0]?.replace(/\*[^*]+\*/g, '')?.trim() || '';
 
 const playerTracks = tracks.map(t => ({
   time: t.time,
@@ -67,7 +69,7 @@ const jsonLd = {
   url: mixUrl,
   duration: 'PT' + data.duration.replace(/\s/g, '').replace('h', 'H').replace('m', 'M').replace('s', 'S'),
   genre: data.genres.map((g: { name: string }) => g.name),
-  byArtist: { '@type': 'Person', name: 'Luke Anderson' },
+  byArtist: { '@type': 'Person', name: 'Luke Allan' },
   associatedMedia: {
     '@type': 'MediaObject',
     contentUrl: audioUrl,
@@ -161,15 +163,18 @@ const jsonLd = {
       </section>
     )}
 
-    <!-- Liner Notes Intro (word-by-word reveal) -->
-    {firstParagraph && firstParagraph.length > 20 && (
-      <LinerNotesIntro client:visible text={firstParagraph} />
-    )}
-
     <!-- Liner Notes -->
-    <div class="mix-content">
-      <Content />
-    </div>
+    {linerNotesParagraphs.length > 0 && (
+      <section class="liner-notes-section">
+        <h2>Liner Notes</h2>
+        <LinerNotesIntro client:visible text={firstParagraph} />
+        <div class="liner-notes-body">
+          {linerNotesParagraphs.slice(1).map((p) => (
+            <p set:html={p.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>').replace(/\u2014/g, '&mdash;')} />
+          ))}
+        </div>
+      </section>
+    )}
   </article>
 </BaseLayout>
 
@@ -474,6 +479,46 @@ const jsonLd = {
       padding: 0.5rem;
       min-height: 72px;
     }
+  }
+
+  /* Liner Notes */
+  .liner-notes-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-warm);
+  }
+
+  .liner-notes-section h2 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 1.5rem;
+  }
+
+  .liner-notes-body p {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--muted-stone);
+    margin-bottom: 1.25rem;
+  }
+
+  .liner-notes-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .liner-notes-body strong {
+    color: var(--warm-cream);
+    font-weight: 600;
+  }
+
+  .liner-notes-body em {
+    font-style: italic;
+    color: var(--warm-cream);
+    opacity: 0.85;
   }
 </style>
 

@@ -44,32 +44,9 @@ audioFile: https://pub-62caaf6ac9934395aecdbd0b909cfe24.r2.dev/audio/02.%20Mix_J
 peaksFile: /audio/mix-02-january-2019-peaks.json
 fileSizeMb: 203.9
 energyMean: 0.23
+coverImage: /covers/mix-02-cover.png
 energyMax: 0.72
 ---
-
-## Energy Flow
-
-This mix maintains a remarkably consistent energy throughout — a marathon groove that never lets up.
-
-### Key Moments
-
-- **31:00** — Peak energy (0.39): Wolf Alice — Don't Delete the Kisses
-- **3:10:30** — Energy surge (0.38): Nero — Reaching Out (Fred Falke Remix)
-- **3:42:00** — Breather (0.05): The Blaze — HEAVEN
-- **0:30** — Biggest shift ↑: Big Pineapple — Another Chance (Don Diablo Chill Mix)
-
-### Arc
-
-| Segment | Time | Energy | Level |
-|---------|------|--------|-------|
-| 1 | 0:00–27:49 | ███░░░░░░░ | moderate |
-| 2 | 27:49–55:39 | ███░░░░░░░ | energetic |
-| 3 | 55:39–1:23:29 | ██░░░░░░░░ | moderate |
-| 4 | 1:23:29–1:51:19 | ███░░░░░░░ | energetic |
-| 5 | 1:51:19–2:19:09 | ███░░░░░░░ | energetic |
-| 6 | 2:19:09–2:46:59 | ███░░░░░░░ | energetic |
-| 7 | 2:46:59–3:14:49 | ███░░░░░░░ | energetic |
-| 8 | 3:14:49–3:42:39 | ███░░░░░░░ | energetic |
 
 ## Track Listing
 
@@ -158,32 +135,18 @@ This mix maintains a remarkably consistent energy throughout — a marathon groo
 
 ## Liner Notes
 
-The second mix refines everything the first one established. Tighter track selection, more intentional pacing, and bookends that tell you the whole story before you've even started listening.
+Four months after the sprawl of Mix 01, and the impulse is still the same: press record, keep going, don't stop until the sun comes up. Mix 02 runs three hours and forty-two minutes — nearly identical to its predecessor — but something has shifted beneath the surface. The track count drops from ninety to seventy-eight. The gaps between songs widen. There's more room to breathe. The DJ is learning, without quite knowing it yet, that space between tracks is its own kind of statement.
 
-### The Bookends
+The mix opens with Big Pineapple's "Another Chance" in two forms — Don Diablo's chill mix followed immediately by his edit. It's a trick that recurs throughout: presenting a track and then its remix, back to back, as if trying to understand the song from multiple angles. Bicep's "Opal" arrives third, this time in a Four Tet remix. Where Mix 01 reached for "Glue" — the obvious anthem — Mix 02 goes deeper into the catalogue. It's a subtle escalation in taste. The discovery has moved from the singles to the album tracks.
 
-"Another Chance" opens the mix. "HEAVEN" closes it. Read those titles back to back — another chance... heaven. Whether or not that's conscious, it's the emotional arc of this entire mix: redemption through music. Big Pineapple's Don Diablo Chill Mix eases you in with a title that promises possibility. The Blaze's "HEAVEN" — nine minutes of transcendent, almost spiritual electronic music — lets you leave transformed.
+The Lane 8 fixation intensifies. Five tracks here: a collaboration with Kidnap ("Aba"), "Sunlight," "With Me," the Ryan Murgatroyd remix of "Stir Me Up," and "Visions" with RBBTS. The cluster around the ninety-minute mark is almost a set within a set — a Lane 8 showcase that pulls the mix into its most focused stretch. And then deadmau5's "Strobe" appears, but in Lane 8's remix, as if to say: even when other artists enter, they're filtered through this lens.
 
-### The Wolf Alice Moment
+Two debut appearances here will prove to be defining. Andy Compton's "That Acid Track" drops at the two-hour-eleven mark, and it will go on to appear in sixteen mixes — more than any other single recording in the archive. It's a deep house tool, hypnotic and functional, the kind of track that works at any point in a set. Its first appearance is almost unassuming. You wouldn't know, listening, that you're hearing the genesis of a seven-year habit. Tinlicker & Robert Miles' "Children" also debuts — a reimagining of one of electronic music's most sacred melodies. It will return in five more mixes, always carrying the weight of the original's emotional legacy.
 
-At 30:00, Wolf Alice's "Don't Delete the Kisses" arrives — first the Charli XCX remix, then the original. This is a guitar-driven indie love song about not wanting to erase text messages from someone you're falling for. It has no business being in an electronic mix, and that's exactly why it works. It's the most human moment in the first hour, a reminder that underneath all these beats are real feelings about real people.
+RÜFÜS DU SOL are here again, naturally — "Underwater" (and its Adam Port remix), "Treat You Better," "Take Me" (and Cassian's remix). The clustering pattern from Mix 01 repeats: they don't appear scattered through the mix but gathered together, forming emotional corridors. Cassian gets his own track right after RÜFÜS DU SOL's "Take Me," which his remix precedes — the first glimpse of an artist who will quietly span almost the entire archive.
 
-### The Emotional Descent (1:02–1:17)
+The hip-hop detour is bolder this time. Travis Scott's "SICKO MODE" at the two-hour mark, Lil Wayne's "Love Me" right after, Post Malone's "Congratulations" earlier. Mix 01 had Drake as its rap representative; Mix 02 widens the net. It's still the crossover instinct — someone who doesn't see genre walls as real — but the choices are more deliberate, more current. These aren't just songs from a playlist; they're cultural moments from late 2018 being woven into a dance mix, which is exactly what a DJ's job is: contextualising the present.
 
-Emotional Oranges' "Personal" into Marshmello & Bastille's "Happier" into 6LACK's "Pretty Little Fears" into Tourist's "Emily" into Lane 8's "Sunlight." Each track pulls the listener one step deeper inward. "Personal" is intimate. "Happier" is bittersweet. "Pretty Little Fears" is vulnerable. "Emily" is ethereal. And "Sunlight" lifts you out just enough to keep going. This is a five-track emotional freefall with a parachute at the end.
+The late section reveals a new sophistication. Bob Moses's "Enough to Believe" in Jamie Jones's remix sits alongside Nero's "Reaching Out" (Fred Falke Remix) and Butch's "Countach" (Kölsch Remix). The remix choices show a growing awareness of the producer behind the board. It's no longer just about the song — it's about whose hands it passed through. Kölsch, who appeared as an artist in Mix 01, now appears as a remixer. The understanding of electronic music's ecosystem is deepening.
 
-### The Lane 8 Obsession Deepens
-
-Lane 8 appears six times — even more than Mix 01. "Aba," "With Me," "Stir Me Up" (Ryan Murgatroyd Remix), "Visions," "Clarify" (Tinlicker Remix). At this point Lane 8 isn't just a favourite artist — he's the connective tissue between movements. Every time the mix needs to pivot from extrovert to introvert energy, Lane 8 is the bridge.
-
-### The Australian Interlude (2:42–2:55)
-
-Tash Sultana's "Jungle" into Ocean Alley's "Confidence" into 5 Seconds of Summer's "Youngblood" into RÜFÜS DU SOL's "Take Me" into Cassian's "Same Things." Five Australian artists in a row. This isn't a coincidence — it's a statement of identity. The mix is saying "this is where I come from." These are acts that played the same festivals, in the same summers, in the same country. It's a postcard.
-
-### The Late-Night Run (3:02–3:20)
-
-AFROJACK's "Take Over Control" signals a gear change — pure dancefloor energy. Then Nero's "Reaching Out" (Fred Falke Remix), Mark Ronson's "Nothing Breaks Like a Heart" (Boston Bun Remix), Duke Dumont's "I Got U" and "Ocean Drive." These are 3am tracks. The crowd that's still standing, still moving, bound together by the fact that they stayed.
-
-### The Closing Meditation
-
-The final 20 minutes are extraordinary. Butch's "Countach" (Kölsch Remix) — that Kölsch signature appearing again — into Jerome Martinez's "Valley of Tears" into Set Mo's "Counter Human Emotion." These titles read like a poem: a fast car, a valley of tears, a counter to human emotion. Then silence. Then The Blaze's "HEAVEN" takes over for the final nine minutes, and the mix ascends. This isn't a fade-out. It's an elevation.
+The Blaze's "HEAVEN" closes the mix, and it's a choice that resonates beyond this recording. Where Mix 01 ended with Robin Schulz's sunny pop-dance, Mix 02 ends with something atmospheric, widescreen, almost spiritual. The Blaze make music that sounds like the end of a very long night — not exhausted, but transcendent. It's the first time a mix ends on something that feels intentional rather than simply running out of road. Three hours and thirty-eight minutes in, the lights come up, and what's left is a feeling rather than a beat. The marathon era isn't over yet — not by a long way — but the instinct for how to land a mix is already emerging.

@@ -10,6 +10,7 @@ interface Props {
   bpm: number;
   isAnalyzed: boolean;
   gradient: string;
+  coverImage?: string;
   audioFile: string;
   slug: string;
 }
@@ -21,7 +22,7 @@ declare global {
 }
 
 export default function HeroFeatured({
-  title, mixNumber, date, duration, bpm, isAnalyzed, gradient, audioFile, slug
+  title, mixNumber, date, duration, bpm, isAnalyzed, gradient, coverImage, audioFile, slug
 }: Props) {
   const handlePlay = (e: React.MouseEvent) => {
     e.preventDefault();

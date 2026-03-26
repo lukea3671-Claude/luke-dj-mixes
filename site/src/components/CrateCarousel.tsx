@@ -7,6 +7,7 @@ interface MixItem {
   title: string;
   mixNumber: number;
   gradient: string;
+  coverImage?: string;
   duration: string;
   audioFile: string;
   isAnalyzed: boolean;
@@ -158,29 +159,23 @@ export default function CrateCarousel({ mixes }: Props) {
                 },
               }}
             >
-              <MagicCard
-                className="relative w-[220px] h-[220px] rounded-lg overflow-hidden sm:w-[240px] sm:h-[240px] border border-border-warm"
-                gradientColor="rgba(212, 165, 116, 0.08)"
+              <div
+                className="relative w-[220px] h-[220px] rounded-lg overflow-hidden sm:w-[240px] sm:h-[240px] border border-border-warm bg-cover bg-center"
+                style={
+                  mix.coverImage
+                    ? { backgroundImage: `url(${mix.coverImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }
+                    : { background: mix.gradient }
+                }
               >
-                {!mix.isAnalyzed && (
-                  <div
-                    className="absolute inset-0 bg-cover bg-center opacity-60"
-                    style={{ backgroundImage: 'url(/images/fallback-sleeve.png)' }}
-                  />
+                {!mix.coverImage && (
+                  <span
+                    className="absolute inset-0 flex items-center justify-center text-[5rem] font-heading font-bold select-none pointer-events-none"
+                    style={{ color: 'rgba(255, 255, 255, 0.12)' }}
+                  >
+                    #{String(mix.mixNumber).padStart(2, '0')}
+                  </span>
                 )}
-                <div
-                  className="absolute inset-0"
-                  style={{ background: mix.gradient, opacity: mix.isAnalyzed ? 1 : 0.85 }}
-                />
-                {/* Mix number ghost text */}
-                <span
-                  className="absolute inset-0 flex items-center justify-center text-[5rem] font-heading font-bold select-none pointer-events-none"
-                  style={{ color: 'rgba(255, 255, 255, 0.12)' }}
-                >
-                  #{String(mix.mixNumber).padStart(2, '0')}
-                </span>
-
-              </MagicCard>
+              </div>
               {/* Play button on hover — outside MagicCard to avoid its border glow */}
               <button
                 className="absolute bottom-3 right-3 w-10 h-10 rounded-full flex items-center justify-center opacity-0 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 z-20 hover:scale-110"

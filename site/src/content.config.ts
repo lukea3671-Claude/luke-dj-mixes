@@ -20,6 +20,7 @@ const mixes = defineCollection({
     fileSizeMb: z.number(),
     energyMean: z.number(),
     energyMax: z.number(),
+    coverImage: z.string().optional(),
   }),
 });
 

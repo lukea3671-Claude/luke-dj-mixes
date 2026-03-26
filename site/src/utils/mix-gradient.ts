@@ -37,18 +37,24 @@ function goldenHue(n: number): number {
   return (n * 137.508) % 360;
 }
 
-// Shift hue toward warm range (amber/sepia: ~20-50)
-// 0.75/0.25 blend keeps more variation while staying warm
+// Map any hue to warm amber/sepia band (15-55°)
+// Linear mapping preserves relative variation between mixes
 function warmShift(hue: number): number {
-  const warmTarget = 35;
-  return (hue * 0.75 + warmTarget * 0.25) % 360;
+  const warmMin = 15;
+  const warmRange = 40; // 15° to 55°
+  return warmMin + ((((hue % 360) + 360) % 360) / 360) * warmRange;
+}
+
+// Offset a warm hue while staying in warm band (wraps within 15-55°)
+function warmOffset(hue: number, offset: number): number {
+  return 15 + (((hue - 15 + offset) % 40) + 40) % 40;
 }
 
 export function getMixGradient(data: MixData): string {
   if (data.bpm <= 0) {
     const hue = goldenHue(data.mixNumber);
     const warmHue = warmShift(hue);
-    const hue2 = (warmHue + 40) % 360;
+    const hue2 = warmOffset(warmHue, 20);
     const angle = (data.mixNumber * 47) % 360;
     const sat = 32 + (data.mixNumber % 5) * 6;
     const lit = 18 + (data.mixNumber % 5) * 4;
@@ -57,7 +63,7 @@ export function getMixGradient(data: MixData): string {
 
   const rawHue = (((data.bpm - 100) * 6) % 360 + 360) % 360;
   const hue = warmShift(rawHue);
-  const hue2 = (hue + 35) % 360;
+  const hue2 = warmOffset(hue, 18);
   const keyBase = data.musicalKey.replace(/\s*(major|minor|m)$/i, '').trim();
   const angle = KEY_ANGLES[keyBase] ?? 135;
   const primaryGenre = data.genres[0]?.name ?? 'Mixed';
@@ -70,7 +76,7 @@ export function getMixGradientMini(data: MixData): string {
   if (data.bpm <= 0) {
     const hue = goldenHue(data.mixNumber);
     const warmHue = warmShift(hue);
-    const hue2 = (warmHue + 20) % 360;
+    const hue2 = warmOffset(warmHue, 10);
     const angle = (data.mixNumber * 47) % 360;
     const sat = 25 + (data.mixNumber % 4) * 4;
     const lit = 15 + (data.mixNumber % 3) * 3;
@@ -79,7 +85,7 @@ export function getMixGradientMini(data: MixData): string {
 
   const rawHue = (((data.bpm - 100) * 6) % 360 + 360) % 360;
   const hue = warmShift(rawHue);
-  const hue2 = (hue + 35) % 360;
+  const hue2 = warmOffset(hue, 18);
   const keyBase = data.musicalKey.replace(/\s*(major|minor|m)$/i, '').trim();
   const angle = KEY_ANGLES[keyBase] ?? 135;
   const primaryGenre = data.genres[0]?.name ?? 'Mixed';

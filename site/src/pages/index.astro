@@ -19,6 +19,7 @@ const crateMixes = sorted.slice(1).map((mix) => ({
   title: mix.data.title,
   mixNumber: mix.data.mixNumber,
   gradient: getMixGradient(mix.data),
+  coverImage: mix.data.coverImage,
   duration: mix.data.duration,
   audioFile: mix.data.audioFile,
   isAnalyzed: isAnalyzed(mix.data),
@@ -49,6 +50,7 @@ const archiveData = sorted.slice(1).map((mix) => ({
   title: mix.data.title,
   mixNumber: mix.data.mixNumber,
   gradient: getMixGradientMini(mix.data),
+  coverImage: mix.data.coverImage,
   duration: mix.data.duration,
   bpm: mix.data.bpm,
   isAnalyzed: isAnalyzed(mix.data),
@@ -75,6 +77,7 @@ const latestAnalyzed = isAnalyzed(latest.data);
     bpm={latest.data.bpm}
     isAnalyzed={latestAnalyzed}
     gradient={latestGradient}
+    coverImage={latest.data.coverImage}
     audioFile={latest.data.audioFile}
     slug={latest.id.replace(/\.md$/, '')}
   />

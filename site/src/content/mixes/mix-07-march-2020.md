@@ -3,24 +3,129 @@ title: 'Mix 07: March 2020'
 mixNumber: 7
 date: March 2020
 duration: 2h 28m
-bpm: 0
-musicalKey: '?'
-trackCount: 0
+bpm: 123
+musicalKey: G
+trackCount: 83
 genres:
-- name: Mixed
+- name: Dance
+  count: 31
+  percent: 40
+- name: House
+  count: 14
+  percent: 18
+- name: Electronic
+  count: 14
+  percent: 18
+- name: Pop
+  count: 7
+  percent: 9
+- name: Techno
+  count: 6
+  percent: 8
+- name: Alternative
+  count: 2
+  percent: 3
+- name: Hip-Hop/Rap
+  count: 2
+  percent: 3
+- name: R&B/Soul
   count: 1
-  percent: 100
+  percent: 1
+- name: Rock
+  count: 1
+  percent: 1
 audioFile: https://pub-62caaf6ac9934395aecdbd0b909cfe24.r2.dev/audio/07.%20Mix_March_2020.mp3
 peaksFile: /audio/mix-07-march-2020-peaks.json
 fileSizeMb: 135.7
-energyMean: 0
-energyMax: 0
+energyMean: 0.23
+coverImage: /covers/mix-07-cover.png
+energyMax: 0.77
 ---
 
 ## Track Listing
 
-*Analysis pending — track identification will be added when Shazam analysis completes.*
-
-## Luke's Notes
-
-*Coming soon...*
+| # | Time | Artist | Title | Genre |
+|---|------|--------|-------|-------|
+| 1 | 4:00 | Sofamusik | Jungle (Tash Sultana) [Sofamusik Unofficial Remix] | Techno |
+| 2 | 4:45 | SOFI TUKKER | Drinkee | Dance |
+| 3 | 8:00 | Jonny Calypso | Teenager 2K15 | Techno |
+| 4 | 8:30 | MK & Sonny Fodera | One Night (feat. Raphaella) | Dance |
+| 5 | 12:45 | Alicia Keys | Time Machine (Cedric Gervais Extended) |  |
+| 6 | 13:00 | DJ Chus & Dario D'Attis | Heart of Glitter (Extended Mix) | Dance |
+| 7 | 13:45 | OTHERLiiNE, George FitzGerald & Lil Silva | One Line | Dance |
+| 8 | 18:15 | Satoshi Fumi | Celestial | House |
+| 9 | 19:00 | Alexandro Korzh | Night Life (Radio Edit) | Dance |
+| 10 | 23:30 | Kidnap | Moments (feat. Leo Stannard) [Ben Böhmer & Nils Hoffmann Remix] | Dance |
+| 11 | 28:00 | Davide Mazzilli | The Beat | House |
+| 12 | 30:30 | Bambook | Give It Up (Audiofly Remix) | Dance |
+| 13 | 32:15 | Tash Sultana | Synergy | Alternative |
+| 14 | 33:00 | Davide Mazzilli | The Beat | House |
+| 15 | 34:15 | Daniel Madlung & Johannes Retschke | Foursday | House |
+| 16 | 34:30 | Dirty Secretz | Eternity (Edit) | Dance |
+| 17 | 34:45 | Red Hot Chili Peppers | Otherside (Gamper & Dadoni Remix) |  |
+| 18 | 38:15 | Cyril Hahn | Say My Name (Cyril Hahn Unofficial Remix) [Destiny's Child] | R&B/Soul |
+| 19 | 39:30 | Rich Knöchel | Are You Ready? (Original Mix) | Dance |
+| 20 | 42:00 | Andy Compton | That Acid Track | Electronic |
+| 21 | 42:15 | Blackchild (ITA) | Te Conoci | House |
+| 22 | 43:45 | Bombay Traffic | Soul Brother (Superlover Remix) | Dance |
+| 23 | 44:00 | Eli & Fur | Parfume (Dosem Remix) | Dance |
+| 24 | 45:45 | Leonard Cohen | You Want It Darker (Paul Kalkbrenner Remix) | Rock |
+| 25 | 51:15 | Duke Dumont | Therapy | Dance |
+| 26 | 55:15 | Electr3x | Alexis |  |
+| 27 | 58:30 | Camila Cabello | Havana (feat. Young Thug) | Pop |
+| 28 | 60:45 | Camila Cabello | Havana (feat. Young Thug) [DJ COPPOLA Unofficial Remix] [Mixed] | Techno |
+| 29 | 61:15 | Stardust | Music Sounds Better with You | Electronic |
+| 30 | 61:45 | Jamie Jones & Darius Syrossian | Eyes of the Night | Dance |
+| 31 | 62:00 | Boom! | Messed Up | Dance |
+| 32 | 63:30 | Armand Van Helden | Give Me Your Loving (feat. Lorne) | Electronic |
+| 33 | 65:15 | Fade | All I Got (Chris Fortier 20yr Dub) | Techno |
+| 34 | 68:15 | Four Tet | Baby | Electronic |
+| 35 | 69:00 | Monolink | Return to Oz | House |
+| 36 | 69:15 | Kaipanta | Gritando | House |
+| 37 | 69:30 | Ned Rise | Der Specht | Dance |
+| 38 | 69:45 | Swedish House Mafia & The Weeknd | Moth To A Flame | Dance |
+| 39 | 70:30 | Zara Larsson | Lush Life | Pop |
+| 40 | 71:00 | Moby | Almost Home (Sound Remedy Remix) [feat. Damien Jurado] | Electronic |
+| 41 | 73:00 | Solee | Shanti | Electronic |
+| 42 | 73:15 | R.A.W. | Unbe (Erick 'More' Mix) | House |
+| 43 | 73:30 | Amtrac | Radical (feat. TEED) | Electronic |
+| 44 | 75:45 | Mr. Belt & Wezol, Nicola Fasano & Steve Forest | New Millenium (feat. Topazz) [Extended Mix] | Dance |
+| 45 | 76:00 | Gorgon City | Go All Night (feat. Jennifer Hudson) [Nicky Night Time Remix] | Dance |
+| 46 | 76:45 | So Inagawa | Logo Queen |  |
+| 47 | 77:45 | Sugar Hill & Wasabi | It's On You (Ganzfeld Effect Remix) | House |
+| 48 | 80:15 | David Penn & KPD | Ain't Got No | House |
+| 49 | 84:45 | Joel Corry | Sorry | Dance |
+| 50 | 85:00 | Lucius Young | Tiempo (Mondragon Remix) | Dance |
+| 51 | 85:30 | Christian Hornbostel | Out of the Matrix | Techno |
+| 52 | 87:30 | Danny Brown | Lift You Up | Hip-Hop/Rap |
+| 53 | 89:30 | Dom Dolla | San Frandisco | Dance |
+| 54 | 96:15 | London Grammar | Darling Are You Gonna Leave Me | Alternative |
+| 55 | 101:00 | Sebastian Frett | Dido | Techno |
+| 56 | 103:30 | CamelPhat | Cola (Zhu Remix) | Dance |
+| 57 | 109:30 | Jay Ancor | Memories (Radio Edit) | House |
+| 58 | 109:45 | Lana Del Rey & Cedric Gervais | Summertime Sadness (Lana Del Rey Vs. Cedric Gervais) [Cedric Gervais Remix] | Dance |
+| 59 | 110:30 | Deee-Lite | What Is Love? | Pop |
+| 60 | 110:45 | Gullen & Anders. | Nostaw (Mondkrater Remix) | Dance |
+| 61 | 112:15 | Dermot Kennedy & MEDUZA | Power Over Me (MEDUZA Remix) | Pop |
+| 62 | 113:45 | Reboot | Bodycheck | Dance |
+| 63 | 114:30 | Zrust dBe | Underground Gang |  |
+| 64 | 116:15 | Dermot Kennedy & MEDUZA | Power Over Me (MEDUZA Remix) | Pop |
+| 65 | 116:30 | CamelPhat | Hangin’ Out With Charlie | Electronic |
+| 66 | 116:45 | CamelPhat & Elderbrook | Cola | Dance |
+| 67 | 118:15 | Chymamusique | Lost in Words (Main Saxed Mix) | Electronic |
+| 68 | 118:30 | Pirahna Head | Poem 4 a Lost One (feat. Diviniti) [Mr. G's  Brotherly Love Remix] | Dance |
+| 69 | 119:45 | Ben Pearce | What I Might Do (Club Mix) | Electronic |
+| 70 | 122:15 | Serge Devant | Always On My Mind | Dance |
+| 71 | 123:00 | Rhythm&Soul | 1998 | Dance |
+| 72 | 123:15 | Shouse | Love Tonight | Electronic |
+| 73 | 123:45 | OZBEK | Rooftop | House |
+| 74 | 125:30 | Route 94 | My Love (feat. Jess Glynne) | House |
+| 75 | 127:00 | Schaltkreis Wassermann | Lux | Electronic |
+| 76 | 127:15 | Gryffin | Am I Wrong - Radio Edit | Dance |
+| 77 | 129:00 | Nico & Vinz | Am I Wrong | Pop |
+| 78 | 129:15 | Loud Luxury | Body (feat. brando) | Dance |
+| 79 | 132:15 | DJ Maze | In Da Club | Hip-Hop/Rap |
+| 80 | 134:15 | 50 Cent | In Da Club (Remix) [Mixed] | House |
+| 81 | 134:45 | Ed Sheeran | Cross Me (feat. Chance the Rapper & PnB Rock) | Pop |
+| 82 | 140:15 | Hayden James | Something About You (ODESZA Remix) | Electronic |
+| 83 | 145:30 | Elderbrook & Rudimental | Something About You (Chill Mix) | Electronic |
