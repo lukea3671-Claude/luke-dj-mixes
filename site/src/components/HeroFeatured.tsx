@@ -33,12 +33,7 @@ export default function HeroFeatured({
   return (
     <section className="w-full">
       <a href={`/mix/${slug}/`} className="block no-underline">
-        <NeonGradientCard
-          className="rounded-none border-0 min-h-[60vh] max-h-[600px]"
-          borderRadius={0}
-          borderSize={0}
-          neonColors={{ firstColor: "#D4A574", secondColor: "#8B6914" }}
-        >
+        <div className="relative rounded-none border-0 min-h-[60vh] max-h-[600px] overflow-hidden">
           {/* Background image */}
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -122,7 +117,7 @@ export default function HeroFeatured({
               />
             </div>
           </div>
-        </NeonGradientCard>
+        </div>
       </a>
     </section>
   );
