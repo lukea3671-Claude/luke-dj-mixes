@@ -99,3 +99,19 @@ energyMax: 0.67
 | 51 | 72:00 | Leo Dijon & Havoc Henry | Leave Town for a Week | Electronic |
 | 52 | 74:00 | BAYNK | 1 Chance (feat. DRAMA) | Electronic |
 | 53 | 77:15 | Donna Lewis | I Love You Always Forever | Pop |
+
+## Liner Notes
+
+Mix 25 opens with something the archive has never done before: a meditation track. "Divine Particles" by Takkra appears twice in the first eighteen minutes, its ambient downtempo textures sitting alongside deadmau5's "XYZ" and Paperclip People's "Throw." The juxtaposition is deliberate and striking — contemplative stillness interrupting dancefloor machinery. At the 41-minute mark, a literal meditation recording appears: "B - Dur (80 Bpm)" from My Meditation Music. The DJ is drawing from entirely new wells.
+
+Eighty-two minutes, fifty-three tracks, and an energy profile that sits at the archive's lower end — 0.234, with a flat arc that barely varies across four quarters. After Mix 24's closing-strong architecture, this mix is deliberately level. No dramatic peaks, no engineered builds. It's the energy signature of someone mixing for contemplation rather than crescendo.
+
+Tinlicker & Robert Miles' "Children" returns at fifty-one minutes — its fourth appearance, and each time it arrives it carries more accumulated meaning. Here it sits between Ice Beats Slide's Afro-house and Amtrac's "Nobody Else," the melody shimmering between rhythmic contexts. Alongside it, Mood II Swing's "Closer" at thirty-one minutes and Rui Da Silva's "Touch Me" at sixty (played twice). The archive's signature tracks continue to anchor every mix, their presence a constant even as the surrounding material evolves.
+
+Bicep's "Meli (II)" at twenty-nine minutes is a track from their second album — deeper, more abstract than their earlier selections. Alongside Tinlicker & Solomon Grey's "Choir To The Wild," there's a melodic electronic corridor in the first half that carries an almost religious quality. The meditation track, the choir reference, the Takkra downtempo — Mix 25 is searching for something beyond the dancefloor.
+
+Röyksopp's "Impossible" in an &ME remix at forty-six minutes is one of the standout selections of the era — Norwegian synth-pop veterans reimagined by a Keinemusik member. It's a collision of Scandinavian melancholy and Berlin club culture that produces something neither artist could achieve alone. The DJ's remix taste continues to be impeccable: finding the treatments that reveal hidden dimensions in familiar songs.
+
+The White Lotus theme at sixty-four minutes — Cristobal Tapia De Veer's "Renaissance" — is the most unexpected selection since Bach's Toccata. A television soundtrack piece in a DJ mix, placed between Rui Da Silva and The Weeknd. The track's eerie, maximalist production shares more DNA with electronic music than most soundtracks, and its placement here suggests the DJ doesn't distinguish between "music for TV" and "music for the dancefloor." If it moves you, it belongs.
+
+Donna Lewis's "I Love You Always Forever" closes the mix — a 1996 pop ballad, played straight, no remix, no edit. It's the most emotionally naked closing track in the archive: a love song with no ironic distance, placed at the end of a mix that began with meditation and passed through techno, deep house, and ambient. The DJ is saying something simple and means it. After twenty-five mixes of building credibility and refining taste, they can end with a pop ballad and nobody doubts them.

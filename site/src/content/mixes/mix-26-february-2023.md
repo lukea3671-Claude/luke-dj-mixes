@@ -93,3 +93,7 @@ energyMax: 0.67
 | 45 | 72:00 | Leo Dijon & Havoc Henry | Leave Town for a Week | Electronic |
 | 46 | 74:00 | BAYNK | 1 Chance (feat. DRAMA) | Electronic |
 | 47 | 77:15 | Donna Lewis | I Love You Always Forever | Pop |
+
+## Liner Notes
+
+A variant of Mix 25, recorded in the same session. The tracklist is nearly identical — the same journey from meditation through techno and deep house to Donna Lewis's closing ballad, with minor timing differences in the mix. Two recordings of the same night, preserved as separate chapters. The existence of both versions suggests the DJ recorded the session twice, refining the transitions, adjusting the flow. It's the first evidence in the archive of the DJ treating mixing as a craft that requires multiple takes rather than a spontaneous expression captured once. The notes for Mix 25 apply in full here — the selections, the arc, the emotional logic are the same. What differs is invisible: the precise moment where one track bleeds into another, the fraction of a second that separates a good mix from a better one.

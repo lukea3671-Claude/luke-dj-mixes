@@ -100,3 +100,19 @@ energyMax: 0.69
 | 61 | 70:00 | Namatjira | Abdominal | House |
 | 62 | 71:00 | Synthetic Mushdrum & Peter Kosmic | Red Light District (Radio Edit) | Electronic |
 | 63 | 72:45 | Maj | You Should See Me in a Crown (MAJ REMIX) | House |
+
+## Liner Notes
+
+Mix 27 is the archive's most purely functional set — seventy-three minutes, sixty-three tracks, Dance at 52% (its highest share since Mix 09). This is a mix built for the dancefloor, with minimal detours and maximum momentum. The energy peaks heavy in the third quarter at 0.263, the DJ building relentlessly through the first forty-five minutes before releasing in the final stretch.
+
+The signature tracks arrive in formation. Mood II Swing's "Closer" at sixteen minutes — its sixth and final appearance in the archive. After this, it retires. A track that debuted in Mix 01 and anchored six mixes across five years, quietly stepping aside. It's joined by Dosem & Prok & Fitch's "Doors," another recurring fixture, and Demarkus Lewis' "Body Tonic" at nineteen minutes. Andy Compton's "That Acid Track" appears twice — at twenty-five and thirty-three minutes. X-Press 2's "Say What!" at thirty-four. Morgan Page's "The Longest Road" at ten. The full orchestra, assembled one more time.
+
+Fred again.. & Skrillex & Four Tet's "Baby again.." at thirty-seven minutes is one of the biggest electronic releases of 2023 — a track born from their legendary Boiler Room set that went viral. Its inclusion here places the archive firmly in the contemporary moment. Alongside MK & Dom Dolla's "Rhyme Dust" at forty-four minutes — another era-defining release — the middle section feels like a snapshot of exactly what was dominating dance music in early 2023.
+
+The opening three minutes are a lesson in efficient scene-setting: MPxMC's atmospheric intro, Blandy & Soul Cat's house warmth, Ezel's "You Got Worked," Maae's techno pulse, and then Alan Braxe & Fred Falke's "Intro" — the track is literally called "Intro," and its placement third in the running order is a meta-joke the archive doesn't make often. Five different textures, five different producers, five different entry points into the same groove, all before the three-minute mark.
+
+Three Drives' "Greece 2000" appears in two versions back to back — a trance classic from 1999 that has been reimagined by Max Styler and Sander Van Dien. Like Tinlicker & Robert Miles' "Children," it represents the archive's ongoing conversation with dance music history. These aren't ironic throwbacks; they're genuine reconnections with tracks that shaped the DJ's earliest relationship with electronic music.
+
+The close dissolves through ODESZA's "This Version of You" — atmospheric, widescreen — into deep techno from Tassilo Hagström and Namatjira, ending with Maj's "You Should See Me in a Crown" played twice. The Billie Eilish original reimagined as house, used as both penultimate and final track. It's a confident, almost confrontational ending: the DJ crowning themselves with a track that demands to be seen.
+
+Mix 27 is the most concentrated expression of everything the archive has been building toward: deep house roots, contemporary tech-house energy, historical references woven through the present tense, and the confidence to know that seventy-three minutes is exactly enough.

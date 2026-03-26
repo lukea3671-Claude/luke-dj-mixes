@@ -94,3 +94,21 @@ energyMax: 0.75
 | 43 | 68:15 | Skrillex, Fred again.. & Flowdan | Rumble | Electronic |
 | 44 | 69:30 | Garïon | Rumble In the Jungle Mash-Up | Hardcore |
 | 45 | 69:45 | L D R U | Alone Again (feat. PEPTALK) | Electronic |
+
+## Liner Notes
+
+Seventy-two minutes and an energy arc that closes strong — the final quarter peaks at 0.251, the highest of the four sections. Mix 24 opens the archive's most prolific year: twelve mixes in 2023, more than any other calendar year. Something is driving the DJ to record more frequently, and this first chapter sets the tone.
+
+The opening is the most visceral start in the archive. "Carmina Burana Remix (Techno of the Opera)" — Carl Orff's medieval cantata reimagined as techno — declares that Mix 24 isn't here to ease you in. Fred again..'s "Clara (the night is dark)" follows at four minutes, his first track named after darkness. The colour palette has shifted: where Mix 22's Fred selections were warm, this one is nocturnal.
+
+Erre's "Always the Same Eyes" returns at twenty minutes — now its fourth appearance, spanning from Mix 01 to this point. The thread that connects the very beginning to the present remains unbroken. Alongside it, Shouse's "Love Tonight" reappears, a track that has grown from its quiet debut in Mix 07 into one of dance music's defining records. The DJ's early instinct for this track — playing it before it became ubiquitous — is validated.
+
+Anyma & CamelPhat's "The Sign" at nineteen minutes introduces the melodic techno crossover that dominated 2022-2023. Anyma (the solo project of Tale Of Us' Matteo Milleri) represents the commercial peak of a movement the archive has been tracking since its early Energy 52 inclusions. The circle closes: from the '93 original to the Anyma generation, the Balearic thread has evolved but never broken.
+
+The middle section accelerates into a high-density stretch. Between the 37-minute and 52-minute marks, tracks arrive in rapid succession: Bombay Traffic, Lil Wayne in a SIDEPIECE remix, Panjabi MC, Gillette's "Short Short Man," David Guetta, Andy Compton's "That Acid Track," PAX & Rui Da Silva's "Touch Me," Hannah Laing's "Climax." The variety is dizzying — hip-hop, novelty pop, deep house, acid house, all compressed into fifteen minutes. The DJ is mixing at full speed, trusting their instincts over any sense of genre propriety.
+
+The Weeknd's "Take My Breath" at fifty-three minutes leads into its own remix — a technique the archive has perfected over twenty-four mixes. Original into remix, pop into dance, the song examined from two angles in quick succession. It's followed by Oliver Tree's "Miss You" in another remix, creating a string of pop-to-dance translations that exemplify the DJ's evolved approach to crossover material.
+
+Skrillex, Fred again.. & Flowdan's "Rumble" at sixty-eight minutes is a massive track — the biggest bass music collaboration of 2023. Its placement near the close, followed immediately by a hardcore mash-up of the same track, turns the ending into an event rather than a fade. LDRU's "Alone Again" provides the cool-down, but the memory of "Rumble" lingers.
+
+The closing-strong energy arc is a departure from recent mixes. Where Mixes 20-22 front-loaded their energy, Mix 24 saves its best for last. The first quarter is the quietest; the final quarter the loudest. The DJ is inverting the usual structure, building the entire mix toward its conclusion rather than away from its opening. It's the architecture of anticipation — and it signals that the story isn't winding down. It's gearing up for the most productive year in the archive's history.
