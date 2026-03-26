@@ -113,3 +113,23 @@ energyMax: 0.48
 | 53 | 99:00 | Tom Santa | Rainfall (Praise You) | Dance |
 | 54 | 104:45 | T.I. | Whatever You Like | Rap |
 | 55 | 108:15 | SEBASTIAN PAUL | LUST DRUNK | Electronic |
+
+## Liner Notes
+
+This is where everything changes. Mix 31's mean energy drops to 0.145 — a 42% fall from Mix 30's 0.249. It's the most dramatic shift in the archive's entire forty-six-mix history, and nothing in the tracklist or structure prepares you for it. The mixes were loud, and then they weren't. The quiet turn arrives without announcement.
+
+The opening is the first sign. Benedetta Caretta's "Now We Are Free" — the Gladiator theme — played twice in two versions. It's a cinematic, almost funereal beginning. Then relaxing piano music at eight minutes. Raidho's downtempo at nine. The mix doesn't reach anything resembling dancefloor energy until the fifteen-minute mark, when Kelis's "Milkshake" (Alex Wann Remix) finally appears. Even then, "Milkshake" plays three times across a five-minute stretch, as if the DJ is trying to find the right entry point and keeps circling back.
+
+The energy arc tells the story: 0.125 in the opening quarter — the lowest single-quarter reading in the archive by a significant margin. It rises to 0.144, then 0.145, then 0.168 in the closing-strong shape. The mix gets louder as it goes, but its loudest point is still quieter than every single quarter of every mix before it. The baseline has shifted.
+
+One hundred and twelve minutes. Fifty-five tracks. The duration returns to marathon territory — the longest mix since Mix 15, eight mixes ago. But where Mix 15's length served an expansive purpose, Mix 31's length feels contemplative, almost reluctant to end. The tracks are spaced further apart, the gaps longer, the silences more prominent.
+
+Elvis Presley appears at sixty-three minutes — "Suspicious Minds" in a Cirque Du Soleil reimagining. It's followed by Fred again.. & Obongjayar's "adore u" and then Robbie Williams' "Feel" in an Afro house remix. The sequence is remarkable: '50s rock'n'roll recontextualised as circus, UK sample-based electronic, '90s British pop recontextualised as Afro house. Three eras, three continents, three emotional registers, placed end to end with no regard for conventional DJ logic.
+
+Styx's "Fooling Yourself (The Angry Young Man)" at seventy-three minutes is the deepest rock cut to appear in the archive — a 1977 prog-rock ballad that no algorithm would ever place in a house mix. Its presence here is either deeply personal or deeply random, and in this archive, those are often the same thing.
+
+Curtis Mayfield's "Move On Up" in Eric Kupper's vocal mix at fifty-six minutes brings soul music's greatest optimist into a mix that desperately needs him. The track's relentless positivity — "Move on up! Towards your destination!" — reads differently in the context of a mix that has dropped its energy by almost half. It's either ironic or aspirational, and the DJ probably doesn't know which.
+
+The closing section returns to more familiar territory — Bombay Traffic, Alex Dolby & Santos' "Raw Road," Tom Santa's "Rainfall (Praise You)" — before ending with T.I.'s "Whatever You Like" and Sebastian Paul's "Lust Drunk." The rap-to-electronic close is a first, and its nonchalance suggests the DJ isn't troubled by the shift they've undergone. They may not even be aware of it yet. The data shows a seismic change. The DJ just kept mixing.
+
+Something happened between August and September 2023. The music got quieter. The energy dropped. The atmospheric selections increased. The dancefloor receded. Whether this reflects a change in life circumstances, a change in musical taste, or simply the natural evolution of someone who has been mixing for five years, the archive doesn't say. What it says is that from this point forward, the mixes will be different. Not lesser — different. The quiet era has begun.
