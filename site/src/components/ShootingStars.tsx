@@ -157,7 +157,13 @@ export default function ShootingStars() {
         const m = meteors[i];
         m.age += dt;
 
-        if (m.age > m.lifetime + m.trailDuration + 0.2) {
+        if (m.age > m.lifetime + m.trailDuration + 0.5) {
+          meteors.splice(i, 1);
+          continue;
+        }
+
+        // Force trail cleanup when head is dead — fade remaining trail faster
+        if (m.age >= m.lifetime && m.trail.length === 0) {
           meteors.splice(i, 1);
           continue;
         }
@@ -247,7 +253,8 @@ export default function ShootingStars() {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[1] pointer-events-none"
+      className="fixed inset-0 pointer-events-none"
+      style={{ zIndex: 0 }}
       aria-hidden="true"
     >
       <canvas ref={canvasRef} className="w-full h-full" />
