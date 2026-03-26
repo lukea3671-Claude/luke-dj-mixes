@@ -91,3 +91,19 @@ energyMax: 0.7
 | 43 | 73:00 | Cthe | Abo Mvelo (Afro-tech Remix) [Mixed] | House |
 | 44 | 74:15 | Steven Cravis | Synth Pattern Alarm Sound | Alternative |
 | 45 | 76:15 | Gaetano C & DePandis | Saw | House |
+
+## Liner Notes
+
+Seventy-six minutes. Forty-five tracks. Mix 19 settles into the compact format that is becoming the DJ's natural length — tight enough to maintain focus, long enough to develop an arc. The key shifts to G# for the first time in the archive, a subtle but audible change in harmonic colour that makes the mix feel different from its predecessors even before the first track arrives.
+
+Tinlicker's "Rebirth" opens — the title reads as programmatic, a new beginning for a new year of mixing. The track is followed by Tomash Kofa's "FZV," making its fourth appearance in the archive. "FZV" has become one of those quiet signatures — never the centrepiece of a mix, but always present, always doing its work. Alongside it, The Verve's "Bitter Sweet Symphony" in an Amonita & Makebo remix appears twice, at seven minutes and again at fifteen. The Verve remix does what the best remixes do: it reveals the dance potential that was always latent in the original. The string sample has been house music since before house music existed.
+
+The energy arc peaks heavy — the third quarter at 0.250 is the mix's high point, with a noticeable building through the first half. It's the most conventional DJ set shape in the archive: gradual ascent, peak past midway, controlled descent. The DJ has found a structural formula that works and is executing it with increasing precision.
+
+John Summit's "La Danza" at twenty-nine minutes is his second appearance in the archive, confirming his status as a fixture of the current era. The track is pure tech-house functionality — a tool designed to make people move, with no pretension beyond that. Alongside Acraze's "Do It To It" — one of the biggest crossover house hits of the period — the middle section is unapologetically populist, the DJ riding current trends with the same comfort they bring to underground selections.
+
+Demarkus Lewis' "Body Tonic" returns at fifty-two minutes, now on its third appearance. It anchors a remarkable stretch of rapid-fire selections — seven tracks in four minutes between the 52-minute and 56-minute marks. The DJ is compressing again, stacking ideas the way Mix 10 did, creating density through accumulation rather than space. Oliver Dollar's "Pushing On" in Tchami's remix, Bruno Furlan's "Born Slippy," David Glass, Ralph Noah — each one gets barely thirty seconds before the next arrives. It's a technique borrowed from radio mixing, but applied with club sensibility.
+
+Billie Eilish & Khalid's "lovely" at sixty-eight minutes is the emotional fulcrum — a hushed, minimal pop ballad placed deep in the second half, functioning the same way Frank Ocean's "Thinkin Bout You" did in Mix 18: as a moment of vulnerability within a functional set. The DJ consistently reaches for these moments, creating breathing room for the listener in mixes that might otherwise be relentless.
+
+YOTTO's "Slowly" at seventy minutes begins the close — the title itself a directive for the final seven minutes. The mix dissolves through Afro-tech, ambient textures, and Gaetano C & DePandis' "Saw" as the final track. "Saw" has become a reliable closer, its hypnotic groove the last thing the listener hears before silence. Mix 19 is workmanlike in the best sense — the craft is invisible, the selections serve the arc, and the whole is greater than the sum of its parts.

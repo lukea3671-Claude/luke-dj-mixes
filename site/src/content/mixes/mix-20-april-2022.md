@@ -92,3 +92,21 @@ energyMax: 0.69
 | 47 | 65:30 | Jacala, Munch & Thunder | Crown | House |
 | 48 | 66:45 | Swedish House Mafia | Time (feat. Mapei) | Dance |
 | 49 | 71:00 | BIA & J. Cole | LONDON | Rap |
+
+## Liner Notes
+
+Mix 20 is the hottest mix in the archive. Mean energy 0.254 — the highest since Mix 01 — with a front-loaded arc that starts at 0.270 and holds above 0.239 through all four quarters. The opening quarter is the most energetic single section in the entire forty-six-mix catalogue. This is a DJ who has woken up and decided to push.
+
+The opening five minutes are a masterclass in density. Jamie Jones' "My Paradise," Joeski & Gorge's "Jogo," SolyMar & Megamen's "All I Need," and then Andy Compton's "That Acid Track" followed immediately by Solee's "Shanti" — two of the archive's most cherished signatures, back to back, within the first five minutes. Then "That Acid Track" again at six minutes. Three signature tracks in two minutes. It's like a DJ set that begins with a greatest-hits medley of its own mythology, an invocation of everything the archive has built.
+
+Bicep's "Glue" returns at twenty minutes — this time in a Hugo Cantarra & Stone Van Brooken edit. It's the fourth incarnation of "Glue" across the archive: the Tomorrowland version in Mix 01, the original in Mix 01 again, the original in Mix 17, and now this edit. Each version reflects a different relationship with the track — from discovery to reverence to nostalgia to reinterpretation.
+
+Basic Channel's "Phylyps Trak II/II" at twenty-four minutes is now on its third appearance, and it's become a status marker — a track that says "this DJ listens to Berlin dub techno" without making a fuss about it. Here it sits between LP Giobbi remixes and Epic Hunters, a foundational document embedded in contemporary selections. The DJ no longer needs to foreground their influences; they just deploy them.
+
+The genre breakdown is notable: Dance 37%, Electronic 28%, House 24%. Pop drops to a single track — Ed Sheeran's "2step" at fifty-eight minutes, a remarkably late placement for the archive's only pop selection. The DJ has become almost entirely committed to dance music and its direct relatives. The crossover instinct from the first ten mixes has been replaced by genre confidence.
+
+Tensnake's "Antibodies" in LP Giobbi's remix appears three times across a nine-minute stretch — at twenty-four, twenty-seven, and thirty minutes. It's the same triple-play technique seen with Toni Braxton in Mix 08 and Tinlicker in Mix 09, but applied here to a disco-house track that's catchier than either of those. The DJ can't let it go. Some tracks demand to be played more than once in a sitting, and the archive has always honoured that compulsion rather than editing it out.
+
+The second half widens slightly — Vintage Culture, MEDUZA, Deetron's "Photon" (returning from Mix 08), and a rare appearance by Petar Dundov, whose Croatian minimal techno adds a different texture. Swedish House Mafia's "Time" at sixty-six minutes provides a rare stadium-scale moment in a mix that otherwise stays firmly in club territory. BIA & J. Cole's "LONDON" closes the mix on a rap note — the first hip-hop closer since the early archive, and a reminder that the DJ's world extends beyond the dancefloor even when the set suggests otherwise.
+
+Mix 20 is the archive's most energetic statement since the marathon era, but delivered in seventy-five focused minutes instead of three and a half hours. The same impulse — to push, to sustain, to keep the energy high — expressed with four years more economy. It's proof that intensity and discipline aren't opposites.

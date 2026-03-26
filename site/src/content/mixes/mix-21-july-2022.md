@@ -103,3 +103,23 @@ energyMax: 0.74
 | 55 | 78:45 | The Chainsmokers & Ship Wrek | The Fall | Pop |
 | 56 | 81:00 | gonima | Organ Tutorials | Ambient |
 | 57 | 84:45 | R3HAB & Amy Shark | Sway My Way | Dance |
+
+## Liner Notes
+
+Eighty-seven minutes, fifty-seven tracks, and an energy mean of 0.247 that ranks it among the hottest in the archive. Mix 21 is a summer mix in every sense — recorded in July, pitched between breezy pop and driving house, with the easy confidence of warm weather. The genre palette widens again after Mix 20's almost-exclusive dance focus: pop returns to 9%, and the selections feel lighter, more social, more suited to an outdoor gathering than a dark club.
+
+The first three minutes signal the range. John Epps' "iLove" — a soulful house opener — leads to Shane Fontane's "Rituals" (returning from Mix 04) and then Lana Del Rey's "Born To Die" in a Two Friends remix. The pop crossover that disappeared in recent mixes is back, but filtered through dance production. The DJ has found the balance they've been searching for: pop sensibility expressed through house and electronic structures.
+
+Lane 8's "Little Voices" at fifteen minutes marks his return after a five-mix absence — his longest gap in the archive. Alongside Armin van Buuren's "This Is What It Feels Like" and Corey Hart's "Sunglasses at Night," the early section leans into melody with unusual directness. These are songs with hooks, real vocals, identifiable melodies. After the austere house focus of Mix 17, the DJ is allowing themselves to enjoy pop again.
+
+Fleetwood Mac's "Gypsy" at thirty-one minutes is a beautiful selection — not their obvious choice (that would be "Dreams," which appeared in Mix 04), but a deeper album cut. Stevie Nicks' vocal sits between Sébastien Tellier's French electronic pop and Benjamin Bates' dance production, creating a corridor of warmth that has no business working as well as it does. The DJ's instinct for placing rock and pop within electronic contexts has matured from the early mixes' randomness into something deliberate and effective.
+
+Morgan Page's "The Longest Road" in the deadmau5 remix returns at fifty minutes — its fourth appearance, always functioning as a structural gateway. Every time it appears, it signals the transition from the mix's middle section into its final act. The DJ may not consciously deploy it this way, but the data is consistent: "The Longest Road" marks the beginning of the end.
+
+Fred again.. and deadmau5 appear back to back near the seventy-minute mark — "Jungle" into "XYZ." It's a symbolic pairing: Fred, who represents the future of UK electronic music, and deadmau5, who represents its recent past. The younger artist's sample-based intimacy followed by the elder's studio precision. Two approaches to the same art form, placed in conversation.
+
+The energy arc is front-loaded — the opening quarter peaks at 0.266, then the mix gradually descends. It's the same confident architecture as Mix 20: arrive at high intensity, sustain it, and slowly release. The summer context makes this shape feel natural — the heat of midday giving way to the cool of evening.
+
+Elvis Presley in PNAU's remix at forty-one minutes is audacious. The King, reanimated by an Australian electronic duo, dropped into a 2022 house mix. It echoes the archive's persistent instinct for historical recontextualisation — the same impulse that placed Leonard Cohen in Mix 07 and The Rolling Stones in Mix 14. Every era of popular music has something to offer the dancefloor, if you know how to frame it.
+
+The close moves through trance, OneRepublic, Eric Prydz vs. Hans Zimmer's "Opus Interstellar," and then Tiësto & Charli XCX's "Hot In It" — a bona fide pop chart hit, deployed without apology at the seventy-six-minute mark. The mix ends with ambient organ textures and R3HAB, dissolving from pop energy into stillness. It's a summer sunset captured in eighty-seven minutes — warm, social, generous, and perfectly timed.

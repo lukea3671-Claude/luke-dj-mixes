@@ -110,3 +110,21 @@ energyMax: 0.68
 | 65 | 78:30 | Ridney | At Night | Dance |
 | 66 | 78:45 | Jesse & Joy | Dueles | Pop in Spanish |
 | 67 | 79:00 | M-Soul SA | Nazreth (Original Antidote) | House |
+
+## Liner Notes
+
+Mix 18 bounces back from Mix 17's minimalism with eighty minutes and sixty-seven tracks — the densest packing since the pandemic era. Dance reclaims its usual top position at 55%, the highest it's reached since Mix 11. The energy jumps to 0.238 — the highest mean since Mix 03. Something has shifted: after the introspective year-end of Mix 16 and the focused brevity of Mix 17, the DJ has decided to let loose.
+
+The opening minutes are all business. Mr. V's "Jus Dance" into Matt Sassari's "Give It to Me" — two tech-house tracks that announce their intentions by their titles alone. Then Flume & MAY-A's "Say Nothing" at three minutes, a left turn into atmospheric electronica that only lasts long enough to reset the ear before Shouse's "Won't Forget You" takes over. The pacing is aggressive, decisive. Tracks arrive and depart with a confidence that wasn't present in the earlier mixes.
+
+Eric Prydz's "Opus" returns, this time in the Four Tet remix — the same version that got a nine-minute ride in Mix 05. Here it gets barely a minute, sandwiched between Da Hool's "Meet Her at the Loveparade" and Joel Corry's "The Parade." Two different tracks with "parade" in the title, flanking one of progressive house's most revered recordings. The sequence reads as a miniature history of dance music culture: the original loveparade, the opus it inspired, and the modern commercial version.
+
+Frank Ocean's "Thinkin Bout You" at thirty-six minutes is the quietest moment in the mix — an R&B ballad placed between house tools like a held breath. It's the kind of selection that separates a DJ who understands emotional dynamics from one who only understands BPM. The mix needs this moment of stillness before Christian Smith & Wehbba's "Mutate" drives it forward again.
+
+Tinlicker appears three times — "Just to Hear You Say," "The Walk" (twice) — their strongest presence in a single mix. Alongside Kasablanca's "Immunity," there's a melodic house corridor through the middle of the mix that provides emotional relief between the tech-house workouts. The DJ is learning to create these corridors deliberately — pockets of melody within functional sets that give the listener something to hold onto.
+
+Fred again.. & Romy & HAAi's "Lights Out" (HAAi Remix) at forty-eight minutes is a significant convergence: three of the UK's most forward-thinking electronic artists on a single track, remixed by a DJ known for pushing into experimental territory. Its placement after John Summit's "Human" remix creates a tension between American tech-house directness and British electronic abstraction. Both approaches are valid; the mix holds space for both.
+
+Sofia Kourtesis' "Estación Esperanza" with Manu Chao at sixty-four minutes is the most global selection in the mix — a Peruvian-German producer meeting a French-Spanish singer over house beats. The track title translates to "Hope Station," and it carries a warmth that transcends geography. Its appearance this deep in the mix, after an hour of mostly Anglo-American and European selections, opens a window onto a wider world.
+
+The energy arc builds — the second quarter peaks, maintaining through the third before dropping in the fourth. The shape mirrors Mix 10: front-loaded momentum that sustains and then gently releases. The final fifteen minutes move through PAX & Rui Da Silva's "Touch Me," trance, deep house, and a string of increasingly atmospheric selections that dissolve the dancefloor into space. Mix 18 is the sound of the DJ warming up for a year that will prove to be the archive's most productive.
