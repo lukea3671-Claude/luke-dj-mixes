@@ -147,3 +147,23 @@ energyMax: 0.74
 | 87 | 113:15 | Simone Vitullo & Cammora | It Feels So Good (Extended Mix) | Dance |
 | 88 | 115:15 | Stefan Botes | Gangsta Paradise | House |
 | 89 | 115:30 | DJ Chosen Few | Chosen Paradize (Formek Remix) | Hardcore |
+
+## Liner Notes
+
+Mix 23 is the last big session for a while — one hour and fifty-six minutes, eighty-nine tracks. After this, the mixes contract into their final form: mostly sub-ninety-minute, focused, economical. This is the consolidation era's farewell party, and it packs everything the DJ has learned into nearly two hours of music.
+
+The BPM shifts to 129.2 for the first time in the archive. It's a subtle but significant change — six beats per minute faster than the 123 that has defined every previous mix. The quicker tempo drives a different energy: more urgent, more forward-leaning, less patient. The DJ's internal clock has accelerated.
+
+The opening twenty minutes are a tour de force of the archive's collected vocabulary. Alex Dolby & Santos' "Raw Road" at four minutes. Basic Channel's "Phylyps Trak II/II" at nine minutes. Paperclip People's "Throw" at eleven. Demarkus Lewis' "Body Tonic" at twelve. Andy Compton's "That Acid Track" at twenty. Five of the archive's most recurring tracks deployed in rapid succession, alongside Mau P's "Drugs From Amsterdam" — one of 2022's biggest underground hits. It's as if the DJ is taking inventory before moving on to whatever comes next.
+
+Gigi D'Agostino appears twice in quick succession — "Elisir" and "Bla Bla Bla" back to back at the twenty-six-minute mark. The Italian eurodance legend has been a quiet presence since Mix 03, and this double appearance is a tribute: two tracks from an artist who proved that dance music could be simultaneously silly and sincere. "Bla Bla Bla" is one of the most recognisable melodies in European dance history, and its placement alongside Techno and deep house is the archive at its most genre-fluid.
+
+Fred again.. appears twice — "Kammy (like i do)" at thirty minutes and "Billie (Loving Arms)" at forty-one. The gap between is filled with James Brown's "Papa's Got a Brand New Bag" — a track from 1965 placed between two from 2022. The sixty-year span between them collapses: funk and sample-based electronic, connected by rhythm and feel.
+
+The second hour widens into the archive's most varied single stretch. Tinlicker's melodic house. DJ Seinfeld's lo-fi house. Gotye's "Somebody That I Used to Know" — another pop crossover handled with confidence. Kerri Chandler & Jerome Sydenham's "You're in My System" — deep house royalty. Floorplan's "Ritual" — Robert Hood's more accessible alias. Pink Floyd's "Another Brick in the Wall" in a Tim Enso remix, followed by two more reworkings of the same song. Three versions of Pink Floyd in three minutes — the boldest pop-in-dance statement since Mix 16's second-half jukebox.
+
+The energy arc builds — the second quarter peaks at 0.266, then maintains before dropping slightly in the final quarter. The building shape mirrors the first half's density: the DJ is stacking energy through accumulation, letting the sheer volume of ideas create momentum.
+
+Patrice Bäumel's "Serpent" at 106 minutes is its third appearance — always deployed in the deep second half, always functioning as a dark, driving counterweight to the warmth that surrounds it. BLOND:ISH's "Life Is..." follows, and the mix begins its descent through atmospheric electronic and deep house toward a close that ends with "Gangsta's Paradise" reworked as house. The final track: a hardcore remix, the most unexpected genre to close a mix in the entire archive.
+
+This is the consolidation era's magnum opus — everything the DJ has collected, discovered, and refined across twenty-three mixes, compressed into a single session. It's the last time the archive will feel this expansive for a long while. What comes next is the quiet turn.
