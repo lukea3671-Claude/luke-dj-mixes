@@ -90,3 +90,21 @@ energyMax: 0.45
 | 42 | 61:45 | Stardust | Music Sounds Better with You | Electronic |
 | 43 | 66:15 | Argento | Red Light | Dance |
 | 44 | 66:30 | Hidden Empire | Cashmere | Techno |
+
+## Liner Notes
+
+Mix 43 is the archive's jukebox session. Forty-four tracks across sixty-six minutes, nearly every one of them a classic or a remix of a classic. George Michael's "Fastlove" at two minutes — the original, then the summer mix. Ashanti's "Rock Wit U" in three consecutive versions from four to five minutes. Modjo's "Lady (Hear Me Tonight)" at eight. Jackie Moore's "This Time Baby" at fourteen. Chaka Khan's "I'm Every Woman" at fifty-three. The tracklist reads like the contents of a record box that has been curated over decades, not months.
+
+The energy dips to 0.14 — the lowest mean in the entire final era, and among the lowest in the archive's history. But low energy in this context doesn't mean low intensity. These are records that carry their own voltage. "Lady (Hear Me Tonight)" doesn't need a DJ to supply energy; the track has been powering dance floors since 2000. The DJ's role here is curatorial rather than generative — selecting the moment, finding the sequence, trusting the records to do the work.
+
+The Ashanti triple at four minutes establishes a pattern the mix will return to: the same song in multiple versions, back to back to back. It's a technique the DJ has been developing since Mix 37's Tiesto triptych and Mix 40's James Hype quadruple, but here it serves a different purpose. The Ashanti originals and remixes are a study in texture — how the same vocal, the same melody, the same emotional core can be dressed in completely different rhythmic clothes and still communicate the same longing.
+
+Post Malone opens the mix alongside Mark Morrison and Sickick — "Cooped Up / Return Of The Mack," a mashup that bridges decades in its title alone. The mix's entire philosophy is contained in this opening gesture: the past and present are not separate categories but a continuous conversation. Morrison's 1996 hook and Post Malone's 2022 verses occupy the same breath.
+
+ATB's "9 P.M. (Till I Come)" appears at eighteen minutes, its famously melancholic trance melody cutting through the mix's predominantly house and R&B texture. It appeared in Mix 40 as well — two appearances in four mixes after decades of absence from the rotation. Something about the current era keeps pulling the DJ back to late-nineties trance. Perhaps it's the genre's unguarded emotionalism, its willingness to be beautiful without irony. In the quiet era, that sincerity feels less like nostalgia and more like kinship.
+
+Steve Angello and Laidback Luke's "Show Me Love" at twenty minutes features Robin S. — yet another return for the voice that has woven through the archive since Mix 04. Here she's filtered through a 2010s big-room production, her vocal somehow both familiar and transformed. The archive's relationship with Robin S. is one of its most revealing threads: the same voice, across decades of dance music, always sounding exactly right.
+
+Stardust's "Music Sounds Better with You" at sixty-one minutes is the emotional summit. The 1998 classic — Thomas Bangalter's most perfect pop moment before Daft Punk fully formed — arrives in the final stretch with the force of something the entire mix has been building toward. In a session full of classics, this is the classic's classic, the record that seems to contain every good feeling dance music has ever produced.
+
+The mix closes on Hidden Empire's "Cashmere" — a techno track whose title is more evocative than most poetry. After sixty-six minutes of disco, house, R&B, pop, and soul, the DJ ends on the underground. The message is consistent with the archive's overall trajectory: you can go anywhere, love anything, remember everything — but the dance floor is where you return.

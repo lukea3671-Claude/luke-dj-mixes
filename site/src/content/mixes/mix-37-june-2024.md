@@ -92,3 +92,21 @@ energyMax: 0.48
 | 44 | 61:30 | Bob Sinclar | World, Hold On (feat. Steve Edwards) [Club Mix] | Electronic |
 | 45 | 63:00 | Robin S. | Show Me Love | Pop |
 | 46 | 63:15 | Andy Compton | That Acid Track | Electronic |
+
+## Liner Notes
+
+Forty-six tracks in sixty-three minutes. Mix 37 is the first chapter of a new era, though you wouldn't know it by feeling alone. The energy sits at 0.15 — identical to the mixes on either side of it — but the character has shifted. Where Mix 36 was ascetic, pared to nineteen tracks across fifty-one minutes, Mix 37 packs more than twice the selections into a similar runtime. The restraint is still there, but the approach has changed. This is someone who has learned economy and is now applying it at speed.
+
+The opening minute announces the shift. The Outfield's "Your Love" — a 1986 rock staple — arrives via a Diplo remix, and before the memory of it fades, Sharam's "PATT (Party All the Time)" crashes in through a triple-threat remix from Adam Beyer, Layton Giordani, and Green Velvet. Then Eddie Murphy's original "Party All the Time" flashes across the deck for fifteen seconds. It's a joke, a wink, a palate cleanser — the kind of playful juxtaposition that the early marathon mixes attempted through sheer volume but that now lands with surgical timing.
+
+The mid-section belongs to the new school. Anyma at twenty-two minutes, Barry Can't Swim at twenty-three, Floating Points at thirty-one — these are the artists defining electronic music's current moment, and the DJ is no longer a spectator to them. They sit alongside Kasablanca and Lane 8, the latter arriving one last time in collaboration with Kasablanca on "Remission" at the four-minute mark. Lane 8 has been present since Mix 01. Here, in a co-production credit rather than a solo appearance, the torch-passing feels quiet and complete.
+
+At thirty-six minutes, Edwyn Collins' "A Girl Like You" surfaces — another unexpected rock selection, almost indie-pop in its jangle. It's immediately followed by G-Moe's "Like You," a hip-hop track that shares the word in its title but nothing else in its texture. This kind of word-association sequencing is new. The DJ is playing with language as a mixing tool, not just key and tempo.
+
+The Tiesto triptych at forty-four minutes is the mix's most striking structural move. "BOTH" appears three times in ninety seconds — the David Guetta and Seth Hills remix, the version with 21 Savage, and the MK and Sonny Fodera remix. It's the same song viewed from three angles, like turning a crystal in light. The technique owes something to the early marathons where tracks would recur, but the intent is different. This isn't repetition through excess; it's a deliberate multi-angle study.
+
+Jennifer Lopez's "Waiting for Tonight" at forty-seven minutes connects the mix to the same late-nineties diva house lineage that Robin S. represents. And Robin S. does appear — at sixty-three minutes, "Show Me Love" arrives in the final stretch, her voice threading through Mix 04, Mix 06, Mix 14, and now here. The archive keeps circling back to these voices, these touchstones, as if no mix is complete without acknowledging where the feeling first came from.
+
+Gigi D'Agostino's "Bla Bla Bla" at fifty minutes, Bob Sinclar's "World Hold On" at sixty — the late stretch reads like a roll call of festival-closing anthems, the songs that make a crowd of strangers feel like a temporary family. The energy is still low on the meter, but the selections carry their own momentum. These are records with decades of dance-floor memory baked into their grooves.
+
+And then, at the very end, the last track listed: Andy Compton, "That Acid Track." The archive's most-played record, sixteen mixes deep by now, still closing out sessions the way it has since Mix 02. It sits at 63:15 like a signature at the bottom of a letter. Some things don't need to change. Some things are the point.

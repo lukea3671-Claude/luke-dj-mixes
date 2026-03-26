@@ -82,3 +82,21 @@ energyMax: 0.48
 | 37 | 43:45 | Badger & Natasha Bedingfield | These Words | Dance |
 | 38 | 47:15 | Simion | Can You Feel It | House |
 | 39 | 47:45 | The National | About Today | Alternative |
+
+## Liner Notes
+
+Mix 38 is the shortest mix in this final era at fifty-one minutes, and it carries the kind of quiet confidence that only comes from knowing exactly when to stop. Thirty-nine tracks, a key of G, the same 129.2 BPM that has anchored the archive's dance-floor centre for years. The numbers describe efficiency. The listening experience describes something closer to intimacy.
+
+The opening three tracks establish a pattern the mix will follow throughout: Quarterhead and SESA's "You Will See" gives way to ROBN's remix of "Little Things," which dissolves into Jorja Smith singing the same song mashed against Crystal Waters' "Gypsy Woman." The DJ is layering recognitions, placing familiar voices inside unfamiliar arrangements, trusting that the listener's memory will do half the work. This is a technique that would have been impossible in Mix 01, when everything was new and the instinct was to let each track announce itself. By Mix 38, the archive has enough history that a reference can land sideways.
+
+RUFUS DU SOL appear at eleven minutes with "Surrender," featuring Curtis Harding. It's their thirty-eighth-mix run now — present in every era, every shift, every quiet turn and loud return. Other artists come and go, define eras and then graduate from the rotation. RUFUS DU SOL simply persist. Their appearance here, wrapped in Harding's soulful vocal, feels less like a selection and more like a heartbeat — something the DJ doesn't consciously reach for but that the body produces on its own.
+
+The mid-section drifts through a remarkably diverse stretch: Fanny Lu singing in Spanish at thirteen minutes, DJ Seinfeld remixed by Carlita at fifteen, Gottarm's deeply atmospheric "Isaias 41:10" at twenty-one. That last title — a biblical reference, Isaiah 41:10, "Fear not, for I am with you" — sits quietly in a tracklist full of dance records without comment. The DJ doesn't annotate. The selection speaks.
+
+Andy Compton's "That Acid Track" surfaces at twenty-nine minutes — not at the close this time, but mid-mix, as a pivot point. Armin van Buuren's "The Sound of Goodbye" follows immediately, then X-Press 2's "Say What!" — three tracks from three different decades of dance music, stacked in thirty seconds. The acid track bleeds into trance bleeds into UK house. Demarkus Lewis' "Body Tonic" at thirty minutes extends the sequence into soulful house. This is the archive's DNA expressed as a four-track run: acid, trance, UK house, soulful deep house. Everything the DJ has absorbed across six years, compressed into four minutes.
+
+Gorgon City's "One New Change" at forty minutes marks their final appearance in the archive. They've been present since Mix 07 — the pandemic discovery that became a fixture through the consolidation era. Eight mixes, four years. The DJ doesn't announce departures any more than they announce arrivals. Artists simply appear, recur, and then stop recurring. The tracklist is the only record.
+
+The final two tracks define the mix's emotional arc. Simion's "Can You Feel It" at forty-seven minutes is all uplift and affirmation — hands-in-the-air house music, the kind of record that asks a question it already knows the answer to. And then The National's "About Today" closes everything out. A quiet, devastating indie song about the distance between two people. "How close am I to losing you?" The mix ends not on a dance-floor peak but on a whisper. In fifty-one minutes, it has moved from club to bedroom, from sweat to stillness.
+
+This is what the quiet era sounds like when it has fully arrived. Not withdrawn, not diminished — just precise. Thirty-nine tracks that know exactly where they're going and aren't afraid to arrive somewhere unexpected.

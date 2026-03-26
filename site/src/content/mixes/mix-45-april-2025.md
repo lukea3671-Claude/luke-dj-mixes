@@ -89,3 +89,21 @@ energyMax: 0.53
 | 44 | 56:30 | Kerri Chandler | Atmosphere (The Lost Dubs) | Dance |
 | 45 | 57:30 | deadmau5 | Re_Jaded | Electronic |
 | 46 | 57:45 | Nobody's Hero | Night Driving (Original Mix) |  |
+
+## Liner Notes
+
+Something changes in Mix 45. The energy rises to 0.19 — the highest since Mix 30, a full fourteen mixes ago. The max energy peaks at 0.53, matching the levels of much earlier, louder eras. Trance appears as a genre for the first time in this final stretch, claiming six of forty-six tracks — fifteen percent of the session. After a year of quiet, the archive begins to remember what it sounds like at volume.
+
+Vintage Culture and Roddy Lima's "Analog Ascent" opens the mix with a title that doubles as a manifesto. Analog. Ascent. The climb begins from the first beat. Frank Ocean's "Lost" follows at three minutes — first in a Gabss and Vintage Culture remix, then the original, then another remixed version. It's the triple-version technique the DJ has refined across the last several mixes, but applied to Frank Ocean it produces something unexpected: a pop-R&B vocal deconstructed and rebuilt by house producers, then heard in its original form as if for the first time.
+
+The trance section from eleven to fifteen minutes is the mix's most significant passage. Phaxe's "Leyenda" in a Groundbass remix at eleven, Smoke Sign's "Come Out & Play" in a Frost Raven progressive trance remix at thirteen, Other Side's "Double Damage" at fifteen — these are not trance-inflected house records or nostalgic nods to the late nineties. These are progressive trance tracks, full and uncompromised. The genre hasn't appeared with this prominence since the archive's earliest years. Its return here, after the quiet turn and the introspective era, reads as the DJ reaching back past their recent evolution to something more primal. Trance, at its best, is about transcendence through repetition. The DJ has been practicing a different kind of repetition — returning to the same records, the same artists, the same feelings — and now the genre that embodies that practice has returned to the tracklist.
+
+FISHER's "Stay" at seven minutes and Calvin Harris' "SMOKE THE PAIN AWAY" at twenty-one minutes are the session's hardest moments — peak-time selections that would hold a festival main stage. Their placement in a mix that also contains ambient passages and folk-adjacent electronic is a sign that the DJ has recovered the confidence to shift registers dramatically within a single session. The early marathons did this through sheer length; Mix 45 does it in fifty-eight minutes.
+
+Fred again..'s "Bleu (better with time)" appears at fifty-five minutes — a late, quiet selection from an artist who has been present since Mix 03. The parenthetical subtitle reads as an accidental commentary on the archive itself. Better with time. Eleven mixes and four years of Fred again.. appearances have built a relationship between artist and DJ that makes every new selection feel like continuing a conversation rather than starting one.
+
+deadmau5's "Re_Jaded" at fifty-seven minutes is one of the final deadmau5 appearances across forty-five mixes and eight mixes of history together. The track's title carries its own melancholy — re-jaded, jaded again, the cycle of cynicism that electronic music sometimes falls into. But placed at the end of a mix that has just spent an hour recovering energy and rediscovering trance, the title reads as ironic. This mix is not jaded. This mix is waking up.
+
+The "Iris" double — R3giu5 at thirty-eight minutes and TOTTI's Afro House remix at forty-one — is a coincidence the DJ may or may not have noticed, but the archive notices everything. The track title, appearing twice in a single mix, reads as a signature, an unconscious watermark placed by the person assembling the session.
+
+Mix 45 is the hinge. Everything before it in the final era has been quiet, disciplined, introspective. Everything after it — meaning Mix 46, the last chapter — will be something else entirely. The energy is climbing. The genres are expanding. The trance has returned. The archive is not finished with the DJ yet.

@@ -93,3 +93,21 @@ energyMax: 0.53
 | 48 | 68:15 | LP Giobbi & Alabama Shakes | Until There's Nothing Left (4am Edit) | Electronic |
 | 49 | 69:30 | G Flip | About You | Pop |
 | 50 | 72:45 | Magic Robot | Ludwig Part | Electronic |
+
+## Liner Notes
+
+Fifty tracks in seventy-three minutes. Mix 40 is the most densely packed session since the consolidation era — a track every eighty-seven seconds on average. The genre breakdown tells the story: sixty-seven percent Dance, the highest concentration in the final era. After Mix 39's hip-hop detour, the DJ has returned to the dance floor with renewed purpose.
+
+The Blessed Madonna and Kylie Minogue open the proceedings at four minutes with "Edge of Saturday Night" — two legends of their respective worlds meeting in a track that sounds exactly like its title feels. Sabrina Carpenter's "Espresso" arrives at ten minutes in a James Hype remix, followed immediately by Shouse's "Love Tonight" and Tina Arena's "Chains." Australian voices keep threading through the mix — a quiet national identity that the archive has always carried but rarely announced. RUFUS DU SOL's "Lately" in an Adam Ten and Mita Gami remix at twenty-one minutes deepens the thread. The archive's most persistent artist, here in a remix that strips their anthemic tendencies to something more intimate, more nocturnal.
+
+The James Hype sequence from fifty-five to fifty-nine minutes is the mix's most audacious structural choice. "7 Seconds" appears four times — the dub, the radio edit, the radio edit again, the dub again. It's a mirror reflecting a mirror, the same track turned inside out and reassembled. Where Mix 37's Tiesto triptych played three remixes sequentially, this goes further: four versions of the same record, daring the listener to hear the differences, to understand what a remix actually changes about a song's DNA.
+
+Belinda Carlisle's "Heaven Is a Place on Earth" at twenty-five minutes is placed directly next to Edward Maya's "Stereo Love" — both songs that carry the weight of their respective decades, the eighties and the late 2000s, sitting side by side as though the thirty years between them were nothing. The DJ has always treated time as a flat plane where records coexist based on feeling rather than chronology. By Mix 40, this approach has become second nature.
+
+The mid-section builds through a remarkable run: FISHER's "You Little Beauty" at thirty minutes into KREAM's "Wicked Game" at thirty-two into nimino's "I Only Smoke When I Drink" at thirty-three. The energy escalates through three different registers — festival house, melodic dance, atmospheric electronic — and each transition feels less like a mix and more like a thought completing itself. The DJ's instinct for emotional sequencing has never been sharper.
+
+Gorgon City make their penultimate archive appearance at thirty-nine minutes with "Are You Feeling It Too?" They'll appear once more in Mix 43 before departing. Eight mixes across four years. In the context of an archive where some artists appear once and vanish, eight mixes constitutes a relationship.
+
+America's "A Horse With No Name" at fifty-three minutes is the kind of selection that would have been unthinkable in the early mixes — a 1972 folk-rock song, no remix, no dance treatment, placed in the fifty-third minute of a dance mix because its sparse, desert atmosphere creates exactly the right emotional clearing before the final stretch. The DJ has earned the right to these detours by building thirty-nine mixes of trust.
+
+The closing run from sixty-three minutes to the end — Astrality's "Heartbeat Slow," LP Giobbi's edit of Alabama Shakes, G Flip's "About You," Magic Robot's "Ludwig Part" — descends gently from dance floor to living room, from movement to stillness. Mix 40 runs harder than most of its neighbours in this quiet era, but it ends the same way they all do now: softly, with care, as if the DJ knows the listener needs to be set down gently after being held.

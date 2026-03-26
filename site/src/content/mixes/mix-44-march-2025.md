@@ -81,3 +81,23 @@ energyMax: 0.46
 | 33 | 51:00 | Enrique Iglesias | Bailando (feat. Descemer Bueno & Gente de Zona) [Spanish Version] | Latino |
 | 34 | 51:15 | Enrique Iglesias | Bailando (feat. Sean Paul, Descemer Bueno & Gente de Zona) [English Version] | Latino |
 | 35 | 54:45 | Myles Smith | Nice To Meet You | Singer/Songwriter |
+
+## Liner Notes
+
+Mix 44 is the most globally minded session in the archive. Afro-beat appears twice. Latino appears twice. A singer-songwriter closes the session. The genre count is nine across thirty-five tracks — a diversity that would have been unimaginable in the early eras, when Dance and Pop dominated and everything else was incidental. The world the DJ listens to has expanded visibly.
+
+Elderbrook and Shimza's "Places" opens the mix — an Afro-house edit that sets the geographical scope immediately. By three minutes, DJ L3XIS has deepened the African influence with "Holy Ghost (Afro House)." Notre Dame's "Emowe" follows at five. The first ten minutes alone touch three continents' worth of dance music production, and none of it feels forced or tokenistic. These are simply the records that spoke to the DJ in March 2025. The palette is wide because the listening is wide.
+
+Coldplay's "Adventure of a Lifetime" in a Yotto remix at seven minutes is a quietly significant selection. Yotto has been one of the defining voices of melodic house for the past half-decade, and hearing him reshape one of Coldplay's most joyful pop songs into something that works at 123 BPM is a minor miracle of production. The DJ has always had an ear for remixes that reveal something new in familiar material. This one strips away Coldplay's stadium ambitions and finds the small, warm pulse underneath.
+
+John Summit's "Make Me Feel" at nine minutes marks one of his final appearances in the archive. Seven mixes since Mix 14, spanning the refinement, consolidation, quiet turn, and now the new identity. Summit's tech-house energy — punchy, unsubtle, designed for rooms that hold thousands — has been a counterweight to the archive's increasing introspection. His presence here, even as the surrounding selections grow softer, suggests the DJ hasn't abandoned the big room so much as learned to visit it selectively.
+
+The Freemasons' "Love On My Mind" at thirteen minutes appeared just one mix ago, in Mix 43. Back-to-back appearances of the same track across adjacent mixes have become rare enough to be noticeable. The DJ is still circling this record, still finding it necessary. Amanda Wilson's vocal has an urgency that cuts through any production it's placed within — perhaps that's why it keeps returning. Some voices resist being filed away.
+
+The Enrique Iglesias triple at fifty minutes — "Bailando" in a Noodles remix, then the Spanish version, then the English version — is the mix's most exuberant passage. Three takes on the same celebration, three languages, the same rhythm. It's the archive's multilingual turn made literal: a single song that exists in multiple tongues, each version carrying a slightly different emotional weight. The Spanish original has a warmth the English version can't quite replicate, and the remix finds a third angle entirely.
+
+BLOND:ISH and Black Circle's "Higher" at sixteen minutes provides the mix's deepest moment — a track that lives in the space between house and meditation, its minimal arrangement creating room for the listener's own thoughts. It's followed by Lost Frequencies' "Love Is The Only Thing" at nineteen, which takes that meditative space and fills it with melody. The sequencing is impeccable: emptiness, then abundance. The DJ understands that contrast is more powerful than consistency.
+
+Dom Dolla's "Dreamin" featuring Daya at thirteen minutes connects to a thread that runs through the final era — Dolla has appeared multiple times, each time with a slightly different production approach, as if he and the DJ are evolving in parallel. Glass Animals in a Jakwob remix at thirty-eight minutes provides the alternative-electronic bridge that the archive has always maintained, even as the core has shifted.
+
+Myles Smith's "Nice To Meet You" closes the mix at fifty-four minutes. A singer-songwriter track, acoustic at its core, to end a dance session. The quiet era's closing tracks have been trending in this direction — folk in Mix 42, alternative in Mix 38, pop ballads in Mix 39. The DJ closes sessions now the way you close a book: gently, with the understanding that whatever was inside is meant to linger.

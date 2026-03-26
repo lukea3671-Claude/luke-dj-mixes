@@ -93,3 +93,23 @@ energyMax: 0.5
 | 39 | 73:30 | Action Bronson, Mark Ronson & Dan Auerbach | Standing In the Rain | Hip-Hop/Rap |
 | 40 | 76:00 | AnnenMayKantereit & Giant Rooks | Tom's Diner | Rock |
 | 41 | 79:00 | James Blunt | Monsters | Pop |
+
+## Liner Notes
+
+Mix 39 is the archive's hip-hop record. For the first time in forty-six mixes, Hip-Hop/Rap is the leading genre — ten of forty-one tracks, a quarter of the entire session. The BPM drops to 123. The key shifts to A. The energy holds at 0.15 but the character is fundamentally different from anything that has come before. This is the DJ stepping outside the house they've built and discovering there was always a neighbourhood.
+
+The opening is delicate. Kina's "Get You The Moon" — indie pop, feather-light, almost fragile — sets a tone the mix will immediately complicate. By six minutes, Hackler and Kuch's "Special K" is hammering techno into the speakers, and by eight minutes Aaron May is rapping "I'm Good Luv, Enjoy" over a completely different tempo and texture. The mix isn't blending these worlds so much as placing them in the same room and letting them negotiate their own coexistence.
+
+John Summit and HAYLA's "Where You Are" at ten minutes is the last anchor to the archive's established identity — a tech-house selection from one of the defining artists of the consolidation era. Summit has been present since Mix 14, and his appearance here feels like the last familiar face at a party that's about to change character entirely. After him, the mix goes somewhere new.
+
+The hip-hop run from twenty-seven to seventy-one minutes is the most sustained departure in the archive's history. Meek Mill, ArrDee, Central Cee, Pusha T featuring Kendrick Lamar — these aren't house remixes of rap tracks or dance-crossover edits. They're hip-hop records, played as hip-hop records, in the middle of a DJ mix series that has been predominantly electronic for thirty-eight previous chapters. The statement is clear: the palette has expanded, and it's not temporary.
+
+Fred again.. appears twice — "Delilah (pull me out of this)" at eighteen minutes, and "Turn On The Lights again.." with Swedish House Mafia at fifty-eight. Both are emotional tentpoles. Fred again.. has been threading through the archive since Mix 03, and his ability to exist comfortably alongside both the electronic core and the hip-hop expansion says something about why the DJ keeps returning to him. He's a bridge artist — rooted in dance music but emotionally fluent in everything adjacent.
+
+Gotye's "Somebody That I Used to Know" at fifteen minutes is the first truly mainstream pop vocal in this mix, and it reads differently here than it would have in Mix 01. In 2018, it would have been part of a general everything-goes approach. In 2024, surrounded by hip-hop and underground electronic, it reads as a conscious choice to honour a specific memory. The song is twelve years old. It has stopped being current and started being personal.
+
+The closing stretch is where the mix reveals its emotional centre. Action Bronson standing in the rain at seventy-three minutes, AnnenMayKantereit covering "Tom's Diner" at seventy-six — these aren't dance records and they don't pretend to be. And then James Blunt's "Monsters" at seventy-nine minutes closes everything. A song about a father's mortality. No remix, no house treatment. Just the song.
+
+The deadmau5 and Kaskade classic "I Remember" appears at seventy-one minutes in a John Summit remix — a track that has echoed through the archive since the early days, now filtered through the sensibility of the consolidation era's defining voice. It's a small moment but it captures the mix's thesis: nothing is left behind, everything is carried forward, the old and new exist in the same breath.
+
+Mix 39 proves that the quiet energy of this era isn't about retreat. It's about permission — permission to go wherever the music leads, even when that means leaving the dance floor entirely.
