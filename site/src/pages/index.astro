@@ -26,6 +26,8 @@ const crateMixes = sorted.slice(1).map((mix) => ({
   bpm: mix.data.bpm,
   trackCount: mix.data.trackCount,
   energyMean: mix.data.energyMean,
+  musicalKey: mix.data.musicalKey,
+  genres: mix.data.genres,
 }));
 
 // Genre marquee data
@@ -57,6 +59,10 @@ const archiveData = sorted.slice(1).map((mix) => ({
   bpm: mix.data.bpm,
   isAnalyzed: isAnalyzed(mix.data),
   genre: mix.data.genres[0]?.name || '',
+  trackCount: mix.data.trackCount,
+  energyMean: mix.data.energyMean,
+  musicalKey: mix.data.musicalKey,
+  genres: mix.data.genres,
   year: mix.data.date.split(' ').pop() || 'Unknown',
 }));
 

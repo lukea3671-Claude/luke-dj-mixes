@@ -1,4 +1,5 @@
 import { useState } from "react";
+import MixVisualizer from '@/components/MixVisualizer';
 
 interface MixItem {
   slug: string;
@@ -11,6 +12,10 @@ interface MixItem {
   isAnalyzed: boolean;
   genre: string;
   year: string;
+  trackCount: number;
+  energyMean: number;
+  musicalKey: string;
+  genres: Array<{ name: string; count: number; percent: number }>;
 }
 
 interface Props {
@@ -48,11 +53,20 @@ export default function ArchiveFocusCards({ mixes, years }: Props) {
                   onMouseEnter={() => setHovered(mix.slug)}
                   onMouseLeave={() => setHovered(null)}
                 >
-                  {mix.coverImage ? (
-                    <img src={mix.coverImage} alt="" className="w-8 h-8 rounded flex-shrink-0 sm:w-8 sm:h-8 max-sm:w-6 max-sm:h-6 object-cover" />
-                  ) : (
-                    <div className="w-8 h-8 rounded flex-shrink-0 sm:w-8 sm:h-8 max-sm:w-6 max-sm:h-6" style={{ background: mix.gradient }} />
-                  )}
+                  <div className="w-8 h-8 rounded flex-shrink-0 sm:w-8 sm:h-8 max-sm:w-6 max-sm:h-6 overflow-hidden" style={{ background: '#0A0A0A' }}>
+                    <MixVisualizer
+                      data={{
+                        mixNumber: mix.mixNumber,
+                        bpm: mix.bpm,
+                        trackCount: mix.trackCount,
+                        energyMean: mix.energyMean,
+                        genres: mix.genres,
+                        musicalKey: mix.musicalKey,
+                        duration: mix.duration,
+                      }}
+                      viewMode="thumbnail"
+                    />
+                  </div>
                   <span className="font-mono text-[0.75rem] text-muted-stone w-10 flex-shrink-0 max-sm:hidden">
                     #{String(mix.mixNumber).padStart(2, '0')}
                   </span>
