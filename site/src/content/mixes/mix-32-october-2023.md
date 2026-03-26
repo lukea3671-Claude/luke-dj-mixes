@@ -80,3 +80,19 @@ energyMax: 0.58
 | 38 | 47:15 | cassö, RAYE & D-Block Europe | Prada | Dance |
 | 39 | 49:00 | PNAU & Empire Of The Sun | AEIOU | Pop |
 | 40 | 52:15 | Curtis Mayfield | Move On Up (Eric Kupper Vocal Mix) | R&B/Soul |
+
+## Liner Notes
+
+The quiet continues. Fifty-nine minutes, forty tracks, energy mean 0.180. The drop that began in Mix 31 is not a fluke — it's a new normal. Mix 32 is the first sub-hour mix since Mix 28 to carry this subdued energy, and it establishes the template for everything that follows: shorter, softer, more atmospheric.
+
+The energy arc is almost flat — 0.170, 0.182, 0.189, 0.180 across four quarters. There are no dramatic builds, no calculated peaks. The mix sustains a single mood from start to finish, like a room at one temperature. It's the flattest arc since the early marathons, but where those were flat because the DJ didn't yet know how to shape a set, this one is flat by choice. The mood is set early and maintained with discipline.
+
+Purple Disco Machine, Duke Dumont & Nothing But Thieves' "Something On My Mind" in a Solomun Remix at eight minutes is the standout selection — three artists from different worlds filtered through one of electronic music's most tasteful producers. It's the kind of track that defines the quiet era: emotionally rich, dynamically restrained, built for listening rather than dancing.
+
+Amy Winehouse's "Tears Dry On Their Own" at twenty-eight minutes, followed immediately by Skepta's "Can't Play Myself (A Tribute To Amy)" — two tributes to the same artist, placed back to back. It's one of the archive's most poignant sequences: Winehouse's raw vocal followed by Skepta's grime-electronic tribute. Both artists have complicated legacies, and their adjacency creates a moment of genuine feeling in a mix otherwise built from functional selections.
+
+Eric Prydz's "Opus" returns in the Four Tet remix at twenty-five minutes — a track that once commanded nine-minute stretches in the hot era, now sitting quietly in a fifty-nine-minute set. Its reduced prominence mirrors the archive's overall compression: the big gestures are still present, but they take up less space.
+
+Mousse T.'s "Horny '98" appears three times in rapid succession at the forty-one-minute mark — the original, the radio edit, and the extended mix. It's a burst of cheeky late-'90s house energy in a mix that otherwise runs cool. The triple play recalls the Toni Braxton and Tinlicker repetitions from earlier mixes, but here it feels like comic relief — the DJ momentarily breaking character to remind you they still know how to have fun.
+
+Curtis Mayfield's "Move On Up" closes the mix for the second consecutive time — it also ended Mix 31. A track so insistently optimistic that it functions as a mantra: move on up, keep going, the direction matters more than the speed. In the quiet era, that message takes on a different weight.

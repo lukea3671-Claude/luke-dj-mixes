@@ -119,3 +119,21 @@ energyMax: 0.65
 | 62 | 80:00 | Richard Grey, Lissat & Ghostbusterz | Makeba | House |
 | 63 | 80:30 | Oliver Anthony Music | Rich Men North of Richmond | Country |
 | 64 | 81:00 | Marc Ustari | Marc Ustari - Alone Together | Dance |
+
+## Liner Notes
+
+Mix 35 closes the quiet turn era and opens the door to 2024. Eighty-three minutes, sixty-four tracks, energy 0.171 — firmly in the new baseline that has held steady since Mix 31. The peak-heavy arc at 0.184 continues the restrained architecture. Five mixes into the quiet era, this is no longer a phase. It's a new identity.
+
+Tyla's "Water" at two minutes — one of the breakout global hits of late 2023, an Amapiano-pop crossover from South Africa. Its placement at the very beginning signals that the DJ is still tracking what's happening in the wider musical world, even as the mixes have turned inward. Alongside P. Diddy's "Last Night" (placed after a house track of the same name) and the Martinez Brothers & Tokischa's "KILO," the hip-hop and Latin thread runs stronger than in recent mixes.
+
+Hozier's "Take Me To Church" at sixty-three minutes appears in both a Das Beachhouse remix and its original form — back to back, the house version setting up the naked original. It's a technique the archive has perfected: present the dance version, then reveal the source. The original's raw, gospel-inflected vocal carries more weight after hearing it filtered through house production. The DJ understands that context shapes perception.
+
+Queen's "Another One Bites the Dust" gets the triple treatment at sixty-nine minutes — three versions in ninety seconds. Queen, like the other rock and pop classics that have appeared throughout the archive, is treated not as a novelty but as source material. The bassline that drives "Another One Bites the Dust" is already a house music prototype; the remixes simply make that lineage explicit.
+
+Bicep's "Glue" at seventy minutes — now appearing in its seventh or eighth incarnation across the archive. In Mix 01, it was a discovery at track three. Here, in the quiet era, it appears at track fifty-three. The same melody, carrying the accumulated weight of thirty-four mixes of history. It sounds different now — not because the track has changed, but because the listener has.
+
+Andy Compton's "That Acid Track" appears at sixty-one minutes — its sixteenth and final appearance in the archive. The most-played single recording across forty-six mixes, quietly retiring in the quiet era. It arrived in Mix 02 and stayed through Mix 35 — a three-year, thirty-three-mix residency. No farewell, no ceremony. Just a deep house track doing its work one last time, then stepping aside.
+
+Overmono's "Is U" at eighteen minutes is a notable addition — one of 2023's most acclaimed electronic releases, a track that bridges UK bass music with melodic rave. Its inclusion confirms that the DJ's ear for contemporary releases remains sharp, even as the overall energy has softened. The quiet era isn't a retreat from the present; it's a different way of inhabiting it.
+
+Oliver Anthony Music's "Rich Men North of Richmond" at eighty minutes — a viral country protest song from 2023 — is the most politically charged selection since Nina Simone's "Strange Fruit" in Mix 09. Country music has appeared before (Shania Twain, Sam Hunt), but this is the first time the genre carries explicit social commentary. Marc Ustari's "Alone Together" closes the mix, the title a perfect summary of what DJ mixing has always been: alone in a room, connected to everyone who listens.

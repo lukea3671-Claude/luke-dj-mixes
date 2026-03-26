@@ -82,3 +82,19 @@ energyMax: 0.7
 | 37 | 58:45 | Loods | Cold Hands, Warm Heart | Electronic |
 | 38 | 59:15 | iilliaa | life gets hard | Dance |
 | 39 | 61:45 | G-Eazy & Carnage | Down For Me (feat. 24hrs) | Hip-Hop/Rap |
+
+## Liner Notes
+
+Mix 33 opens with Bicep's "Glue" — the track that started everything, returning in the quiet era for the first time. It's immediately followed by Rui Da Silva's "Touch Me" played twice. Three of the archive's most foundational tracks in the first four minutes. The DJ is reaching back to the beginning, as if the quiet turn has prompted a need to reconnect with roots.
+
+Sixty-four minutes, thirty-nine tracks, energy 0.180. The closing-strong arc — peaking at 0.199 in the final quarter — gives the mix a forward momentum that the raw energy number doesn't suggest. The mix is quiet, but it's going somewhere.
+
+Bicep appear three times — "Glue" at the opening, "Vale" at fifteen minutes, "Aura" at twenty-six. This is Bicep's strongest single-mix presence since the early archive, and the selections span their full catalogue: the breakthrough debut, the deeper second album. In the quiet era, their music reads differently — less as dancefloor material and more as emotional architecture. "Vale" in particular carries a melancholy that the louder earlier mixes might have missed.
+
+"Children" appears at fifty-five minutes — but in three different versions by three different artists within ninety seconds. A genocideyear remix, a Robert Miles & Tinlicker version, and an Exxen & Mr. Yash rework. The melody, already one of the archive's most sacred elements, is refracted through a prism. It's the most concentrated treatment of any single song in the archive's history, and it reads as a tribute: the DJ paying homage not just to the track but to the feeling it represents.
+
+Taylor Swift's "Cruel Summer" in LP Giobbi's remix at fifty-six minutes brings one of pop's biggest recent hits into the quiet era. It's the first Taylor Swift appearance in the archive, and LP Giobbi's house treatment gives it the context it needs. Alongside Charli XCX & Sam Smith's "In The City" and Dario G's "Sunchyme," the pop layer is present but filtered — every pop song appears in remix or reimagined form.
+
+KH's "Only Human" and Elektrodrei's "New World Order" return at thirty-six and thirty-seven minutes — both tracks from the early archive, resurfacing together. The DJ's instinct for pairing these particular records suggests they serve a complementary function, one providing the groove and the other the atmosphere.
+
+The close moves from Loods' "Cold Hands, Warm Heart" — the title a perfect description of the quiet era's aesthetic — through iilliaa's "life gets hard" to G-Eazy's "Down For Me." The final sequence is a descent from atmospheric electronic through raw honesty ("life gets hard") into hip-hop's bravado, as if the DJ is cycling through emotional states in search of the right one to end on. None of them fully resolve. The mix ends in motion, which is perhaps the point.

@@ -94,3 +94,19 @@ energyMax: 0.61
 | 52 | 62:00 | Kasor | Hide U | Techno |
 | 53 | 63:15 | Wankelmut | Just the Way I Feel (feat. EMIAH) | Dance |
 | 54 | 65:45 | Martin Garrix & Lloyiso | Real Love | Dance |
+
+## Liner Notes
+
+December 2023. The second year-end mix in the quiet era, and it carries the subdued energy that has defined the last four mixes — 0.166 mean, peaking only in the third quarter at 0.184. Sixty-eight minutes, fifty-four tracks. The DJ continues to work within the new parameters, neither fighting the quieter mood nor apologising for it.
+
+Frankie Knuckles' "Your Love" at four minutes is a genuine cornerstone — one of house music's first and most important recordings. Its placement early, alongside Thomas Schumacher & Victor Ruiz's "Apollo" and Satoshi Tomiie's "Resonant," creates a lineage in miniature: Knuckles (the godfather), Tomiie (the second generation), and Schumacher (the European inheritor). Three decades of house music in three tracks.
+
+Paperclip People's "Throw" returns at nineteen minutes — its sixth appearance, holding steady through the quiet turn. It's one of the few signature tracks that remains active in this era, its Detroit techno energy apparently immune to the overall energy drop. Christian Smith's "Traction" at fifty-seven minutes is another survivor, maintaining its position alongside Bombay Traffic's "Soul Brother" in the closing section.
+
+Eminem's "Without Me" appears in three consecutive versions at the forty-five-minute mark — a Dracula mashup, a David Egg remix, and a Disorder remix. The triple-play technique applied to one of rap's most iconic tracks. It sits in the same position where Toni Braxton, Tinlicker, and Mousse T. occupied in earlier mixes: the obsessive repetition of a track the DJ can't move past.
+
+Eurythmics' "Sweet Dreams" at forty-seven minutes — one of synth-pop's defining recordings, placed between Eminem remixes and deep house. Dom Dolla & Nelly Furtado's "Eat Your Man" at fifty-three continues the pop-crossover thread that has thinned but never disappeared. The quiet era hasn't abandoned pop; it's just quieter about including it.
+
+Eli & Fur's "You're So High (10 Years On)" at twenty-four minutes is a re-recorded version of a track they've been making for a decade. The "(10 Years On)" suffix is the kind of detail this archive notices: artists revisiting their own work, the way the DJ revisits their own signature tracks. Time loops in dance music the way it does in mixing.
+
+Martin Garrix's "Real Love" closes the mix — a mainstream dance anthem as the final note of December 2023. The year that brought the quiet turn ends not with ambiguity but with clarity: real love, real feeling, stated simply. The DJ is five and a half years into their journey, and the mixes have become something they couldn't have planned: a document of mood, of change, of the way a person's relationship with music evolves when they give it enough time.
