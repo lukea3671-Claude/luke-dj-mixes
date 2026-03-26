@@ -1,6 +1,7 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { MagicCard } from '@/components/ui/magic-card';
+import VinylGroove from '@/components/VinylGroove';
 
 interface MixItem {
   slug: string;
@@ -12,6 +13,8 @@ interface MixItem {
   audioFile: string;
   isAnalyzed: boolean;
   bpm: number;
+  trackCount: number;
+  energyMean: number;
 }
 
 interface Props {
@@ -160,21 +163,31 @@ export default function CrateCarousel({ mixes }: Props) {
               }}
             >
               <div
-                className="relative w-[220px] h-[220px] rounded-lg overflow-hidden sm:w-[240px] sm:h-[240px] border border-border-warm bg-cover bg-center"
-                style={
-                  mix.coverImage
-                    ? { backgroundImage: `url(${mix.coverImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }
-                    : { background: mix.gradient }
-                }
+                className="relative w-[220px] h-[220px] rounded-lg overflow-hidden sm:w-[240px] sm:h-[240px] border border-border-warm flex items-center justify-center"
+                style={{ background: mix.gradient }}
               >
-                {!mix.coverImage && (
-                  <span
-                    className="absolute inset-0 flex items-center justify-center text-[5rem] font-heading font-bold select-none pointer-events-none"
-                    style={{ color: 'rgba(255, 255, 255, 0.12)' }}
-                  >
-                    #{String(mix.mixNumber).padStart(2, '0')}
-                  </span>
-                )}
+                {/* Vinyl groove visualization */}
+                <VinylGroove
+                  trackCount={mix.trackCount}
+                  bpm={mix.bpm}
+                  energyMean={mix.energyMean}
+                  mixNumber={mix.mixNumber}
+                  size={240}
+                />
+                {/* Mix number overlay */}
+                <span
+                  className="absolute top-3 left-3 font-heading text-lg font-bold select-none pointer-events-none"
+                  style={{ color: 'rgba(212, 165, 116, 0.5)' }}
+                >
+                  #{String(mix.mixNumber).padStart(2, '0')}
+                </span>
+                {/* Date subtitle */}
+                <span
+                  className="absolute top-8 left-3 font-mono text-[0.55rem] uppercase tracking-wider select-none pointer-events-none"
+                  style={{ color: 'rgba(212, 165, 116, 0.3)' }}
+                >
+                  {mix.duration}
+                </span>
               </div>
               {/* Play button on hover — outside MagicCard to avoid its border glow */}
               <button

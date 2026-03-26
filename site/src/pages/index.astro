@@ -24,6 +24,8 @@ const crateMixes = sorted.slice(1).map((mix) => ({
   audioFile: mix.data.audioFile,
   isAnalyzed: isAnalyzed(mix.data),
   bpm: mix.data.bpm,
+  trackCount: mix.data.trackCount,
+  energyMean: mix.data.energyMean,
 }));
 
 // Genre marquee data
