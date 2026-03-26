@@ -120,3 +120,23 @@ energyMax: 0.78
 | 69 | 112:30 | FORSBY | Red Tape | Dance |
 | 70 | 116:30 | Klangkarussell | All Eyes On You | Dance |
 | 71 | 123:00 | Paolo Siani | E' riu (feat. Nuova Idea) | Prog-Rock/Art Rock |
+
+## Liner Notes
+
+House music takes the lead. For the first time in the archive, House reaches 25% of the genre breakdown — one in four tracks — overtaking Electronic to become the second-most prominent genre behind Dance. Mix 10 runs two hours and three minutes with seventy-one tracks, and the shift in centre of gravity is unmistakable. The atmospheric melodic sound that characterised recent mixes gives way to something more rhythmic, more functional, more rooted in the traditions of Chicago and New York.
+
+The opening fifteen minutes are breathless. After Disclosure's "My High" sets the tone, Gaetano C & DePandis' "Saw" arrives — a track making its first archive appearance that will return in four more mixes. Then a torrent: OFFAIAH, DJ Cruz, Krames, Aaron Hibell, Sam Paganini, Marc Marzenit's "Perron" in Wehbba's remix, track after track after track. Between the 13-minute and 17-minute marks, ten tracks arrive in four minutes. It's a deliberate compression — the DJ stacking ideas on top of each other, layering textures until the mix reaches critical density.
+
+Marc Marzenit's "Perron" in the Wehbba remix debuts here and will become another recurring fixture — six mixes through Mix 26. It's a bridge between the melodic and the techno: emotional enough to fit the archive's warmth, driving enough to push the energy forward. Its placement at 13:45 alongside Sam Paganini's "Rave" signals that Mix 10 is going to lean harder than anything that came before.
+
+The standout DJ moment comes at the sixty-minute mark. Âme's "Rej" — one of the most iconic deep house tracks of the 2000s, a record that redefined what minimal could feel like — sits between Mode-One's "Lady of the Night" and Kygo's reworking of Tina Turner's "What's Love Got to Do with It." Then The xx's "Angels" in Kygo's edit. It's a sequence of extraordinary emotional range: deep house introspection into pop warmth into indie fragility, handled with the kind of confidence that comes from knowing exactly what feeling you're chasing. "Rej" is a club record, but in this context, placed alongside Tina Turner and The xx, it becomes something more personal.
+
+The energy arc builds — the second quarter peaks, then gently descends through the back half. This building-then-releasing shape is becoming the DJ's signature architecture. The front half is about momentum; the back half is about atmosphere. It's the shape of a night: the early hours energise, the late hours contemplate.
+
+Disco surfaces explicitly for the first time — Mooqee & Beatvandals' "Player" appears twice, its 2019 disco rework a nod to the roots of house music. Selace's "So Hooked on Your Lovin" in Mousse T.'s extended disco mix continues the thread. The DJ is tracing the lineage: disco begat house, and by including both in the same mix, the connection between eras is made audible.
+
+The late section introduces a South African and Afro-house thread that hasn't appeared this prominently before. DJ Stilo & Mr Thela's "Thel'umsindo," Euggy & XtetiQsoul's "Drumline," the Oluwadamvic remix — these are selections from outside the European and American electronic mainstream, and their inclusion widens the mix's sonic geography. The DJ's ears are reaching further than the usual playlists.
+
+RÜFÜS DU SOL appear in a new form: Lastlings' "No Time" in a RÜFÜS DU SOL remix. The Australian trio have gone from being headliners in the early mixes to remixers in Mix 06 to being a remix credit for another Australian act. The relationship between the DJ and this band is evolving — no longer the star attraction, but a constant presence in the background, shaping other artists' music through their lens.
+
+MEDUZA's "Lose Control" returns at the 97-minute mark, its second appearance in the archive. In a mix that pushes deeper into house music's roots, the track serves as a reminder of the commercial crossover that first drew the DJ to this world. It's a gateway drug that has led to Âme and Saliva Commandos and Basic Channel. The path from "Lose Control" to "Rej" is the story of the archive in miniature — from accessible to essential, from the charts to the crates.

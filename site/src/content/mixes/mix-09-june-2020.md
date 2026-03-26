@@ -91,3 +91,21 @@ energyMax: 0.73
 | 46 | 81:15 | Sqnc | Quasar (Extended Mix) | House |
 | 47 | 85:45 | Dirtwire | Sailing the Solar Flares | Electronic |
 | 48 | 87:00 | Dawn Deep | The Cure | Dance |
+
+## Liner Notes
+
+Eighty-nine minutes. Forty-eight tracks. Mix 09 is the shortest and most focused mix in the archive to date — nearly half the length of the original marathons. The editing that began in Mix 06 reaches a new level of discipline here. This isn't a reduction in ambition; it's a concentration of it. Every track earns its place because there's nowhere to hide in an eighty-nine-minute mix.
+
+The opening is extraordinary. Nox Vahn & Marsh's "Come Together" runs for eight full minutes before the second track arrives — the longest single-track stretch in the archive so far. Then Nina Simone's "Strange Fruit," a jazz recording about lynching in the American South, drops in at eight minutes. It's June 2020. George Floyd was killed on May 25th. The inclusion of "Strange Fruit" — not as a sample, not as a remix, but as a standalone piece — is the most politically direct moment in the archive. It sits between melodic dance tracks and says nothing except everything.
+
+The energy arc builds — the second quarter carries the highest energy at 0.281, the most pronounced building shape in the archive. Where previous mixes sustained or plateaued, Mix 09 has genuine architectural intent: a slow opening, a rising middle, a peak, and a descent. It's the energy signature of someone who has learned that a mix isn't just a sequence of tracks but a single arc with a beginning, middle, and end.
+
+Tinlicker's "Because You Move Me" appears three times — at the 13-minute, 55-minute, and 57-minute marks. Three repetitions, just like Toni Braxton in the previous mix. But where Braxton's repetition felt like emotional processing, Tinlicker's feels like a structural device — the track functions as a return, a touchstone that the mix circles back to. It's a technique borrowed from classical composition: the recapitulation, the moment when the theme returns transformed by everything that's happened between appearances.
+
+The techno proportion jumps to 15% — the highest so far, tied with electronic. Carlos A's "Soma," Paul Kalkbrenner's "Azure," Chymera's "Episode" (played twice), Joe Mesmar's "Feeling My Mind" — these are darker, more insistent selections than the melodic house that has dominated. The pandemic is three months old. The novelty has worn off. What's left is the grind, and the music has shifted to match: heavier, more propulsive, less interested in providing comfort and more interested in providing momentum.
+
+Morgan Page's "The Longest Road" in deadmau5's remix returns — now on its second appearance in the archive, at the exact midpoint of the mix. The track's title feels almost too on-the-nose for a DJ mix made during lockdown. But the deadmau5 remix transforms the vocal's melancholy into something driving and forward-looking. It sits alongside Paul Keeley's "A Sort of Homecoming" — another title that reads differently in 2020. These tracks weren't chosen for their titles, but the subconscious doesn't care about intent. The mix speaks in a language its maker may not have fully intended.
+
+Drake's "Chicago Freestyle" at the 60-minute mark is the only hip-hop selection — a late-night, atmospheric piece that fits the mix's mood without disrupting it. The pop crossovers that defined the early archive are almost entirely absent. The genre palette has narrowed to its most focused yet: Dance, Electronic, Techno, House. Four pillars. No distractions.
+
+The close dissolves into space — YOTTO's "North," Moon Boots' "I Want Your Attention," MEDUZA's "Discopolis 2.0" remix, and finally Dirtwire's "Sailing the Solar Flares" into Dawn Deep's "The Cure." The final two tracks are ambient and atmospheric, the mix ending not with a beat but with a texture. It's the most graceful landing yet — a mix that knew exactly how long it needed to be and stopped precisely when it was done. In an archive that began with someone who couldn't stop, that discipline is its own kind of statement.

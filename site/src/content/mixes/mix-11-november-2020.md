@@ -121,3 +121,23 @@ energyMax: 0.79
 | 76 | 93:15 | Knee Deep | All About Love | Dance |
 | 77 | 93:30 | Down Under | Part | Dance |
 | 78 | 93:45 | Julian Wassermann | Sol | Electronica |
+
+## Liner Notes
+
+Mix 11 is the tightest, most underground mix in the archive to this point. Ninety-five minutes, seventy-eight tracks — the highest density yet. Techno rises to 11% of the genre breakdown, its strongest showing since the mixes began. The pop presence thins to a single R&B selection. This is a DJ who has stopped looking over their shoulder at the charts and is fully, unapologetically, facing the dancefloor.
+
+Tinlicker & Robert Miles' "Children" arrives at thirteen minutes, its third appearance in the archive. By now it functions as a sacrament — the melody that signals intent. When "Children" appears, the mix is declaring its allegiance to emotional electronic music with deep roots. But here it's surrounded by harder material than before: Patrick Kunkel's "Crossbreed," Marc Marzenit's "Perron," techno from The Whiteliner. The reverence remains, but the context has toughened.
+
+The middle section is where Mix 11 finds its identity. Between the 35-minute and 45-minute marks: Andy Compton's "That Acid Track" (twice), Fade's "All I Got," Danzel's "Pump It Up," Mark Knight & Armand Van Helden's "The Music Began to Play," Demarkus Lewis' "Body Tonic." It's a master class in deep house tool tracks — records chosen not for their melodies but for their grooves. Demarkus Lewis' "Body Tonic" makes its first appearance here and will become another recurring signature — nine mixes through Mix 38. It's a soulful house workout that proves you can make people move without a single hook.
+
+Bicep appears twice — "Apricots" at the 52-minute mark and "Orca" at 76 minutes. These aren't the accessible indie-electronic crossovers of their debut album. "Apricots" and "Orca" are deeper, more abstract, built from sampled textures rather than melodic hooks. The evolution of Bicep in this archive mirrors the DJ's own: both started accessible and have moved progressively underground. The fact that both tracks appear in the second half of the mix, after the house tools have done their work, suggests they're being used as emotional counterweights — moments of beauty after sustained rhythmic intensity.
+
+Basic Channel's "Phylyps Trak II/II" at the 44-minute mark is significant. Basic Channel are the founders of Berlin dub techno, one of electronic music's most uncompromising subgenres. The track is minimal to the point of abstraction — rhythm and texture and almost nothing else. Its inclusion in a mix that also features Tiësto's "The Business" and a Bee Gees remix speaks to the widening of the DJ's reference frame. They're no longer just collecting contemporary releases; they're reaching into the canon.
+
+The energy arc builds — peaking in the second quarter with the highest intensity, then gradually descending. It mirrors Mix 09's shape but with more density in the peak section. The mix wants you to work hardest in its first third and then rides the momentum through the rest. There's an almost physical logic to it: sprint, then cruise, then cool down.
+
+Paperclip People's "Throw" returns at the 66-minute mark — its second appearance in the archive, and it lands in the exact same structural position as in Mix 08: deep in the second half, when the energy needs a final push before the descent. The DJ is developing go-to deployment strategies for their key tracks. "Throw" isn't just a favourite; it's a weapon, and they know exactly when to use it.
+
+The close is a controlled descent through Gorgon City, Christian Smith, Patrick Topping, and MEDUZA's "Lose Control" — now appearing for the third time, a reliable closer. Then RÜFÜS DU SOL's "New Sky" at 91 minutes, followed by Christian Smith & Wehbba's "Mutate" and Julian Wassermann's "Sol." The final three tracks move from electronic warmth into techno precision into ambient electronica. The lights dim in sequence. It's the most architecturally controlled ending yet.
+
+This is the mix where the DJ becomes a DJ. Not someone playing records they like, but someone constructing a journey with tools they've chosen for specific purposes. The signature tracks recur because they work. The density serves a function. The genre balance reflects not taste but technique. Eight months into the pandemic, the bedroom has become the booth, and the person behind the decks has earned the title.
