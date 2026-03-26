@@ -116,3 +116,21 @@ energyMax: 0.66
 | 59 | 92:15 | Hannah Laing & RoRo | Good Love | Dance |
 | 60 | 97:30 | Jorja Smith | Blue Lights | R&B/Soul |
 | 61 | 100:15 | Sam Hunt | Take Your Time | Country |
+
+## Liner Notes
+
+One hundred and three minutes. Mix 29 is the longest in six months, and its closing-strong energy arc — peaking in the final quarter at 0.252 — gives it the feel of a slow build rather than the front-loaded punch of recent mixes. This is a mix that takes its time arriving, and when it does, it rewards the patience.
+
+Toni Braxton's "Un-Break My Heart" returns for the second time in the archive — three versions again, at sixty-seven, sixty-seven, and seventy-two minutes. The Frankie Knuckles treatment bookending the classic radio mix, exactly as in Mix 08. Some tracks don't just recur; they recur in the same pattern, as if the DJ has a ritual relationship with them. This Frankie Knuckles remix is becoming a sacred object, deployed with the same reverence each time.
+
+Lane 8's "Loving You" in Solee's remix returns at sixty-five minutes — its fifth appearance, now deep in the archive's DNA. It's immediately followed by Blaze & Bicep's "Lovelee Dae" remix, creating a Lane 8-into-Bicep sequence that echoes the archive's earliest connections between these two foundational artists.
+
+The classical intervention continues: Stefan Johannes Bleicher's "Ciacona in D Major" from a 1699 composition appears at eighty-four minutes. After Bach's Toccata in Mixes 03 and 05, the DJ has now reached back over three centuries for source material. These classical insertions are no longer surprising; they've become expected — a recurring reminder that rhythm and structure predate electricity.
+
+Morgan Page's "The Longest Road" at fifty-six minutes is its sixth appearance — now appearing with the regularity of a recurring dream. Solee's "Shanti" follows at seventy-three minutes, and X-Press 2's "Say What!" appears twice in the close. The signature tracks continue their appointed rounds, but this may be some of their final tours. The archive is about to enter its quiet phase, and many of these familiar faces will fall silent.
+
+Monolink's "Father Ocean" in Ben Böhmer's remix at nineteen minutes is a standout — atmospheric, unhurried, the kind of track that needs space to unfold. It gets it: six minutes before the next identified track. In a mix that often compresses, this stretch of breathing room is conspicuous and deliberate.
+
+The mix closes with Jorja Smith's "Blue Lights" and Sam Hunt's "Take Your Time" — an R&B ballad about systemic racism followed by a country song about patience. Neither belongs in a DJ mix by any conventional measure. Both belong in this one. The DJ ends the last hot mix of the archive with a quiet statement about the kind of music that matters to them beyond the dancefloor.
+
+What nobody knows yet is that this is the last mix before the energy drops. Mix 30 will hold the line at 0.25, but Mix 31 falls to 0.15, and it never fully returns. Mix 29 is the final chapter of the loud era — the last time the energy will sustain above 0.23 for the duration. Everything after this is quieter. Whether that's a choice or an instinct, the data doesn't say. The music will.
