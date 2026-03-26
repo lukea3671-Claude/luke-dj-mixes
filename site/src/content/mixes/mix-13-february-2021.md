@@ -97,3 +97,23 @@ energyMax: 0.67
 | 49 | 67:30 | Crazibiza & House of Prayers | Ain't No Sunshine (House of Prayers Poolside Edit) | House |
 | 50 | 68:00 | Dustin Tebbutt | Innerbloom (feat. Lisa Mitchell) | Pop |
 | 51 | 70:00 | Gaetano C & DePandis | Saw | House |
+
+## Liner Notes
+
+Seventy-four minutes. The tightest mix yet, and the first to feel complete at that length — not truncated, not rushed, just finished. Mix 13 marks the beginning of what the archive's duration data reveals as a permanent shift: from this point forward, no mix will exceed two hours and forty minutes again. The marathon era is a memory. What's replaced it is precision.
+
+The opening does something new: it starts with humour. "Buttercup" by ceo@business.net is a playful, irreverent track that dissolves almost immediately into the familiar architecture of Allies for Everyone's "Bunker" and a Stardust rework. The contrast is the point — a reminder that the DJ behind these mixes has a sense of play, even as the overall trajectory moves toward seriousness. Hippocoon's "Music Sounds Better With You" rework is itself a wink: Stardust's original is one of house music's most sacred records, and repurposing it as an opening device is both reverent and cheeky.
+
+Erre's "Always the Same Eyes" returns at eighteen minutes — its third appearance since Mix 01. This is one of the archive's most persistent threads: the track appeared in the very first mix, returned in Mix 02, and now surfaces here in Mix 13. It will appear again in Mix 24 and Mix 46 — the first and last mixes in the archive. A track that bookends the entire seven-year journey, though nobody knows that yet.
+
+Pryda's "Mirage" at the 25-minute mark is noteworthy — Eric Prydz's alias represents a specific kind of progressive house: dark, driving, hypnotic. It sits alongside Alan Fitzpatrick & Jamie Jones' "Sundancing" and Andy Compton's dependable "That Acid Track." The cluster is pure dancefloor functionality — three tools deployed in rapid succession, each serving the same purpose from a different angle. The DJ is working like a tradesperson now, reaching for exactly the right instrument for each moment.
+
+The energy arc is peak-heavy — the third quarter carries the highest intensity, with a strong buildup through the middle. It's the first time a mix has peaked past its midpoint, suggesting an architectural confidence that lets tension accumulate before release. The earlier mixes either maintained steady energy or built quickly; this one is willing to wait.
+
+Bicep's "Cazenove" at forty-two minutes introduces another track from their evolving catalogue. The selection sits alongside Daniel Nova's dark techno and Four Tet's "Parallel 4" — the kind of adjacent company that positions Bicep not as indie crossover artists but as serious electronic producers. Every time Bicep appears in this archive, they're in deeper territory than the time before.
+
+The closing section reveals a new compositional instinct. From Disclosure & Kelis at the 57-minute mark, the mix moves through Romy (of The xx), Novabroken, a tribal house piece, Mark Broom's midnight techno, and then descends through Bill Withers' "Ain't No Sunshine" reworked as house, Dustin Tebbutt's cover of RÜFÜS DU SOL's "Innerbloom," and Gaetano C & DePandis' "Saw." The "Innerbloom" cover is quietly significant — RÜFÜS DU SOL's own version has appeared in multiple mixes, but here someone else sings their song. It's a sign that the DJ's relationship with these anchor artists has deepened beyond the original recordings.
+
+Nelly Furtado's "Promiscuous" appears twice in remix form at the 47-minute mark — an early-2000s pop hit repurposed for the dancefloor. It's a move that echoes the pop recontextualisation of the early mixes but handled with more sophistication. The track doesn't feel like a guilty pleasure or a crowd-pleasing throwback; it feels like a legitimate selection, its vocal hooks earning their place among the deep house and techno surrounding them.
+
+Mix 13 is where economy becomes an aesthetic. Seventy-four minutes, fifty-one tracks, no wasted space. Every selection serves either the groove or the narrative. The recurring tracks — "That Acid Track," "Always the Same Eyes," "Saw" — appear once each, their single appearances now carrying more weight than the double and triple plays of earlier mixes. The DJ has learned that a track doesn't need to be played three times to be heard. Once is enough, if the placement is right.

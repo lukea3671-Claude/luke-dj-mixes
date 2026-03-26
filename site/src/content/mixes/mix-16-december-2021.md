@@ -120,3 +120,23 @@ energyMax: 0.75
 | 63 | 125:45 | Tree Jays | Palm Reflections (Oakland Autumn Lights Festival 2021) | New Age |
 | 64 | 126:45 | Matt Sassari, Jack Back & David Guetta | Crazy (feat. Amira Eldine) | House |
 | 65 | 127:15 | Claude VonStroke | Who's Afraid of Detroit? (10 Year Anniversary Mix) | Electronic |
+
+## Liner Notes
+
+Mix 16 closes 2021 the way Mix 06 closed 2019 — as a year-end reflection, slower, more personal, with the widest genre reach of its era. Two hours and seven minutes, sixty-five tracks, and a mean energy of 0.210 that drops steadily through its four quarters. This is a mix that begins with intention and gradually surrenders to nostalgia.
+
+Fred again.. opens the mix for the first time — "Billie (Loving Arms)" — and returns twice more: "Hannah (The Sun)" at fourteen minutes and "Faisal (Envelops Me)" at thirty-one minutes. Three Fred again.. tracks in the first half hour. He's become the definitive voice of this era of the archive, and Mix 16 places him at the top of the running order for the first time, claiming pole position. His sample-based, emotionally immediate sound sets the tone: this mix is going to be about feeling, not function.
+
+RÜFÜS DU SOL appear four times — "Next to Me" in both the original and Adana Twins' remix, "Make It Happen," and "Devotion." Four tracks, all from their *Surrender* album cycle. It's the most concentrated RÜFÜS DU SOL presence since Mix 01, and the track titles tell their own story: next to me, make it happen, devotion. The emotional register has shifted from the exploratory "Innerbloom" of the early mixes to something more direct, more intimate. The band has grown alongside the DJ.
+
+The middle section takes an extraordinary turn. Idris Muhammad's "Could Heaven Ever Be Like This" — a 1977 jazz-funk track — leads into Kelly Price's "Friend of Mine" and then Kool & The Gang's "Celebration." The mix has crossed a boundary that most DJ mixes never approach: from contemporary electronic music into classic R&B, soul, and disco. The transition is not jarring because the mix has been gently loosening its grip on tempo and genre since the Fred again.. opening. By the time Kool & The Gang arrive, the dancefloor has become a living room.
+
+The energy descends through all four quarters — the only sustained downward arc in the archive. From 0.219 in the opening to 0.189 in the close, the mix gets quieter and slower as it goes. It's the shape of a night ending, of someone playing records as the party winds down and the last guests find their coats. The December context is embedded in the energy data.
+
+The second half becomes a jukebox of rock and pop classics that would be unthinkable in most dance music contexts. Pink Floyd's "Wish You Were Here" at seventy-nine minutes. Cold Chisel's "Forever Now" — an Australian rock anthem. Dire Straits' "Money For Nothing." The Killers' "Mr. Brightside" in three versions, including Jacques Lu Cont's Thin White Duke Dub. Marvin Gaye's "Ain't No Mountain High Enough." Reel 2 Real's "I Like to Move It." Donna Summer's "Bad Girls." Michael Jackson's "Thriller." CCR's "I Heard It Through the Grapevine."
+
+It's audacious. A DJ mix that dedicates its entire second half to beloved songs from outside the dance music canon, played more or less straight, without apology or irony. This isn't the naivety of Mix 01's pop crossovers — it's a deliberate choice. The DJ has spent sixteen mixes establishing their credibility in deep house, techno, and melodic electronic music. They've earned the right to play Pink Floyd.
+
+Gigi D'Agostino's "Elisir" at seventeen minutes is a nod to the Italo tradition — one of dance music's most sentimental subgenres. M83's "Midnight City" in Eric Prydz's private remix is a fusion of two worlds: French synth-pop meets Swedish progressive house. Both selections speak to the DJ's range, and both carry a specific brand of late-night melancholy that defines this mix.
+
+Claude VonStroke's "Who's Afraid of Detroit?" closes the archive's sixteenth chapter — a ten-year-anniversary mix of a dirtybird records classic. The title is a question, and in the context of a mix that has journeyed from Fred again.. through Pink Floyd to Michael Jackson and back, the answer is implicit: not this DJ. Not afraid of Detroit, or Chicago, or London, or any of the cities that built the music they play. Mix 16 is the archive at its most fearless and most vulnerable — a year-end mix that says, these are all the songs I love, and I'm going to play them all, in order, for you.

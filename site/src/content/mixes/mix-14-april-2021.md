@@ -112,3 +112,25 @@ energyMax: 0.77
 | 58 | 112:15 | Sagi Kariv & Forever Tel Aviv | Spin (feat. Bjorn) | House |
 | 59 | 112:45 | Patrice Bäumel | Surge | Electronic |
 | 60 | 115:00 | Nox Vahn & Marsh | Come Together (Extended Mix) | Dance |
+
+## Liner Notes
+
+Mix 14 opens with John Summit's "Make Me Feel" — his first appearance in the archive and the beginning of a presence that will stretch across seven mixes through Mix 45. Summit represents a new generation of tech-house producers: Chicago-rooted, social-media-savvy, making records that hit as hard in a festival tent as in a basement club. His arrival here signals that the DJ's antenna is tuned to what's emerging, not just what's established.
+
+Two hours and two minutes, sixty tracks. The running time has settled into a range — hovering around the two-hour mark, give or take. The dramatic contractions of the pandemic year (Mix 09's eighty-nine minutes, Mix 13's seventy-four) have given way to something more stable. The DJ knows how long a mix needs to be now, and that length is approximately this.
+
+Lane 8's "Loving You" in Solee's remix returns at twenty-three minutes — connecting back through the archive to its first appearance in Mix 01. The Solee remix has become the definitive version, preferred over the original. It's a common phenomenon in DJ culture: a remix replaces the original in the DJ's consciousness, becomes the "real" version. Robin S.'s "Luv 4 Luv" follows immediately after, another recurring vocal house classic. The sequence — Lane 8 into Robin S. into Andy Compton's "That Acid Track" — is a greatest-hits of the archive's deep house vocabulary, deployed within four minutes.
+
+The energy arc is front-loaded — the opening quarter carries the most intensity, then descends through the remaining three quarters. It's the shape of confidence: come in strong, establish the mood, then gradually release the pressure. By the final quarter, the energy has dropped to its lowest point. The mix doesn't build to a climax; it builds from one.
+
+The Rolling Stones' "Miss You" at the 88-minute mark is the oldest recording to appear in the archive — a 1978 disco-inflected rock track that predates house music by nearly a decade. Its placement in the second half, between ambient electronics and deep techno, recontextualises it completely. Mick Jagger's falsetto vocal, originally a new wave experiment, sounds like a proto-house vocal when framed by the tracks surrounding it. The DJ is making an argument: the lineage runs deeper than Chicago, deeper than New York, deeper than any one genre.
+
+Leonard Cohen reappears — "Lover Lover Lover" at 97 minutes, following his presence in Mix 07 via Paul Kalkbrenner's remix. This time it's not a remix but something closer to the original spirit. Cohen in a DJ mix is always a statement: these are not records anyone expects to hear in this context, and their inclusion says something about the DJ's willingness to follow emotional logic rather than genre logic.
+
+The Verve's "Bittersweet Symphony" arrives in remix form at the 99-minute mark — another rock crossover, but this time processed through a house lens. Like "Miss You" before it, it reveals the DJ's instinct for finding the dance in music that wasn't designed for the dancefloor. The string sample that drives "Bittersweet Symphony" has always had a hypnotic, repetitive quality; the remix simply makes that quality explicit.
+
+Justice & Tame Impala's "Neverender" at forty-seven minutes represents another kind of crossover — two artists from different electronic traditions (French electro and Australian psychedelia) collaborating on something that fits neither category cleanly. It sits alongside SG Lewis & Lastlings' "All We Have," which plays twice. The repetition of "All We Have" feels like a meditation: two plays of the same emotional note, the mix circling back to it as if checking that the feeling is still there.
+
+Gorgon City & DRAMA's "You've Done Enough" at the 49-minute mark introduces a collaboration that will recur throughout the archive — DRAMA's vocal bringing a raw, late-night quality that Gorgon City's production frames perfectly. The track's title reads as a statement, placed at the exact midpoint of the mix: you've done enough. Time to let go.
+
+The close circles all the way back: Nox Vahn & Marsh's "Come Together," the same track that opened Mix 09 nine months earlier. A mix that opens with John Summit's new energy and closes with Marsh's atmospheric patience — the tension between the new and the familiar, the driving and the contemplative, held in balance. That balance is becoming the DJ's defining characteristic.

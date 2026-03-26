@@ -159,3 +159,23 @@ energyMax: 0.67
 | 93 | 146:30 | Destiny's Child | Say My Name | R&B/Soul |
 | 94 | 149:45 | Headie One | 18HUNNA (feat. Dave) | Hip-Hop/Rap |
 | 95 | 153:00 | Four Tet | Two Thousand and Seventeen | Electronic |
+
+## Liner Notes
+
+Mix 15 is a throwback — not in sound, but in scale. Two hours and thirty-six minutes, ninety-five tracks. It's the longest mix since Mix 08 and the most tracks since Mix 04. After the concentrated brevity of Mixes 09 through 13, the DJ has given themselves permission to stretch again. But where the early marathons were sprawling because they didn't know how to stop, this one sprawls because it has more to say.
+
+The opening is a statement of duality. Route 94's "My Love" — UK garage-house — plays twice in the first three minutes, sandwiching Nelly Furtado's "Say It Right" in multiple remix forms. Pop and house, interleaved, neither apologising for the other. Then Dennis Ferrer's "How Do I Let Go" — a classic house vocal from one of the genre's most respected producers. The first six minutes contain more genre variety than some entire mixes earlier in the archive.
+
+The archive's signature tracks converge in a remarkable sequence between the 84-minute and 87-minute marks: Andy Compton's "That Acid Track," Fade's "All I Got," Solee's "Shanti," X-Press 2's "Say What!," and Mood II Swing's "Closer." Five of the most recurring tracks in the archive, deployed back to back within three minutes. It's either a deliberate greatest-hits moment or an unconscious gathering of the DJ's most trusted tools. Either way, it functions as the mix's centre of gravity — the point where every thread the archive has been spinning comes together in a single, dense knot.
+
+Basic Channel's "Phylyps Trak II/II" returns at the 37-minute mark — its second appearance after Mix 11. The Berlin dub techno landmark is becoming a fixture, and its placement here alongside Creedence Clearwater Revival's "Have You Ever Seen the Rain" creates one of the archive's most startling juxtapositions. Minimal techno and classic rock, separated by five minutes, sharing the same emotional register: melancholy, steady, resigned to the weather.
+
+The hip-hop presence is the strongest since the early mixes. The Notorious B.I.G.'s "Juicy" at 106 minutes, 2Pac's "California Love" at 113, 50 Cent's "P.I.M.P." at 111. These aren't remixes or edits — they're the originals, dropped into a set that also contains Depeche Mode, Pink Floyd, and Destiny's Child. The DJ has circled back to the anything-goes mentality of Mix 01, but with five years of context behind it. The hip-hop isn't naivety anymore; it's confidence.
+
+Pink Floyd's "Time" at the 130-minute mark is the most unexpected selection in the archive to date. A seven-minute prog-rock epic from 1973, placed deep in the second hour of a dance mix. The ticking clocks, the explosion of drums, Roger Waters' meditation on mortality — none of it belongs here by any conventional standard. All of it belongs here by emotional logic. "Time" asks the same questions the mix has been circling: where does it go, what have we done with it, is there still enough.
+
+Fred again.. returns at the 28-minute mark — "Baxter" with Baxter Dury. The collaboration brings Fred's sample-heavy aesthetic together with Dury's spoken-word delivery, creating something that sits outside both artists' usual contexts. In a mix full of unlikely pairings, it fits perfectly.
+
+The energy arc builds — the second quarter carries the highest intensity, then maintains through the third before dropping in the fourth. The building shape mirrors the confidence of the first half: Fatboy Slim, Basic Channel, CamelPhat, Nina Kraviz — heavy hitters stacked through the middle. The descent through the back half — from Stevie Wonder through hip-hop classics into Depeche Mode and Pink Floyd — is a controlled deflation, the mix landing on its feet after two hours of sustained flight.
+
+Four Tet's "Two Thousand and Seventeen" closes the mix — a track whose title is itself a timestamp, placing the listener four years in the past. It's an atmospheric, unhurried piece that dissolves rather than ends. The lights aren't coming up; they're fading to black. After two and a half hours of the archive's widest-ranging mix, the DJ chooses to end with something that simply drifts away, as if the music was always there and will continue after the recording stops. It's the ending of someone who has earned their right to take up space again.
