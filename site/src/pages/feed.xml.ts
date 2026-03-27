@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 
-const SITE_URL = 'https://mixes.lukeanderson.au';
+const SITE_URL = 'https://luke-dj-mixes.pages.dev';
 const AUDIO_BASE = SITE_URL + '/audio';
 
 // Parse duration strings like "3h 45m", "51m 36s", "1h 23m 45s" to seconds

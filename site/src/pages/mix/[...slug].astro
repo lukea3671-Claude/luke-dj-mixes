@@ -18,7 +18,7 @@ const { mix } = Astro.props;
 const { Content } = await mix.render();
 const data = mix.data;
 const slug = mix.id.replace(/\.md$/, '');
-const siteUrl = 'https://mixes.lukeanderson.au';
+const siteUrl = 'https://luke-dj-mixes.pages.dev';
 const mixUrl = `${siteUrl}/mix/${slug}`;
 const audioUrl = `${siteUrl}${data.audioFile}`;
 const genres = data.genres.slice(0, 3).map((g: { name: string }) => g.name).join(', ');

@@ -121,7 +121,7 @@ export default function ShootingStars() {
       canvas!.height = h * dpr;
       canvas!.style.width = `${w}px`;
       canvas!.style.height = `${h}px`;
-      ctx!.scale(dpr, dpr);
+      ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
     resize();
@@ -157,7 +157,7 @@ export default function ShootingStars() {
         const m = meteors[i];
         m.age += dt;
 
-        if (m.age > m.lifetime + m.trailDuration + 0.5) {
+        if (m.age > m.lifetime + m.trailDuration + 0.5 || (now - (m.trail[0]?.time ?? now)) > m.lifetime + m.trailDuration + 2) {
           meteors.splice(i, 1);
           continue;
         }

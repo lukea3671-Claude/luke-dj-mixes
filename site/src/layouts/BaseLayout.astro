@@ -22,7 +22,7 @@ const {
   ogAudio,
   jsonLd,
 } = Astro.props;
-const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au').href;
+const canonicalUrl = new URL(Astro.url.pathname, 'https://luke-dj-mixes.pages.dev').href;
 ---
 
 <!doctype html>
@@ -32,6 +32,14 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0A0A0A" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>{title}</title>
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" type="application/rss+xml" title="Luke's Mixes Podcast" href="/feed.xml" />
@@ -56,7 +64,7 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
     <AmbientParticles client:idle />
     <ShootingStars client:idle />
     <TopScrollProgress client:idle />
-    <header class="border-b border-[--border] py-4 px-8 bg-[var(--surface)] max-sm:px-4 max-sm:py-3">
+    <header class="border-b border-[--border] py-4 px-8 bg-[var(--surface)] max-sm:px-4 max-sm:py-3 relative z-[1]">
       <nav class="flex justify-between items-center max-w-[1200px] mx-auto">
         <a href="/" class="font-heading text-2xl font-bold text-[--amber] tracking-[-0.02em] transition-[text-shadow,color] duration-200 hover:text-[--warm-cream] hover:[text-shadow:0_0_12px_var(--amber-glow)]">Luke's Mixes</a>
         <div class="flex gap-6 max-sm:gap-4">
@@ -67,6 +75,7 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
       </nav>
     </header>
 
+    <div class="relative z-[1]">
     <slot name="hero" />
     <main>
       <slot />
@@ -141,7 +150,8 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
 
     <div id="now-playing-announce" aria-live="polite" class="sr-only"></div>
 
-    <footer class="text-center py-8 px-4 text-[--muted-stone] text-[0.85rem] border-t border-[--border]">
+    </div>
+    <footer class="text-center py-8 px-4 text-[--muted-stone] text-[0.85rem] border-t border-[--border] relative z-[1]">
       <p>Free streaming. No account needed. <a href="https://www.patreon.com/c/lukesmixes" target="_blank" rel="noopener" class="text-[--amber] hover:text-[--warm-cream] transition-colors">Support on Patreon</a></p>
     </footer>
   </body>
@@ -748,6 +758,10 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
 
     if (!audio || !playBtn) return;
 
+    // Guard against duplicate listeners on persisted elements (Astro View Transitions)
+    if ((audio as any).__playerInit) return;
+    (audio as any).__playerInit = true;
+
     function formatTime(s: number): string {
       if (isNaN(s)) return '0:00';
       const h = Math.floor(s / 3600);
@@ -999,4 +1013,9 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://mixes.lukeanderson.au'
 
   initPlayer();
   document.addEventListener('astro:after-swap', initPlayer);
+
+  // Register service worker for PWA install
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+  }
 </script>
