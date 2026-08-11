@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mix 47 — Thumbnail Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #0a0806;
+    --ink-2: #120d08;
+    --gold: #d4974a;
+    --gold-hi: #f0c27a;
+    --gold-deep: #8a5a22;
+    --cream: #f5ead6;
+    --cream-dim: #b8a888;
+    --line: rgba(212, 151, 74, 0.18);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background:
+      radial-gradient(1200px 700px at 80% -10%, rgba(212,151,74,0.10), transparent 60%),
+      radial-gradient(900px 600px at 0% 110%, rgba(138,90,34,0.10), transparent 55%),
+      var(--ink);
+    color: var(--cream);
+    font-family: "Fraunces", Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* film grain */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 64px 28px 110px; }
+
+  /* header */
+  header { margin-bottom: 56px; opacity: 0; animation: rise 0.9s cubic-bezier(.2,.7,.2,1) forwards; }
+  .kicker {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 18px;
+  }
+  h1 {
+    font-optical-sizing: auto;
+    font-weight: 300; font-size: clamp(36px, 6vw, 68px);
+    line-height: 0.98; letter-spacing: -0.02em; color: var(--cream);
+  }
+  h1 em { font-style: italic; color: var(--gold-hi); font-weight: 400; }
+  .sub {
+    margin-top: 22px; max-width: 640px; font-size: 17px; line-height: 1.6;
+    color: var(--cream-dim); font-weight: 300;
+  }
+  .legend {
+    margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px 14px;
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.06em;
+  }
+  .legend span {
+    border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px;
+    color: var(--cream-dim);
+  }
+  .legend b { color: var(--gold-hi); font-weight: 500; }
+
+  /* grid */
+  .grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px 26px;
+  }
+  @media (max-width: 920px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+
+  .card { opacity: 0; animation: rise 0.8s cubic-bezier(.2,.7,.2,1) forwards; }
+  .card:nth-child(1){animation-delay:.05s}.card:nth-child(2){animation-delay:.12s}
+  .card:nth-child(3){animation-delay:.19s}.card:nth-child(4){animation-delay:.26s}
+  .card:nth-child(5){animation-delay:.33s}.card:nth-child(6){animation-delay:.40s}
+
+  .thumb {
+    position: relative; aspect-ratio: 1 / 1; width: 100%;
+    border-radius: 10px; overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 26px 60px -28px rgba(0,0,0,0.9), inset 0 0 0 1px rgba(255,255,255,0.02);
+    transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s;
+    background: var(--ink-2);
+  }
+  .card:hover .thumb { transform: translateY(-6px) scale(1.012); box-shadow: 0 40px 80px -30px rgba(0,0,0,0.95), 0 0 0 1px rgba(212,151,74,0.35); }
+  .thumb svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  .meta { padding: 16px 4px 0; }
+  .meta .no { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .2em; color: var(--gold); }
+  .meta h3 { font-size: 20px; font-weight: 400; margin: 5px 0 7px; color: var(--cream); letter-spacing: -0.01em; }
+  .meta p { font-size: 13.5px; line-height: 1.55; color: var(--cream-dim); font-weight: 300; }
+  .youtag {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 11px;
+    font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--gold-hi);
+    border-top: 1px solid var(--line); padding-top: 11px; width: 100%;
+  }
+  .youtag::before { content: "◉"; color: var(--gold); font-size: 9px; }
+
+  /* decision footer */
+  .decide {
+    margin-top: 76px; border: 1px solid var(--line); border-radius: 14px;
+    padding: 38px 40px; background: linear-gradient(180deg, rgba(212,151,74,0.05), transparent);
+    opacity: 0; animation: rise 0.8s cubic-bezier(.2,.7,.2,1) .5s forwards;
+  }
+  .decide h2 { font-weight: 300; font-size: 27px; color: var(--cream); margin-bottom: 8px; }
+  .decide h2 em { font-style: italic; color: var(--gold-hi); }
+  .decide p { color: var(--cream-dim); font-size: 15px; line-height: 1.65; max-width: 720px; font-weight: 300; }
+  .decide ul { margin: 18px 0 0; padding-left: 0; list-style: none; display: grid; gap: 11px; }
+  .decide li { font-size: 14.5px; color: var(--cream); font-weight: 300; padding-left: 26px; position: relative; }
+  .decide li::before { content: "→"; position: absolute; left: 0; color: var(--gold); }
+  .decide li b { color: var(--gold-hi); font-weight: 500; }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+
+  /* reusable thumb internals */
+  .badge-no {
+    position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600;
+    letter-spacing: -0.02em; line-height: .8; pointer-events: none;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Luke's Mixes · Cover Art · Concept Set 01</div>
+    <h1>Mix 47 — the <em>comeback</em>.<br/>Six ways to look at it.</h1>
+    <p class="sub">All square (1:1, ready for SoundCloud 800×800+). Built in the lineage of the Iris × Argus Sister-Moon piece, but these put <em style="color:var(--gold-hi);font-style:italic">you</em> in the frame — because the archive isn't an archive anymore, it's a return. Pick a direction; I render the winner at full resolution.</p>
+    <div class="legend">
+      <span>How <b>you</b> appear:</span>
+      <span>◉ silhouette at the decks</span>
+      <span>◉ your real photo (slot)</span>
+      <span>◉ constellation-figure</span>
+    </div>
+  </header>
+
+  <div class="grid">
+
+    <!-- 1 — THE RETURN (Sister-Moon lineage) -->
+    <div class="card">
+      <div class="thumb">
+        <svg viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" aria-label="The Return">
+          <defs>
+            <radialGradient id="sky1" cx="62%" cy="34%" r="80%">
+              <stop offset="0%" stop-color="#3a2a14"/><stop offset="40%" stop-color="#1a1107"/><stop offset="100%" stop-color="#080503"/>
+            </radialGradient>
+            <radialGradient id="moonA" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#f6dca6"/><stop offset="70%" stop-color="#d4974a"/><stop offset="100%" stop-color="#6e4416"/>
+            </radialGradient>
+            <radialGradient id="moonB" cx="40%" cy="40%" r="60%">
+              <stop offset="0%" stop-color="#b9c6d6"/><stop offset="100%" stop-color="#2a3340"/>
+            </radialGradient>
+          </defs>
+          <rect width="800" height="800" fill="url(#sky1)"/>
+          <!-- stars -->
+          <g fill="#f5ead6" opacity="0.8">
+            <circle cx="120" cy="120" r="1.6"/><circle cx="240" cy="80" r="1"/><circle cx="360" cy="150" r="1.3"/>
+            <circle cx="540" cy="90" r="1"/><circle cx="700" cy="180" r="1.5"/><circle cx="90" cy="260" r="1"/>
+            <circle cx="660" cy="300" r="1.2"/><circle cx="450" cy="60" r="1"/><circle cx="760" cy="120" r="1"/>
+          </g>
+          <!-- big sister moon (gold) + small (cool) -->
+          <circle cx="500" cy="250" r="150" fill="url(#moonA)"/>
+          <circle cx="500" cy="250" r="150" fill="none" stroke="#f6dca6" stroke-width="1" opacity="0.4"/>
+          <circle cx="250" cy="170" r="58" fill="url(#moonB)" opacity="0.92"/>
+          <!-- ground ridge -->
+          <path d="M0 620 Q200 560 400 600 T800 580 L800 800 L0 800 Z" fill="#0c0805"/>
+          <path d="M0 620 Q200 560 400 600 T800 580" fill="none" stroke="#d4974a" stroke-width="1.5" opacity="0.35"/>
+          <!-- lone DJ silhouette looking up -->
+          <g transform="translate(388,520)" fill="#050302">
+            <circle cx="0" cy="0" r="20"/>
+            <path d="M-22 96 Q-22 26 0 26 Q22 26 22 96 Z"/>
+            <rect x="-30" y="40" width="60" height="10" rx="5"/>
+          </g>
+          <text x="700" y="740" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="30" font-weight="600" fill="#f0c27a" opacity="0.95">47</text>
+          <text x="700" y="762" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="3" fill="#d4974a">THE RETURN</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="no">01</div>
+        <h3>The Return</h3>
+        <p>Direct heir to the Sister-Moon wallpaper — two moons, one gold one cool, over a dark ridge. A lone figure stands beneath them, looking up. The silence, ended.</p>
+        <div class="youtag">You = silhouette on the ridge</div>
+      </div>
+    </div>
+
+    <!-- 2 — VINYL ECLIPSE -->
+    <div class="card">
+      <div class="thumb">
+        <svg viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" aria-label="Vinyl Eclipse">
+          <defs>
+            <radialGradient id="bg2" cx="50%" cy="50%" r="70%">
+              <stop offset="0%" stop-color="#1c130a"/><stop offset="100%" stop-color="#070503"/>
+            </radialGradient>
+            <radialGradient id="halo2" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#f0c27a" stop-opacity="0"/><stop offset="80%" stop-color="#f0c27a" stop-opacity="0"/>
+              <stop offset="92%" stop-color="#f6dca6" stop-opacity="0.9"/><stop offset="100%" stop-color="#d4974a" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="800" height="800" fill="url(#bg2)"/>
+          <!-- vinyl as eclipsed planet -->
+          <circle cx="400" cy="400" r="250" fill="#0a0705"/>
+          <g stroke="#3a2a16" stroke-width="1.4" fill="none" opacity="0.85">
+            <circle cx="400" cy="400" r="232"/><circle cx="400" cy="400" r="214"/><circle cx="400" cy="400" r="196"/>
+            <circle cx="400" cy="400" r="178"/><circle cx="400" cy="400" r="160"/><circle cx="400" cy="400" r="142"/>
+            <circle cx="400" cy="400" r="124"/><circle cx="400" cy="400" r="106"/>
+          </g>
+          <circle cx="400" cy="400" r="250" fill="url(#halo2)"/>
+          <!-- label -->
+          <circle cx="400" cy="400" r="72" fill="#d4974a"/>
+          <circle cx="400" cy="400" r="72" fill="none" stroke="#f6dca6" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="400" cy="400" r="6" fill="#0a0705"/>
+          <text x="400" y="392" text-anchor="middle" font-family="Fraunces, serif" font-size="20" font-style="italic" fill="#0a0705">Mix</text>
+          <text x="400" y="430" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="34" font-weight="600" fill="#0a0705">47</text>
+          <!-- crescent light on rim -->
+          <path d="M400 150 A250 250 0 0 1 632 470" fill="none" stroke="#f6dca6" stroke-width="3" opacity="0.7"/>
+          <text x="400" y="724" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="5" fill="#b8a888">LUKE'S MIXES · 2026</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="no">02</div>
+        <h3>Vinyl Eclipse</h3>
+        <p>The record <em>is</em> the celestial body — grooves as planetary rings, a crescent of light on the rim like a sunrise after the dark. Number front and centre on the label.</p>
+        <div class="youtag">You = implied (the hand that spins it) — or add a photo to the label</div>
+      </div>
+    </div>
+
+    <!-- 3 — DECKS IN THE COSMOS -->
+    <div class="card">
+      <div class="thumb">
+        <svg viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" aria-label="Decks in the Cosmos">
+          <defs>
+            <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#43301a"/><stop offset="45%" stop-color="#160f08"/><stop offset="100%" stop-color="#050302"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="800" fill="url(#bg3)"/>
+          <!-- horizon glow -->
+          <ellipse cx="400" cy="430" rx="420" ry="120" fill="#d4974a" opacity="0.18"/>
+          <g fill="#f5ead6" opacity="0.7"><circle cx="140" cy="90" r="1.4"/><circle cx="300" cy="60" r="1"/><circle cx="560" cy="100" r="1.2"/><circle cx="690" cy="70" r="1"/><circle cx="70" cy="150" r="1"/></g>
+          <!-- back of DJ at the decks, facing the glow -->
+          <g transform="translate(400,470)">
+            <!-- desk -->
+            <rect x="-260" y="120" width="520" height="120" fill="#0a0705"/>
+            <rect x="-260" y="116" width="520" height="6" fill="#d4974a" opacity="0.45"/>
+            <!-- two CDJ platters -->
+            <circle cx="-150" cy="178" r="46" fill="#140d07" stroke="#d4974a" stroke-width="2" opacity="0.9"/>
+            <circle cx="-150" cy="178" r="14" fill="#d4974a" opacity="0.8"/>
+            <circle cx="150" cy="178" r="46" fill="#140d07" stroke="#d4974a" stroke-width="2" opacity="0.9"/>
+            <circle cx="150" cy="178" r="14" fill="#d4974a" opacity="0.8"/>
+            <!-- mixer -->
+            <rect x="-40" y="150" width="80" height="60" rx="4" fill="#100b06" stroke="#d4974a" stroke-width="1.3" opacity="0.8"/>
+            <!-- DJ figure (back) -->
+            <path d="M-70 120 Q-70 -20 0 -20 Q70 -20 70 120 Z" fill="#040201"/>
+            <circle cx="0" cy="-52" r="34" fill="#040201"/>
+            <!-- headphones -->
+            <path d="M-36 -64 A36 36 0 0 1 36 -64" fill="none" stroke="#d4974a" stroke-width="6" opacity="0.85"/>
+            <rect x="-44" y="-66" width="14" height="22" rx="5" fill="#d4974a" opacity="0.85"/>
+            <rect x="30" y="-66" width="14" height="22" rx="5" fill="#d4974a" opacity="0.85"/>
+          </g>
+          <text x="56" y="120" font-family="Fraunces, serif" font-style="italic" font-weight="300" font-size="44" fill="#f5ead6">Mix 47</text>
+          <text x="58" y="150" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="4" fill="#d4974a">BACK BEHIND THE DECKS</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="no">03</div>
+        <h3>Decks in the Cosmos</h3>
+        <p>You, from behind, headphones on, facing a glowing horizon — CDJs and mixer rendered in gold line. The classic DJ cover, but the club is the universe.</p>
+        <div class="youtag">You = back silhouette at the decks (no photo needed)</div>
+      </div>
+    </div>
+
+    <!-- 4 — PHOTO DUOTONE -->
+    <div class="card">
+      <div class="thumb">
+        <svg viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" aria-label="Photo Duotone">
+          <defs>
+            <radialGradient id="bg4" cx="50%" cy="30%" r="90%">
+              <stop offset="0%" stop-color="#2a1d0e"/><stop offset="100%" stop-color="#070503"/>
+            </radialGradient>
+          </defs>
+          <rect width="800" height="800" fill="url(#bg4)"/>
+          <!-- concentric vinyl rings faint -->
+          <g stroke="#d4974a" stroke-width="1" fill="none" opacity="0.12">
+            <circle cx="400" cy="400" r="360"/><circle cx="400" cy="400" r="300"/><circle cx="400" cy="400" r="240"/>
+          </g>
+          <!-- photo slot -->
+          <rect x="180" y="150" width="440" height="440" rx="6" fill="none" stroke="#d4974a" stroke-width="2" stroke-dasharray="10 9" opacity="0.7"/>
+          <!-- duotone face placeholder: simple bust -->
+          <g transform="translate(400,420)" opacity="0.55">
+            <ellipse cx="0" cy="200" rx="150" ry="110" fill="#8a5a22"/>
+            <circle cx="0" cy="20" r="95" fill="#d4974a"/>
+            <circle cx="0" cy="20" r="95" fill="#f0c27a" opacity="0.25"/>
+          </g>
+          <text x="400" y="375" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="3" fill="#f5ead6" opacity="0.85">YOUR PHOTO HERE</text>
+          <text x="400" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="2" fill="#b8a888">gold duotone treatment</text>
+          <!-- title block -->
+          <rect x="0" y="640" width="800" height="160" fill="#0a0705"/>
+          <text x="60" y="708" font-family="Fraunces, serif" font-weight="300" font-size="52" fill="#f5ead6">Mix <tspan font-style="italic" fill="#f0c27a">47</tspan></text>
+          <text x="60" y="744" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="4" fill="#d4974a">THE COMEBACK · JUNE 2026</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="no">04</div>
+        <h3>Photo Duotone</h3>
+        <p>A real photo of you, treated in gold/black duotone so it sits inside the archive's palette. Faint vinyl rings behind, bold title bar below. Most personal of the set.</p>
+        <div class="youtag">You = your actual photo — send one and I'll duotone it</div>
+      </div>
+    </div>
+
+    <!-- 5 — EDITORIAL TYPE -->
+    <div class="card">
+      <div class="thumb">
+        <svg viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" aria-label="Editorial Type">
+          <rect width="800" height="800" fill="#0c0906"/>
+          <rect x="40" y="40" width="720" height="720" fill="none" stroke="#d4974a" stroke-width="1.4" opacity="0.4"/>
+          <!-- big number ghost -->
+          <text x="400" y="540" text-anchor="middle" font-family="Fraunces, serif" font-weight="300" font-size="430" fill="#1a1208">47</text>
+          <text x="400" y="300" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="300" font-size="58" fill="#f5ead6">the return</text>
+          <line x1="300" y1="330" x2="500" y2="330" stroke="#d4974a" stroke-width="1.5" opacity="0.6"/>
+          <text x="400" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="14" letter-spacing="6" fill="#d4974a">LUKE'S MIXES</text>
+          <text x="400" y="700" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="4" fill="#b8a888">SPINNING SINCE 2018 · MIX No.47</text>
+          <!-- tiny figure dot -->
+          <circle cx="400" cy="620" r="4" fill="#f0c27a"/>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="no">05</div>
+        <h3>Editorial Type</h3>
+        <p>Restraint. The number does the work, "the return" in italic serif, framed like a magazine cover. Reads instantly at thumbnail size in a feed. No figure required.</p>
+        <div class="youtag">You = the byline ("spinning since 2018")</div>
+      </div>
+    </div>
+
+    <!-- 6 — CONSTELLATION FIGURE -->
+    <div class="card">
+      <div class="thumb">
+        <svg viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" aria-label="Constellation Figure">
+          <defs>
+            <radialGradient id="bg6" cx="50%" cy="45%" r="75%">
+              <stop offset="0%" stop-color="#16223a"/><stop offset="55%" stop-color="#0a0d18"/><stop offset="100%" stop-color="#050406"/>
+            </radialGradient>
+          </defs>
+          <rect width="800" height="800" fill="url(#bg6)"/>
+          <g fill="#f5ead6"><circle cx="120" cy="130" r="1.3" opacity=".7"/><circle cx="680" cy="120" r="1.5" opacity=".8"/><circle cx="730" cy="320" r="1" opacity=".6"/><circle cx="80" cy="360" r="1.2" opacity=".6"/><circle cx="620" cy="500" r="1" opacity=".5"/><circle cx="180" cy="560" r="1.2" opacity=".6"/></g>
+          <!-- constellation DJ: nodes + lines -->
+          <g stroke="#d4974a" stroke-width="1.6" opacity="0.85" fill="none">
+            <path d="M400 250 L400 430 M400 300 L320 380 M400 300 L480 380 M400 430 L350 560 M400 430 L450 560"/>
+            <path d="M300 430 Q400 470 500 430"/>
+          </g>
+          <g fill="#f0c27a">
+            <circle cx="400" cy="240" r="7"/><circle cx="400" cy="300" r="4"/><circle cx="320" cy="380" r="5"/><circle cx="480" cy="380" r="5"/>
+            <circle cx="400" cy="430" r="4"/><circle cx="350" cy="560" r="5"/><circle cx="450" cy="560" r="5"/>
+            <circle cx="300" cy="430" r="4"/><circle cx="500" cy="430" r="4"/>
+          </g>
+          <circle cx="400" cy="240" r="16" fill="#f0c27a" opacity="0.2"/>
+          <text x="400" y="690" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="300" font-size="46" fill="#f5ead6">Mix 47</text>
+          <text x="400" y="722" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="4" fill="#d4974a">DRAWN BACK INTO THE SKY</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="no">06</div>
+        <h3>Constellation Figure</h3>
+        <p>You as a constellation — a DJ traced in stars and gold lines. Abstract, so it needs no photo, and it literally writes you into the cosmos the archive lives in.</p>
+        <div class="youtag">You = the constellation (abstract, no photo)</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="decide">
+    <h2>Pick a direction — then I make it <em>real</em>.</h2>
+    <p>These are rendered concepts (CSS/SVG), not the final files — they're here so you can react to composition and mood fast, the cheap-before-expensive way. Tell me which one (or which elements to splice), and I'll produce the high-resolution artwork properly: AI-generated raster for the cosmic ones, your duotoned photo for #04, whatever the winner needs.</p>
+    <ul>
+      <li><b>Which concept</b> — or "the moons from 01 with the decks from 03," etc. Mixing is encouraged.</li>
+      <li><b>How you appear</b> — silhouette / your photo / constellation. If photo: drop one and I'll treat it.</li>
+      <li><b>Number on it?</b> — "47" reads as a comeback marker, but I can drop it for a cleaner cover.</li>
+      <li><b>Where it lives</b> — SoundCloud square is covered; this same art also becomes the Mix 47 <code>coverImage</code> on the site.</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
