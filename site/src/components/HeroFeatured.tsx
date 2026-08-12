@@ -31,7 +31,7 @@ export default function HeroFeatured({
           {/* Background image */}
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/hero-bg.webp)' }}
+            style={{ backgroundImage: 'url(/images/hero-orbit.webp)' }}
           />
           {/* Gradient overlay for depth */}
           <div
