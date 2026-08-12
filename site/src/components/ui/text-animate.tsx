@@ -1,5 +1,5 @@
-import { memo } from "react"
-import { AnimatePresence, motion } from "motion/react"
+import { memo, type ElementType } from "react"
+import { AnimatePresence, motion, useReducedMotion } from "motion/react"
 import type { Variants, DOMMotionComponents, MotionProps } from "motion/react"
 
 import { cn } from "@/lib/utils"
@@ -336,7 +336,18 @@ const TextAnimateBase = ({
   accessible = true,
   ...props
 }: TextAnimateProps) => {
+  const prefersReducedMotion = useReducedMotion()
   const MotionComponent = motionElements[Component]
+
+  // Reduced motion: the text is simply there, fully readable, no reveal.
+  if (prefersReducedMotion) {
+    const StaticTag = Component as ElementType
+    return (
+      <StaticTag className={cn("whitespace-pre-wrap", className)}>
+        {children}
+      </StaticTag>
+    )
+  }
 
   let segments: string[] = []
   switch (by) {

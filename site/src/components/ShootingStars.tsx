@@ -51,9 +51,14 @@ function brightnessAt(progress: number, hasFlash: boolean, flickerRate: number, 
     const flashProgress = (progress - 0.72) / 0.1;
     b = 1 + Math.sin(flashProgress * Math.PI) * 0.3;
   } else {
-    // Fade out
+    // Fade out. Clamp at 0: a terminal-flash meteor passes through here
+    // with progress 0.65-0.72 (before its flash window), where
+    // (progress - 0.82) is NEGATIVE — and negative ** 1.5 is NaN in JS.
+    // That NaN reached createRadialGradient and killed the entire rAF
+    // loop, silently ending all shooting stars for the session (the
+    // historical "stars stuck" bug).
     const fadeStart = hasFlash ? 0.82 : 0.65;
-    const fadeProgress = Math.min(1, (progress - fadeStart) / (1 - fadeStart));
+    const fadeProgress = Math.min(1, Math.max(0, (progress - fadeStart) / (1 - fadeStart)));
     b = Math.max(0, 1 - fadeProgress ** 1.5);
   }
 
@@ -173,6 +178,10 @@ export default function ShootingStars() {
       ctx!.clearRect(0, 0, w, h);
 
       for (let i = meteors.length - 1; i >= 0; i--) {
+        // A meteor that can't draw gets discarded — it must never take the
+        // whole loop down with it (the demand-driven loop would deadlock
+        // with running=true and no scheduled frame).
+        try {
         const m = meteors[i];
         m.age += dt;
 
@@ -254,6 +263,9 @@ export default function ShootingStars() {
           ctx!.arc(m.x, m.y, coreRadius, 0, Math.PI * 2);
           ctx!.fillStyle = `rgba(255, 248, 232, ${b * 0.9})`;
           ctx!.fill();
+        }
+        } catch {
+          meteors.splice(i, 1);
         }
       }
 

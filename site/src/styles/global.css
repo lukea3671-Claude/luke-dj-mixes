@@ -96,6 +96,20 @@ a {
   transition: color 0.15s;
 }
 
+/* Links inside running text must not rely on color alone (WCAG 1.4.1).
+   Unlayered on purpose: this global sits above Tailwind's layered
+   utilities, so the underline has to live at the same cascade level
+   as the reset that removes it. */
+footer p a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(212, 165, 116, 0.45);
+}
+
+footer p a:hover {
+  text-decoration-color: rgba(250, 243, 232, 0.55);
+}
+
 a:hover {
   color: var(--warm-cream);
 }

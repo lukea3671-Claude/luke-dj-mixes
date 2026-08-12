@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { motion, stagger, useAnimate } from "motion/react";
+import { motion, stagger, useAnimate, useInView, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export const TextGenerateEffect = ({
@@ -14,8 +14,15 @@ export const TextGenerateEffect = ({
   duration?: number;
 }) => {
   const [scope, animate] = useAnimate();
+  const prefersReducedMotion = useReducedMotion();
+  // Start the reveal when the text actually enters the viewport — it used
+  // to fire on mount, so for below-the-fold copy the whole cascade played
+  // invisibly before the reader ever scrolled to it.
+  const isInView = useInView(scope, { once: true, margin: "-15% 0px" });
   let wordsArray = words.split(" ");
+
   useEffect(() => {
+    if (!isInView || prefersReducedMotion) return;
     animate(
       "span",
       {
@@ -27,7 +34,18 @@ export const TextGenerateEffect = ({
         delay: stagger(0.2),
       }
     );
-  }, []);
+  }, [isInView, prefersReducedMotion]);
+
+  // Reduced motion: plain, fully-visible text. Reading is the feature.
+  if (prefersReducedMotion) {
+    return (
+      <div className={cn("font-bold", className)}>
+        <div className="mt-4">
+          <div className="text-2xl leading-snug tracking-wide">{words}</div>
+        </div>
+      </div>
+    );
+  }
 
   const renderWords = () => {
     return (

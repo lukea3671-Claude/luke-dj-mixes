@@ -36,7 +36,7 @@ export default function ArchiveFocusCards({ mixes, years }: Props) {
         if (yearMixes.length === 0) return null;
         return (
           <div key={year} className="mb-8">
-            <h3 className="font-mono text-[0.7rem] text-muted-stone uppercase tracking-[0.15em] opacity-50 mb-2 sticky top-0 bg-base py-1.5 z-10">
+            <h3 className="font-mono text-[0.7rem] text-muted-stone uppercase tracking-[0.15em] mb-2 sticky top-0 bg-base py-1.5 z-10">
               {year}
             </h3>
             <div className="flex flex-col gap-px bg-border-warm rounded-md overflow-hidden">
