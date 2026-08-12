@@ -12,6 +12,13 @@ npm run dev          # Astro dev server
 # Build
 npm run build        # Output to site/dist/
 
+# Deploy — THERE IS NO GIT AUTO-DEPLOY. Pushing deploys NOTHING.
+# Production (branch label "main", manual):
+#   npx wrangler pages deploy dist --project-name luke-dj-mixes --branch main --commit-dirty=true
+# Preview:  --branch polish-preview (or any non-main branch name)
+# Audio:    npx wrangler r2 object put "luke-dj-mixes/audio/NN. Mix_Month_Year.mp3" --file <path> --content-type audio/mpeg --remote
+# Verify:   every route returns HTTP 200 (SPA fallback) — check content-type + bytes, never status codes.
+
 # Generate content from analysis reports
 python scripts/generate_site_content.py    # All mixes
 python scripts/generate_liner_notes.py     # Liner notes only
@@ -45,7 +52,7 @@ dj-mix-archive/
     │   └── favicon.svg
     └── src/
         ├── content/
-        │   └── mixes/      # 46 markdown files (mix-NN-month-year.md)
+        │   └── mixes/      # 47 markdown files (mix-NN-month-year.md)
         ├── content.config.ts
         ├── components/     # (empty — components inline in layouts)
         ├── layouts/
@@ -99,10 +106,10 @@ Analysis Reports (JSON)  →  Content Scripts (Python)  →  Astro Content Colle
 
 ## Project Status
 
-- Phase 1: Analyses — 2/46 complete (Mix 01, Mix 36)
+- Phase 1: Analyses — complete (46/46 back-catalogue reports; Mix 47 content from DJ.Studio)
 - Phase 2: Liner notes pipeline — DONE
-- Phase 3: Site infrastructure — UI done, needs Cloudflare R2 + domain
-- Phase 4: Launch — pending
+- Phase 3: Site infrastructure — LIVE on Cloudflare Pages + R2 (luke-dj-mixes.pages.dev)
+- Phase 4: Launch — live; 47 mixes streaming
 
 ## Agent Guidance
 

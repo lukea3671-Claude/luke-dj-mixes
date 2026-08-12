@@ -4,7 +4,7 @@ Luke's complete DJ mix collection — free streaming with AI-generated liner not
 
 ## Vision
 
-Replace SoundCloud ($160/year, now paywalled) with a self-owned archive site where anyone can stream all 46 mixes for free. Each mix page features AI-generated "liner notes" — track listings with timestamps, genre breakdowns, energy flow descriptions, and Luke's personal commentary. Optional Patreon for supporters.
+Replace SoundCloud ($160/year, now paywalled) with a self-owned archive site where anyone can stream all 47 mixes for free. Each mix page features AI-generated "liner notes" — track listings with timestamps, genre breakdowns, energy flow descriptions, and Luke's personal commentary. Optional Patreon for supporters.
 
 ## Architecture
 
@@ -24,7 +24,7 @@ Cloudflare Pages (free)          Cloudflare R2 (~$1.50/month)
 
 ## The Archive
 
-46 mixes spanning September 2018 - July 2025:
+47 mixes spanning September 2018 - May 2026:
 
 | # | Mix | Date | Status |
 |---|-----|------|--------|
@@ -73,7 +73,8 @@ Cloudflare Pages (free)          Cloudflare R2 (~$1.50/month)
 | 43 | February 2025 | Feb 2025 | Pending |
 | 44 | March 2025 | Mar 2025 | Pending |
 | 45 | April 2025 | Apr 2025 | Pending |
-| 46 | July 2025 | Jul 2025 | Pending |
+| 46 | July 2025 | Jul 2025 | Analyzed |
+| 47 | May 2026 | May 2026 | Live |
 
 ## Phases
 
