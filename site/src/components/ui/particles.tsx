@@ -12,13 +12,16 @@ interface MousePosition {
   y: number
 }
 
-function MousePosition(): MousePosition {
+function MousePosition(enabled: boolean): MousePosition {
   const [mousePosition, setMousePosition] = useState<MousePosition>({
     x: 0,
     y: 0,
   })
 
   useEffect(() => {
+    // Frozen canvases don't parallax — no listener, no rerenders.
+    if (!enabled) return
+
     const handleMouseMove = (event: MouseEvent) => {
       setMousePosition({ x: event.clientX, y: event.clientY })
     }
@@ -28,7 +31,7 @@ function MousePosition(): MousePosition {
     return () => {
       window.removeEventListener("mousemove", handleMouseMove)
     }
-  }, [])
+  }, [enabled])
 
   return mousePosition
 }
@@ -46,6 +49,8 @@ interface ParticlesProps extends ComponentPropsWithoutRef<"div"> {
   vy?: number
   /** Draw the field once at full brightness and never animate (reduced motion). */
   frozen?: boolean
+  /** Touch-first device: cap DPR at 1.5 and halve the frame rate. */
+  coarse?: boolean
 }
 
 function hexToRgb(hex: string): number[] {
@@ -91,16 +96,22 @@ export const Particles: React.FC<ParticlesProps> = ({
   vx = 0,
   vy = 0,
   frozen = false,
+  coarse = false,
   ...props
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const canvasContainerRef = useRef<HTMLDivElement>(null)
   const context = useRef<CanvasRenderingContext2D | null>(null)
   const circles = useRef<Circle[]>([])
-  const mousePosition = MousePosition()
+  const mousePosition = MousePosition(!frozen)
   const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 })
   const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 })
-  const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1
+  // Soft star dots don't need DPR 3 — cap it (1.5 on touch devices).
+  const dpr = Math.min(
+    typeof window !== "undefined" ? window.devicePixelRatio : 1,
+    coarse ? 1.5 : 2
+  )
+  const skipFrame = useRef(false)
   const rafID = useRef<number | null>(null)
   const resizeTimeout = useRef<NodeJS.Timeout | null>(null)
   const initCanvasRef = useRef<() => void>(() => {})
@@ -270,6 +281,15 @@ export const Particles: React.FC<ParticlesProps> = ({
   }
 
   const animate = () => {
+    // Touch devices: this slow drift is indistinguishable at 30fps —
+    // skip every other frame.
+    if (coarse) {
+      skipFrame.current = !skipFrame.current
+      if (skipFrame.current) {
+        rafID.current = window.requestAnimationFrame(animateRef.current)
+        return
+      }
+    }
     clearContext()
     circles.current.forEach((circle: Circle, i: number) => {
       // Handle the alpha value

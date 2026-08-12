@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-import { motion, stagger, useAnimate, useInView, useReducedMotion } from "motion/react";
+import { motion, stagger, useAnimate, useInView } from "motion/react";
 import { cn } from "@/lib/utils";
+import { useMotionPrefs } from "@/lib/motion";
 
 export const TextGenerateEffect = ({
   words,
@@ -14,7 +15,8 @@ export const TextGenerateEffect = ({
   duration?: number;
 }) => {
   const [scope, animate] = useAnimate();
-  const prefersReducedMotion = useReducedMotion();
+  // Hydration-stable + live-updating (see lib/motion.ts).
+  const { reducedMotion: prefersReducedMotion } = useMotionPrefs();
   // Start the reveal when the text actually enters the viewport — it used
   // to fire on mount, so for below-the-fold copy the whole cascade played
   // invisibly before the reader ever scrolled to it.

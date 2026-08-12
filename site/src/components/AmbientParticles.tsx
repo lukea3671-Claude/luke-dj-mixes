@@ -37,6 +37,7 @@ export default function AmbientParticles() {
       ease={80}
       // Reduced motion: the sky keeps its stars — they just hold still.
       frozen={reducedMotion}
+      coarse={coarse}
     />
   );
 }

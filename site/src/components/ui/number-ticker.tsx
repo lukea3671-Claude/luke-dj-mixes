@@ -1,5 +1,6 @@
 import { useEffect, useRef, type ComponentPropsWithoutRef } from "react"
-import { useInView, useMotionValue, useReducedMotion, useSpring } from "motion/react"
+import { useInView, useMotionValue, useSpring } from "motion/react"
+import { useMotionPrefs } from "@/lib/motion"
 
 import { cn } from "@/lib/utils"
 
@@ -27,7 +28,7 @@ export function NumberTicker({
     stiffness: 100,
   })
   const isInView = useInView(ref, { once: true, margin: "-50px" })
-  const prefersReducedMotion = useReducedMotion()
+  const { reducedMotion: prefersReducedMotion } = useMotionPrefs()
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout> | null = null

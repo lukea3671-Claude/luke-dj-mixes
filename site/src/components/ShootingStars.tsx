@@ -109,7 +109,13 @@ export default function ShootingStars() {
   useEffect(() => {
     // A meteor IS motion — under reduced-motion there is simply no meteor.
     // The sky keeps its static stars (AmbientParticles); nothing streaks.
-    if (reducedMotion) return;
+    // Clear first: if the preference flips while a meteor is mid-flight,
+    // the cancelled loop must not leave it frozen on screen.
+    if (reducedMotion) {
+      const c = canvasRef.current;
+      c?.getContext('2d')?.clearRect(0, 0, c.width, c.height);
+      return;
+    }
 
     const canvas = canvasRef.current;
     const container = containerRef.current;

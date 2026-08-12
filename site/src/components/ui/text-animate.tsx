@@ -1,6 +1,7 @@
 import { memo, type ElementType } from "react"
-import { AnimatePresence, motion, useReducedMotion } from "motion/react"
+import { AnimatePresence, motion } from "motion/react"
 import type { Variants, DOMMotionComponents, MotionProps } from "motion/react"
+import { useMotionPrefs } from "@/lib/motion"
 
 import { cn } from "@/lib/utils"
 
@@ -336,7 +337,10 @@ const TextAnimateBase = ({
   accessible = true,
   ...props
 }: TextAnimateProps) => {
-  const prefersReducedMotion = useReducedMotion()
+  // useMotionPrefs (not motion's useReducedMotion): SSR-stable first
+  // render — false until mounted, so hydration always matches the
+  // pre-rendered markup — and it subscribes to preference changes.
+  const { reducedMotion: prefersReducedMotion } = useMotionPrefs()
   const MotionComponent = motionElements[Component]
 
   // Reduced motion: the text is simply there, fully readable, no reveal.
