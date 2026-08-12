@@ -23,12 +23,6 @@ interface Props {
   mixes: MixItem[];
 }
 
-declare global {
-  interface Window {
-    loadMix: (url: string, title: string, gradient?: string) => void;
-  }
-}
-
 export default function CrateCarousel({ mixes }: Props) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -86,7 +80,7 @@ export default function CrateCarousel({ mixes }: Props) {
   const handlePlay = (e: React.MouseEvent, mix: MixItem) => {
     e.preventDefault();
     e.stopPropagation();
-    window.loadMix(mix.audioFile, mix.title, mix.gradient);
+    window.loadMix(mix.audioFile, mix.title, mix.gradient, undefined, mix.coverImage);
   };
 
   return (

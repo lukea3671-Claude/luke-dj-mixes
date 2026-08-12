@@ -20,7 +20,9 @@ const data = mix.data;
 const slug = mix.id.replace(/\.md$/, '');
 const siteUrl = 'https://luke-dj-mixes.pages.dev';
 const mixUrl = `${siteUrl}/mix/${slug}`;
-const audioUrl = `${siteUrl}${data.audioFile}`;
+// audioFile may be a full R2 URL (mixes 45+) or a site-relative path —
+// don't prefix an already-absolute URL (was producing broken og:audio).
+const audioUrl = data.audioFile.startsWith('http') ? data.audioFile : `${siteUrl}${data.audioFile}`;
 const genres = data.genres.slice(0, 3).map((g: { name: string }) => g.name).join(', ');
 const desc = data.bpm > 0
   ? `${data.title} — ${data.duration}, ${data.trackCount} tracks. ${genres}. Free streaming with AI-generated liner notes.`
@@ -85,7 +87,7 @@ const jsonLd = {
 };
 ---
 
-<BaseLayout title={data.title} description={desc} ogType="music.song" ogAudio={audioUrl} jsonLd={jsonLd}>
+<BaseLayout title={data.title} description={desc} ogType="music.song" ogAudio={audioUrl} ogImage={data.coverImage} jsonLd={jsonLd}>
   <article class="mix-page">
     <!-- Mix Header — sits on the universe (stars/particles visible behind) -->
     <div class="mix-header">
@@ -99,6 +101,7 @@ const jsonLd = {
           data-title={data.title}
           data-gradient={gradient}
           data-tracks={tracksJson}
+          data-cover={data.coverImage}
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
           Play Mix
@@ -115,6 +118,7 @@ const jsonLd = {
       data-mix-title={data.title}
       data-mix-gradient={gradient}
       data-tracks={tracksJson}
+      data-cover={data.coverImage}
     >
       <WaveformBorder client:visible />
     </div>
@@ -547,6 +551,7 @@ const jsonLd = {
     const mixTitle = container.dataset.mixTitle;
     const mixGradient = container.dataset.mixGradient;
     const tracksData = container.dataset.tracks;
+    const mixCover = container.dataset.cover;
     const audio = document.getElementById('audio-element') as HTMLAudioElement;
 
     if (!peaksUrl || !audio) return;
@@ -596,7 +601,7 @@ const jsonLd = {
         ws.on('interaction', (time: number) => {
           isSeeking = true;
           if (!audio.src || !audio.src.includes(audioUrl!)) {
-            (window as any).loadMix(audioUrl, mixTitle, mixGradient, parsedTracks);
+            (window as any).loadMix(audioUrl, mixTitle, mixGradient, parsedTracks, mixCover);
             audio.addEventListener('loadedmetadata', () => {
               audio.currentTime = time;
               isSeeking = false;
@@ -620,6 +625,7 @@ const jsonLd = {
     const mixTitle = container.dataset.mixTitle;
     const mixGradient = container.dataset.mixGradient;
     const tracksData = container.dataset.tracks;
+    const mixCover = container.dataset.cover;
     let parsedTracks: Array<{time: string, name: string, seconds: number}> = [];
     if (tracksData) {
       try { parsedTracks = JSON.parse(tracksData); } catch {}
@@ -634,7 +640,7 @@ const jsonLd = {
       if (!audio) return;
 
       if (!audio.src || !audio.src.includes(audioUrl!)) {
-        (window as any).loadMix(audioUrl, mixTitle, mixGradient, parsedTracks);
+        (window as any).loadMix(audioUrl, mixTitle, mixGradient, parsedTracks, mixCover);
         audio.addEventListener('loadedmetadata', () => {
           audio.currentTime = seconds;
         }, { once: true });
@@ -673,10 +679,11 @@ const jsonLd = {
       const audioUrl = btn.dataset.audioUrl;
       const title = btn.dataset.title;
       const gradient = btn.dataset.gradient;
+      const cover = btn.dataset.cover;
       let tracks: any[] = [];
       try { tracks = JSON.parse(btn.dataset.tracks || '[]'); } catch {}
       if (audioUrl && title) {
-        (window as any).loadMix(audioUrl, title, gradient, tracks);
+        (window as any).loadMix(audioUrl, title, gradient, tracks, cover);
       }
     });
   }

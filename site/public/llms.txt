@@ -1,0 +1,18 @@
+# Luke's Mixes
+
+> A DJ mix archive: 47 mixes spanning September 2018 to May 2026, streamed
+> free with AI-generated liner notes tracking recurring artists, energy
+> arcs, and the seven-year story between the records.
+
+## Pages
+
+- [Home](https://luke-dj-mixes.pages.dev/): latest mix + the crate carousel + full archive by year
+- [Collection](https://luke-dj-mixes.pages.dev/collection): grid view of every mix
+- [About](https://luke-dj-mixes.pages.dev/about): what this archive is
+- [Podcast feed](https://luke-dj-mixes.pages.dev/feed.xml): RSS with audio enclosures
+
+## Notes
+
+- Each mix page (/mix/mix-NN-month-year/) carries a full tracklist with
+  timestamps, BPM/key/energy data, genre breakdown, and liner notes.
+- Audio streams from Cloudflare R2; pages are static (Astro).

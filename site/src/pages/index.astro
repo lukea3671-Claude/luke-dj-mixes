@@ -72,7 +72,7 @@ const latestGradient = getMixGradient(latest.data);
 const latestAnalyzed = isAnalyzed(latest.data);
 ---
 
-<BaseLayout title="Luke's Mixes — DJ Mix Archive">
+<BaseLayout title="Luke's Mixes — DJ Mix Archive" ogImage={latest.data.coverImage}>
 
   <!-- Hero: NeonGradientCard + TextAnimate + BorderBeam -->
   <HeroFeatured
@@ -111,6 +111,7 @@ const latestAnalyzed = isAnalyzed(latest.data);
       isAnalyzed={latestAnalyzed}
       slug={latest.id.replace(/\.md$/, '')}
       audioFile={latest.data.audioFile}
+      coverImage={latest.data.coverImage}
     />
     <ArchiveFocusCards client:visible mixes={archiveData} years={archiveYears} />
   </div>

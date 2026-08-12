@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Audio lives on Cloudflare R2, not this origin.

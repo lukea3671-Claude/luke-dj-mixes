@@ -9,21 +9,16 @@ interface Props {
   isAnalyzed: boolean;
   slug: string;
   audioFile: string;
-}
-
-declare global {
-  interface Window {
-    loadMix: (url: string, title: string, gradient?: string) => void;
-  }
+  coverImage?: string;
 }
 
 export default function FeaturedSleeve({
-  title, mixNumber, gradient, duration, bpm, isAnalyzed, slug, audioFile,
+  title, mixNumber, gradient, duration, bpm, isAnalyzed, slug, audioFile, coverImage,
 }: Props) {
   const handlePlay = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    window.loadMix(audioFile, title, gradient);
+    window.loadMix(audioFile, title, gradient, undefined, coverImage);
   };
 
   return (

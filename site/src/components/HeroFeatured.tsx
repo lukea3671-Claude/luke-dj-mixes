@@ -15,19 +15,13 @@ interface Props {
   slug: string;
 }
 
-declare global {
-  interface Window {
-    loadMix: (url: string, title: string, gradient?: string) => void;
-  }
-}
-
 export default function HeroFeatured({
   title, mixNumber, date, duration, bpm, isAnalyzed, gradient, coverImage, audioFile, slug
 }: Props) {
   const handlePlay = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    window.loadMix(audioFile, title, gradient);
+    window.loadMix(audioFile, title, gradient, undefined, coverImage);
   };
 
   return (
@@ -37,7 +31,7 @@ export default function HeroFeatured({
           {/* Background image */}
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/hero-bg.png)' }}
+            style={{ backgroundImage: 'url(/images/hero-bg.webp)' }}
           />
           {/* Gradient overlay for depth */}
           <div

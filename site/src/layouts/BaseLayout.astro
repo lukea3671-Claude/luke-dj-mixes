@@ -12,6 +12,7 @@ interface Props {
   description?: string;
   ogType?: string;
   ogAudio?: string;
+  ogImage?: string;
   jsonLd?: object;
 }
 
@@ -20,9 +21,12 @@ const {
   description = "Luke's DJ mix archive — free streaming with AI-generated liner notes",
   ogType = 'website',
   ogAudio,
+  ogImage,
   jsonLd,
 } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, 'https://luke-dj-mixes.pages.dev').href;
+// Absolute URL for social cards; mix pages pass their cover art.
+const ogImageUrl = new URL(ogImage ?? '/icon-512.png', 'https://luke-dj-mixes.pages.dev').href;
 ---
 
 <!doctype html>
@@ -51,11 +55,13 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://luke-dj-mixes.pages.de
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="Luke's Mixes" />
+    <meta property="og:image" content={ogImageUrl} />
     {ogAudio && <meta property="og:audio" content={ogAudio} />}
     {ogAudio && <meta property="og:audio:type" content="audio/mpeg" />}
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
     <ViewTransitions />
   </head>
@@ -938,7 +944,7 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://luke-dj-mixes.pages.de
     }
 
     // Global loadMix
-    (window as any).loadMix = function(url: string, title: string, gradient?: string, tracks?: Array<{time: string, name: string, seconds: number}>) {
+    (window as any).loadMix = function(url: string, title: string, gradient?: string, tracks?: Array<{time: string, name: string, seconds: number}>, cover?: string) {
       audio.src = url;
       audio.play();
       titleEl.textContent = title;
@@ -970,9 +976,14 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://luke-dj-mixes.pages.de
           title: title,
           artist: 'Luke Allan',
           album: "Luke's Mixes",
-          artwork: [
-            { src: '/images/hero-bg.png', sizes: '512x512', type: 'image/png' },
-          ],
+          // Lock-screen artwork: the playing mix's actual cover,
+          // falling back to the app icons.
+          artwork: cover
+            ? [{ src: cover, sizes: '1200x1200', type: 'image/png' }]
+            : [
+                { src: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+                { src: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+              ],
         });
       }
     };
