@@ -1,8 +1,13 @@
 import { useEffect, useRef } from 'react';
+import { useMotionPrefs, capDpr } from '@/lib/motion';
 
 // ═══════════════════════════════════════════════════════════
 // Solar System — Canvas orbital simulation with real physics
 // Sun at bottom-left, 8 planets on Keplerian orbits
+//
+// Motion gating (see lib/motion.ts):
+//   prefers-reduced-motion → one static frame, physics-correct
+//   touch devices          → DPR ≤ 1.5, 30fps frame cap
 // ═══════════════════════════════════════════════════════════
 
 interface PlanetDef {
@@ -496,6 +501,7 @@ function drawMoon(
 export default function SolarSystem() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { reducedMotion, coarse } = useMotionPrefs();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -505,11 +511,16 @@ export default function SolarSystem() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = capDpr(coarse);
     let w = 0;
     let h = 0;
     let rafId: number;
     const startTime = performance.now();
+
+    // 30fps is indistinguishable for slow orbital drift; halves the
+    // battery cost on phones. Desktop stays at native refresh.
+    const frameInterval = coarse ? 1000 / 30 : 0;
+    let lastFrame = 0;
 
     let sunX = -40;
     let sunY = 0;
@@ -526,12 +537,12 @@ export default function SolarSystem() {
       // Sun in bottom-left corner — visible, present, unmistakable
       sunX = -40;
       sunY = h + 40;
+
+      // Static mode never loops, so a resize must repaint the frame.
+      if (reducedMotion) drawFrame();
     }
 
-    resize();
-    window.addEventListener('resize', resize);
-
-    function render() {
+    function drawFrame() {
       ctx!.clearRect(0, 0, w, h);
 
       const elapsed = (performance.now() - startTime) / 1000; // seconds
@@ -593,17 +604,33 @@ export default function SolarSystem() {
           drawMoon(ctx!, pos.x, pos.y, moon, simDays, sunX, sunY);
         });
       }
+    }
 
+    function render(now: number) {
+      if (frameInterval && now - lastFrame < frameInterval) {
+        rafId = requestAnimationFrame(render);
+        return;
+      }
+      lastFrame = now;
+      drawFrame();
       rafId = requestAnimationFrame(render);
     }
 
-    rafId = requestAnimationFrame(render);
+    resize();
+    window.addEventListener('resize', resize);
+
+    if (reducedMotion) {
+      // One physics-correct frame. The system exists; it just holds still.
+      drawFrame();
+    } else {
+      rafId = requestAnimationFrame(render);
+    }
 
     return () => {
       cancelAnimationFrame(rafId);
       window.removeEventListener('resize', resize);
     };
-  }, []);
+  }, [reducedMotion, coarse]);
 
   return (
     <div

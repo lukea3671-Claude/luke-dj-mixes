@@ -44,6 +44,8 @@ interface ParticlesProps extends ComponentPropsWithoutRef<"div"> {
   colors?: string[]
   vx?: number
   vy?: number
+  /** Draw the field once at full brightness and never animate (reduced motion). */
+  frozen?: boolean
 }
 
 function hexToRgb(hex: string): number[] {
@@ -88,6 +90,7 @@ export const Particles: React.FC<ParticlesProps> = ({
   colors,
   vx = 0,
   vy = 0,
+  frozen = false,
   ...props
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -109,7 +112,9 @@ export const Particles: React.FC<ParticlesProps> = ({
       context.current = canvasRef.current.getContext("2d")
     }
     initCanvasRef.current()
-    animateRef.current()
+    // Frozen: the field is painted once by initCanvas at full alpha —
+    // no animation loop, no fade-in, no mouse parallax.
+    if (!frozen) animateRef.current()
 
     const handleResize = () => {
       if (resizeTimeout.current) {
@@ -192,8 +197,9 @@ export const Particles: React.FC<ParticlesProps> = ({
     const translateX = 0
     const translateY = 0
     const pSize = Math.floor(Math.random() * 2) + size
-    const alpha = 0
     const targetAlpha = Math.random() * 0.7 + 0.05
+    // Animated mode fades in from 0; frozen mode must be born visible.
+    const alpha = frozen ? targetAlpha : 0
     const dx = (Math.random() - 0.5) * 0.1
     const dy = (Math.random() - 0.5) * 0.1
     const magnetism = 0.1 + Math.random() * 4

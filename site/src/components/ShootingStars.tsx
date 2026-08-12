@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useMotionPrefs, capDpr } from '@/lib/motion';
 
 // --- Physics-based shooting star renderer ---
 // Real meteor behavior:
@@ -98,8 +99,13 @@ function spawnMeteor(canvasW: number, canvasH: number): Meteor {
 export default function ShootingStars() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { reducedMotion, coarse } = useMotionPrefs();
 
   useEffect(() => {
+    // A meteor IS motion — under reduced-motion there is simply no meteor.
+    // The sky keeps its static stars (AmbientParticles); nothing streaks.
+    if (reducedMotion) return;
+
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas || !container) return;
@@ -107,12 +113,16 @@ export default function ShootingStars() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = capDpr(coarse);
     let w = 0;
     let h = 0;
     let meteors: Meteor[] = [];
     let lastTime = performance.now() / 1000;
     let rafId: number;
+    // Demand-driven loop: meteors are ~2s events every ~2 MINUTES.
+    // The loop only runs while a meteor is alive — the other 99% of
+    // the time this component costs nothing.
+    let running = false;
 
     function resize() {
       w = container!.offsetWidth;
@@ -127,12 +137,20 @@ export default function ShootingStars() {
     resize();
     window.addEventListener('resize', resize);
 
+    function ensureLoop() {
+      if (running) return;
+      running = true;
+      lastTime = performance.now() / 1000; // reset dt so meteors don't jump
+      rafId = requestAnimationFrame(render);
+    }
+
     // Spawn timer: one meteor every ~2 minutes, with variance (90-150s)
     function scheduleSpawn() {
       const delay = (90 + Math.random() * 60) * 1000; // 90-150 seconds
       return setTimeout(() => {
         if (w > 0 && h > 0) {
           meteors.push(spawnMeteor(w, h));
+          ensureLoop();
         }
         spawnTimer = scheduleSpawn();
       }, delay);
@@ -142,6 +160,7 @@ export default function ShootingStars() {
     let spawnTimer = setTimeout(() => {
       if (w > 0 && h > 0) {
         meteors.push(spawnMeteor(w, h));
+        ensureLoop();
       }
       spawnTimer = scheduleSpawn();
     }, (5 + Math.random() * 15) * 1000);
@@ -238,17 +257,23 @@ export default function ShootingStars() {
         }
       }
 
+      // All meteors burned out — leave a clean sky and stop the loop
+      // until the next spawn wakes it.
+      if (meteors.length === 0) {
+        ctx!.clearRect(0, 0, w, h);
+        running = false;
+        return;
+      }
+
       rafId = requestAnimationFrame(render);
     }
-
-    rafId = requestAnimationFrame(render);
 
     return () => {
       cancelAnimationFrame(rafId);
       clearTimeout(spawnTimer);
       window.removeEventListener('resize', resize);
     };
-  }, []);
+  }, [reducedMotion, coarse]);
 
   return (
     <div

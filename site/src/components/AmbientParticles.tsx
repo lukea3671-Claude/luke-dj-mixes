@@ -1,4 +1,5 @@
 import { Particles } from "@/components/ui/particles";
+import { useMotionPrefs } from "@/lib/motion";
 
 // Orange-to-yellow star spectrum — how we actually see stars
 // HSL hue 25-55, high saturation, varied lightness
@@ -22,14 +23,20 @@ const STAR_COLORS = Array.from({ length: 30 }, (_, i) => {
 });
 
 export default function AmbientParticles() {
+  const { reducedMotion, coarse } = useMotionPrefs();
+
   return (
     <Particles
+      // Remount when prefs resolve so frozen/quantity take effect cleanly
+      key={`${reducedMotion}-${coarse}`}
       className="fixed inset-0 z-0 pointer-events-none"
-      quantity={40}
+      quantity={coarse ? 24 : 40}
       colors={STAR_COLORS}
       size={0.3}
       staticity={60}
       ease={80}
+      // Reduced motion: the sky keeps its stars — they just hold still.
+      frozen={reducedMotion}
     />
   );
 }
