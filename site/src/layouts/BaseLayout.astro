@@ -296,10 +296,15 @@ const ogImageUrl = new URL(ogImage ?? '/icon-512.png', 'https://luke-dj-mixes.pa
     align-items: center;
   }
 
-  /* Inline-block + block padding keeps every nav target >= 24px tall (WCAG). */
+  /* One type system: nav shares the wordmark's Playfair voice (Luke, 31-08 —
+     "make the whole thing look uniform"). Inline-block + block padding keeps
+     every nav target >= 24px tall (WCAG). */
   .nav-links .nav-link {
     display: inline-block;
     padding: 0.4rem 0;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 500;
   }
 
   .nav-link[aria-current='page'],
@@ -337,7 +342,7 @@ const ogImageUrl = new URL(ogImage ?? '/icon-512.png', 'https://luke-dj-mixes.pa
       gap: 0.9rem;
     }
     .nav-links .nav-link {
-      font-size: 0.78rem;
+      font-size: 0.85rem;
     }
   }
 
