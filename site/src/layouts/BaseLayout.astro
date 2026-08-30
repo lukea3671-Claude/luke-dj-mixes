@@ -64,16 +64,31 @@ const ogImageUrl = new URL(ogImage ?? '/icon-512.png', 'https://luke-dj-mixes.pa
     <meta name="twitter:image" content={ogImageUrl} />
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
     <ViewTransitions />
+    <script is:inline>
+      // The homepage hero runs full-bleed under the transparent header; pages
+      // without a hero keep top padding so content clears the fixed bar.
+      // Pre-paint + after view transitions so it never flashes.
+      (function () {
+        function applyHeroFull() {
+          document.documentElement.classList.toggle('hero-full', location.pathname === '/');
+        }
+        applyHeroFull();
+        document.addEventListener('astro:after-swap', applyHeroFull);
+      })();
+    </script>
   </head>
   <body>
     <SolarSystem client:idle />
     <AmbientParticles client:idle />
     <ShootingStars client:idle />
     <TopScrollProgress client:idle />
-    <header class="border-b border-[--border] py-4 px-8 bg-[var(--surface)] max-sm:px-4 max-sm:py-3 relative z-[1]">
-      <nav class="flex justify-between items-center max-w-[1200px] mx-auto">
-        <a href="/" class="font-heading text-2xl font-bold text-[--amber] tracking-[-0.02em] transition-[text-shadow,color] duration-200 hover:text-[--warm-cream] hover:[text-shadow:0_0_12px_var(--amber-glow)]">Luke's Mixes</a>
-        <div class="flex gap-6 max-sm:gap-4">
+    <header id="site-header" class="site-header">
+      <nav class="site-nav">
+        <a href="/" class="brand">
+          <span class="brand-disc" aria-hidden="true"><span class="brand-disc-label"></span></span>
+          <span class="brand-word">Luke's Mixes</span>
+        </a>
+        <div class="nav-links">
           <a href="/collection" class="nav-link">Collection</a>
           <a href="/#archive" class="nav-link">Archive</a>
           <a href="/about" class="nav-link">About</a>
@@ -86,7 +101,11 @@ const ogImageUrl = new URL(ogImage ?? '/icon-512.png', 'https://luke-dj-mixes.pa
     <main>
       <slot />
     </main>
+    </div>
 
+    <!-- Body-level: keeps the player's z-index:100 outside the content
+         wrapper's z-[1] stacking context, so it always outranks the fixed
+         header (z-index:90) — the expanded panel must never paint under it. -->
     <div id="player-bar" transition:persist>
       <!-- Expanded vinyl panel -->
       <div class="player-expanded" id="player-expanded">
@@ -156,7 +175,6 @@ const ogImageUrl = new URL(ogImage ?? '/icon-512.png', 'https://luke-dj-mixes.pa
 
     <div id="now-playing-announce" aria-live="polite" class="sr-only"></div>
 
-    </div>
     <footer class="text-center py-8 px-4 text-[--muted-stone] text-[0.85rem] border-t border-[--border] relative z-[1]">
       <p>Free streaming. No account needed. <a href="https://www.patreon.com/c/lukesmixes" target="_blank" rel="noopener" class="text-[--amber] hover:text-[--warm-cream] transition-colors">Support on Patreon</a></p>
     </footer>
@@ -164,6 +182,172 @@ const ogImageUrl = new URL(ogImage ?? '/icon-512.png', 'https://luke-dj-mixes.pa
 </html>
 
 <style is:global>
+  /* ================= HEADER - one system with the player bar ============= */
+  /* Fixed and transparent at the top, condensing to the same glass as       */
+  /* #player-bar once content scrolls beneath it: glass above, glass below,  */
+  /* the world in between. Type stays the site system: Playfair wordmark,   */
+  /* Inter nav.                                                              */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 90; /* under #player-bar (100) */
+    padding: 1rem 2rem;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background 0.35s, border-color 0.35s;
+  }
+
+  .site-header.scrolled {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-bottom-color: var(--glass-border);
+  }
+
+  /* Content clears the fixed bar; the homepage hero slides under it instead.
+     --header-h is shared by body offset, anchor scroll padding, and the
+     archive's sticky year headings (ArchiveFocusCards). */
+  html {
+    --header-h: 64px;
+    scroll-padding-top: calc(var(--header-h) + 12px);
+  }
+  body {
+    padding-top: var(--header-h);
+  }
+  html.hero-full body {
+    padding-top: 0;
+  }
+
+  .site-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--amber);
+    letter-spacing: -0.02em;
+    transition: text-shadow 0.2s, color 0.2s;
+  }
+
+  .brand:hover {
+    color: var(--warm-cream);
+    text-shadow: 0 0 12px var(--amber-glow);
+  }
+
+  /* The site's own motif, small: a vinyl disc that turns while a mix plays. */
+  .brand-disc {
+    display: block;
+    position: relative;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #101010 repeating-radial-gradient(
+      circle at center,
+      transparent 0 1.5px,
+      rgba(255, 255, 255, 0.05) 2px 2.5px
+    );
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+  }
+
+  .brand-disc-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--amber), #8f6b45);
+  }
+
+  .brand-disc-label::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: #0a0a0a;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .site-header.playing .brand-disc {
+      animation: vinyl-spin 1.8s linear infinite;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  /* Inline-block + block padding keeps every nav target >= 24px tall (WCAG). */
+  .nav-links .nav-link {
+    display: inline-block;
+    padding: 0.4rem 0;
+  }
+
+  .nav-link[aria-current='page'],
+  .nav-link[aria-current='location'] {
+    color: var(--warm-cream);
+  }
+
+  .nav-link[aria-current='page']::after,
+  .nav-link[aria-current='location']::after {
+    width: 100%;
+  }
+
+  @media (max-width: 640px) {
+    html {
+      --header-h: 54px;
+    }
+    .site-header {
+      padding: 0.75rem 1rem;
+    }
+    /* Single row on phones: tighter brand + nav so nothing wraps at 360px. */
+    .brand {
+      font-size: 1.15rem;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+    .brand-disc {
+      width: 19px;
+      height: 19px;
+    }
+    .brand-disc-label {
+      width: 7px;
+      height: 7px;
+    }
+    .nav-links {
+      gap: 0.9rem;
+    }
+    .nav-links .nav-link {
+      font-size: 0.78rem;
+    }
+  }
+
+  /* Very narrow phones: the disc IS the brand mark; the word yields. */
+  @media (max-width: 359px) {
+    .brand-word {
+      display: none;
+    }
+  }
+
   /* Nav link underline effect */
   .nav-link {
     color: var(--muted-stone);
@@ -821,6 +1005,8 @@ const ogImageUrl = new URL(ogImage ?? '/icon-512.png', 'https://luke-dj-mixes.pa
       if (pauseIcon) pauseIcon.style.display = playing ? '' : 'none';
       playBtn.setAttribute('aria-label', playing ? 'Pause' : 'Play');
       setVinylSpin(playing);
+      // Header disc turns with the music — same state as the player vinyls.
+      document.getElementById('site-header')?.classList.toggle('playing', playing);
     }
 
     playBtn.addEventListener('click', () => {
@@ -1022,8 +1208,50 @@ const ogImageUrl = new URL(ogImage ?? '/icon-512.png', 'https://luke-dj-mixes.pa
     document.addEventListener('keydown', handleKeyboard);
   }
 
+  // Header: glass condenses once content scrolls beneath it; the current
+  // page/section nav link is marked; the disc reflects playback if a mix is
+  // live. Window listeners bind ONCE and resolve the header dynamically —
+  // view transitions replace the header element on every navigation.
+  function markCurrentNav() {
+    document.querySelectorAll('.nav-links .nav-link').forEach((a) => {
+      const href = a.getAttribute('href') || '';
+      if (href.includes('#')) {
+        const [path, hash] = href.split('#');
+        const here = (path === '' || path === '/' ? location.pathname === '/' : location.pathname === path) &&
+          location.hash === '#' + hash;
+        if (here) a.setAttribute('aria-current', 'location');
+        else a.removeAttribute('aria-current');
+      } else {
+        const current = href !== '/' &&
+          (location.pathname === href || location.pathname === href + '/');
+        if (current) a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  function initHeader() {
+    const header = document.getElementById('site-header');
+    if (!header) return;
+
+    markCurrentNav();
+    const audio = document.getElementById('audio-element') as HTMLAudioElement | null;
+    header.classList.toggle('playing', !!audio && !audio.paused);
+    header.classList.toggle('scrolled', window.scrollY > 24);
+
+    if ((window as any).__hdrBound) return;
+    (window as any).__hdrBound = true;
+    window.addEventListener('scroll', () => {
+      document.getElementById('site-header')
+        ?.classList.toggle('scrolled', window.scrollY > 24);
+    }, { passive: true });
+    window.addEventListener('hashchange', markCurrentNav);
+  }
+
   initPlayer();
+  initHeader();
   document.addEventListener('astro:after-swap', initPlayer);
+  document.addEventListener('astro:after-swap', initHeader);
 
   // Register service worker for PWA install
   if ('serviceWorker' in navigator) {
